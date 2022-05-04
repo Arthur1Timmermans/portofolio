@@ -1,0 +1,11 @@
+##cleaning up daur2 folders: 
+
+```{r}
+fs::dir_tree(here::here("~/documents/hu/R/DSFB2/daur2"))
+```
+
+
+##cleaning up DSFB2 enviorment: 
+```{r}
+fs::dir_tree(here::here("~/documents/hu/R/DSFB2"))
+```

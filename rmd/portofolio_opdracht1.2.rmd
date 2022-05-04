@@ -1,0 +1,60 @@
+---
+title: "portofolio_opdracht1.2"
+author: "Arthur Timmermans"
+date: '2022-04-30'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+##Part1:
+
+in this assingment, the following artical will be reviewed: 
+S. Ahmed, et all. (2-12-2020), A five-day course of ivermectin for the treatment of COVID-19 may reduce the duration of illness, read at 30-04-2022 from: 
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7709596/
+
+
+the further analysis will be based upon following  ‘Repita’ criteria: 
+```{r, eval=FALSE}
+table1.2F <- read_excel(here("raw/table_assignment1.2.xlsx")) 
+knitr::kable(table1.2F)
+```
+
+study purpose: 
+the study purpose was clearly destribed in the introduction: 
+The study was performed to evaluate the rapidity of viral clearance and safety of a 5-day course of ivermectin or a single-dose of ivermectin and a 5-day course of doxycycline in the treatment of mild COVID-19 in adults.
+
+data availibality/location: 
+there was no data availability statement found, neither was the (raw) data found anywhere linked by the articel. 
+
+study location: 
+this study involved patients 72 patients from Dhaka, Bangladesh (criteria were age 18–65 years;admitted to hospital within the last 7 days; presence of a fever (≥37.5 °C), cough, and/or sore throat; diagnosed positive for SARS-CoV-2)
+
+the patients were seperated into 3 groups: 
+- oral ivermectin alone (12 mg once daily for 5 days)
+- oral ivermectin in combination with doxycycline (12 mg ivermectin single dose and 200 mg doxycycline on day 1, followed by 100 mg every 12 h for the next 4 days)
+- a placebo control group. 
+
+The primary endpoints that were measured were the time required for virological clearance, and the remission of fever (≥37.5 °C) and cough within 7 days. 
+
+in conclusion, the study found that Virological clearance was earlier in the 5-day ivermectin treatment arm when compared to the placebo group (9.7 days vs 12.7 days; p = 0.02). However, the virological clearance was not lower for the ivermectin + doxycycline arm (11.5 days; p = 0.27). There were no severe adverse drug events recorded in the study. A 5-day course of ivermectin was found to be safe and effective in treating adult patients with mild COVID-19. Larger trials, however, would still be needed to confirm these preliminary findings.
+
+author review: 
+proper information of how to contact the authors has been provided. 
+
+ethics statement: 
+there is an ethics statement in the study, for aproval of the experimental setup by both medical institutes and the patients. However, no further mention has been made of ethics regarding the experimental data. 
+
+funding statement: 
+the study was funded by Beximco Pharmaceutical Limited, Bangladesh. 
+
+code availability: 
+no mention of code has been made. 
+
+
+in conclusion: this paper has properly desribed their findings, sources and conclusions. However, the raw/processed data is not available nor is the code. 
+
+
+##part2: 
