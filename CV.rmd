@@ -1,0 +1,122 @@
+---
+title: "CV Arthur Timmermans"
+author: Arthur Timmermans
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    self_contained: false
+
+---
+
+Aside
+================================================================================
+
+
+![Lijia Yu](https://avatars1.githubusercontent.com/u/895125?s=400&v=4){width=80%}
+
+
+Persoonlijke informatie {#contact}
+--------------------------------------------------------------------------------
+- <i class="fa fa-house"></i> wittewerf 101
+- 1357AK Almere
+- <i class="fa fa-envelope"></i> arthur.timmermans@student.hu.nl
+- <i class="fa fa-phone"></i> 0642060711
+- <i class="fa fa-calendar"></i> 02-01-2000
+
+Vaardigheden {#skills}
+--------------------------------------------------------------------------------
+
+- creatief en instaat om probleem oplossend te denken 
+- ervaring met leiding en mensen aansturen 
+- ervaring in staistische analyses met behulp van r en bash 
+
+talen {#language}
+--------------------------------------------------------------------------------
+- Nederlands 
+- Engels 
+
+
+hobbies {#hobbies}
+--------------------------------------------------------------------------------
+- leren 
+- gitaar spelen 
+- muziek schrijven 
+- sporten 
+- koken 
+
+
+
+Main
+================================================================================
+
+Arthur Timmermans {#title}
+--------------------------------------------------------------------------------
+
+### student biomedisch laborant
+
+Mijn naam is Arthur Timmermans, en ik ben altijd gedreven om nieuwe dingen te leren. Hierdoor zoek ik zelf uitdaging in mijn werk en probeer ik altijd te verbeten waar mogelijk. Hierbij zet ik kwaliteit altijd boven aan. 
+
+
+Opleiding {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+### groenhorst college
+
+VMBO diploma
+
+Almere, Nederland
+
+2016
+
+
+### Aeres MBO 
+
+MBO niveau 4
+
+Almere, Nederland
+
+2016-2019
+
+afgestudeerd als: milieu onderzoeker
+
+### hoge school utrecht 
+HBO bachelor 
+
+Almere, Nederland 
+
+2019 t/m heden
+
+Stages {data-icon=laptop}
+--------------------------------------------------------------------------------
+
+### laborant 
+
+Radboud universiteit Nijmegen 
+
+Nijmegen, Nederland 
+
+01-01-2016 - 01-03-2016 
+
+::: ervaring
+- E
+:::
+
+werkervaring {data-icon=suitcase}
+--------------------------------------------------------------------------------
+
+### verkoop medewerker
+
+HEMA 
+
+Almere, Nederland
+
+2016 t/m heden 
+
+::: ervaring
+- Klanten helpen en vriendelijk te woord staan 
+- Onder (tijd)druk goed kunnen functioneren 
+- Plannen en organiseren 
+- Collega's inwerken, instructies geven en aansturen 
+:::
+
