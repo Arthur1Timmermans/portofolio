@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 ordering datafiles | portfolio Arthur Timmermans</title>
+  <meta name="description" content="4 ordering datafiles | portfolio Arthur Timmermans" />
+  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 ordering datafiles | portfolio Arthur Timmermans" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 ordering datafiles | portfolio Arthur Timmermans" />
+  
+  
+  
+
+<meta name="author" content="Arthur Timmermans" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="reproducibility.html"/>
+<link rel="next" href="free-studying-period.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.23/datatables.js"></script>
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="loading-sorting-and-visualising-data.html"><a href="loading-sorting-and-visualising-data.html"><i class="fa fa-check"></i><b>2</b> loading, sorting and visualising data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="loading-sorting-and-visualising-data.html"><a href="loading-sorting-and-visualising-data.html#analysing-the-data"><i class="fa fa-check"></i><b>2.1</b> analysing the data:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>3</b> reproducibility</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="reproducibility.html"><a href="reproducibility.html#paper1"><i class="fa fa-check"></i><b>3.1</b> paper1</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="reproducibility.html"><a href="reproducibility.html#study-purpose"><i class="fa fa-check"></i><b>3.1.1</b> study purpose:</a></li>
+<li class="chapter" data-level="3.1.2" data-path="reproducibility.html"><a href="reproducibility.html#data-availibalitylocation"><i class="fa fa-check"></i><b>3.1.2</b> data availibality/location:</a></li>
+<li class="chapter" data-level="3.1.3" data-path="reproducibility.html"><a href="reproducibility.html#study-location"><i class="fa fa-check"></i><b>3.1.3</b> study location:</a></li>
+<li class="chapter" data-level="3.1.4" data-path="reproducibility.html"><a href="reproducibility.html#author-review"><i class="fa fa-check"></i><b>3.1.4</b> author review:</a></li>
+<li class="chapter" data-level="3.1.5" data-path="reproducibility.html"><a href="reproducibility.html#ethics-statement"><i class="fa fa-check"></i><b>3.1.5</b> ethics statement:</a></li>
+<li class="chapter" data-level="3.1.6" data-path="reproducibility.html"><a href="reproducibility.html#funding-statement"><i class="fa fa-check"></i><b>3.1.6</b> funding statement:</a></li>
+<li class="chapter" data-level="3.1.7" data-path="reproducibility.html"><a href="reproducibility.html#code-availability"><i class="fa fa-check"></i><b>3.1.7</b> code availability:</a></li>
+<li class="chapter" data-level="3.1.8" data-path="reproducibility.html"><a href="reproducibility.html#conclusion"><i class="fa fa-check"></i><b>3.1.8</b> conclusion:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="reproducibility.html"><a href="reproducibility.html#paper2"><i class="fa fa-check"></i><b>3.2</b> paper2</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="reproducibility.html"><a href="reproducibility.html#code-paper-2"><i class="fa fa-check"></i><b>3.2.1</b> code paper 2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ordering-datafiles.html"><a href="ordering-datafiles.html"><i class="fa fa-check"></i><b>4</b> ordering datafiles</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ordering-datafiles.html"><a href="ordering-datafiles.html#directory-trees"><i class="fa fa-check"></i><b>4.1</b> directory trees</a></li>
+<li class="chapter" data-level="4.2" data-path="ordering-datafiles.html"><a href="ordering-datafiles.html#version-control"><i class="fa fa-check"></i><b>4.2</b> version control</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="free-studying-period.html"><a href="free-studying-period.html"><i class="fa fa-check"></i><b>5</b> free studying period</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="free-studying-period.html"><a href="free-studying-period.html#planning-and-organisation-to-learn-python"><i class="fa fa-check"></i><b>5.1</b> planning and organisation to learn python</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="project-liquid-biopsies.html"><a href="project-liquid-biopsies.html"><i class="fa fa-check"></i><b>6</b> project liquid biopsies</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="project-liquid-biopsies.html"><a href="project-liquid-biopsies.html#background"><i class="fa fa-check"></i><b>6.1</b> background</a></li>
+<li class="chapter" data-level="6.2" data-path="project-liquid-biopsies.html"><a href="project-liquid-biopsies.html#project"><i class="fa fa-check"></i><b>6.2</b> project</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">portfolio Arthur Timmermans</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ordering-datafiles" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> ordering datafiles<a href="ordering-datafiles.html#ordering-datafiles" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Besides keeping a data file tidy, it is also important to keep the folders in which these data files are stored tidy. A properly made directory with version control, helps to avoid that data gets lost. It also generally improves speed and reproducibility.</p>
+<div id="directory-trees" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> directory trees<a href="ordering-datafiles.html#directory-trees" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In directory tree bellow, I showed the directory tree from this portfolio, as an example of how I think data can be stored tidy.</p>
+<pre><code>## ~/documents/hu/R/DSFB2/portofolio
+## +-- 01_portofolio_opdracht1.1.rmd
+## +-- 02_portofolio_opdracht1.2.rmd
+## +-- 03_portofolio_opdracht2.Rmd
+## +-- 04_portofolio_opdracht3.2.Rmd
+## +-- 06_portfokio_opdracht5.Rmd
+## +-- bibliography.bib
+## +-- CV_files
+## |   +-- font-awesome-5.1.0
+## |   |   +-- css
+## |   |   |   +-- all.css
+## |   |   |   \-- v4-shims.css
+## |   |   \-- webfonts
+## |   |       +-- fa-brands-400.eot
+## |   |       +-- fa-brands-400.svg
+## |   |       +-- fa-brands-400.ttf
+## |   |       +-- fa-brands-400.woff
+## |   |       +-- fa-brands-400.woff2
+## |   |       +-- fa-regular-400.eot
+## |   |       +-- fa-regular-400.svg
+## |   |       +-- fa-regular-400.ttf
+## |   |       +-- fa-regular-400.woff
+## |   |       +-- fa-regular-400.woff2
+## |   |       +-- fa-solid-900.eot
+## |   |       +-- fa-solid-900.svg
+## |   |       +-- fa-solid-900.ttf
+## |   |       +-- fa-solid-900.woff
+## |   |       \-- fa-solid-900.woff2
+## |   \-- paged-0.18
+## |       +-- css
+## |       |   \-- resume.css
+## |       \-- js
+## |           +-- config.js
+## |           +-- hooks.js
+## |           \-- paged.js
+## +-- html
+## |   +-- CV.html
+## |   \-- portofolio_opdracht3.2.html
+## +-- images
+## |   +-- coefplot_manipution_multiple.png
+## |   \-- image.JPG
+## +-- index.Rmd
+## +-- portofolio.Rproj
+## +-- r
+## |   \-- set_up_script.R
+## +-- raw
+## |   +-- CE.LIQ.FLOW.062_Tidydata.xlsx
+## |   +-- coefs with city covariates cleaned.csv
+## |   +-- n_precincts_all.csv
+## |   \-- table_assignment1.2.xlsx
+## +-- README.md
+## +-- rmd
+## |   +-- CV.rmd
+## |   +-- ols models.nb.html
+## |   +-- ols models.Rmd
+## |   \-- table_main.html
+## +-- _book
+## |   +-- 404.html
+## |   +-- aside.html
+## |   +-- free-studying-period.html
+## |   +-- images
+## |   |   +-- coefplot_manipution_multiple.png
+## |   |   \-- image.JPG
+## |   +-- index.html
+## |   +-- libs
+## |   |   +-- anchor-sections-1.1.0
+## |   |   |   +-- anchor-sections-hash.css
+## |   |   |   +-- anchor-sections.css
+## |   |   |   \-- anchor-sections.js
+## |   |   +-- crosstalk-1.2.0
+## |   |   |   +-- css
+## |   |   |   |   \-- crosstalk.min.css
+## |   |   |   \-- js
+## |   |   |       \-- crosstalk.min.js
+## |   |   +-- datatables-binding-0.23
+## |   |   |   \-- datatables.js
+## |   |   +-- datatables-css-0.0.0
+## |   |   |   \-- datatables-crosstalk.css
+## |   |   +-- dt-core-1.11.3
+## |   |   |   +-- css
+## |   |   |   |   +-- jquery.dataTables.extra.css
+## |   |   |   |   \-- jquery.dataTables.min.css
+## |   |   |   \-- js
+## |   |   |       \-- jquery.dataTables.min.js
+## |   |   +-- gitbook-2.6.7
+## |   |   |   +-- css
+## |   |   |   |   +-- fontawesome
+## |   |   |   |   |   \-- fontawesome-webfont.ttf
+## |   |   |   |   +-- plugin-bookdown.css
+## |   |   |   |   +-- plugin-clipboard.css
+## |   |   |   |   +-- plugin-fontsettings.css
+## |   |   |   |   +-- plugin-highlight.css
+## |   |   |   |   +-- plugin-search.css
+## |   |   |   |   +-- plugin-table.css
+## |   |   |   |   \-- style.css
+## |   |   |   \-- js
+## |   |   |       +-- app.min.js
+## |   |   |       +-- clipboard.min.js
+## |   |   |       +-- jquery.highlight.js
+## |   |   |       +-- plugin-bookdown.js
+## |   |   |       +-- plugin-clipboard.js
+## |   |   |       +-- plugin-fontsettings.js
+## |   |   |       +-- plugin-search.js
+## |   |   |       \-- plugin-sharing.js
+## |   |   +-- htmlwidgets-1.5.4
+## |   |   |   \-- htmlwidgets.js
+## |   |   \-- jquery-3.6.0
+## |   |       \-- jquery-3.6.0.min.js
+## |   +-- loading-sorting-and-visualising-data.html
+## |   +-- main.html
+## |   +-- ordering-datafiles.html
+## |   +-- project-liquid-biopsies.html
+## |   +-- reproducibility.html
+## |   +-- search_index.json
+## |   \-- _main_files
+## |       \-- figure-html
+## |           +-- graph1-1.png
+## |           +-- graph2-1.png
+## |           +-- showing correct grap c elegans-1.png
+## |           \-- showing wrong graph c elegans-1.png
+## +-- _bookdown_files
+## +-- _main.Rmd
+## \-- _main_files
+##     \-- figure-html
+##         +-- graph1-1.png
+##         +-- graph2-1.png
+##         +-- showing correct grap c elegans-1.png
+##         \-- showing wrong graph c elegans-1.png</code></pre>
+<p>Another example of how a directory tree can look is shown in figure bellow. This is one of my directories of a previous school project.</p>
+<pre><code>## ~/documents/hu/R/DSFB2/daur2
+## +-- eindopdracht
+## |   +-- html
+## |   |   \-- eindopdracht.html
+## |   +-- images
+## |   |   +-- image1_summaries_fastqc_analysis.png
+## |   |   +-- image2_per_base_sequence_quality_fastqc_analysis.png
+## |   |   \-- image3_per_sequence_quality_fastqc_analysis.png
+## |   +-- raw
+## |   |   \-- identifyer.txt
+## |   +-- readme.txt
+## |   +-- rmd
+## |   |   \-- eindopdracht.Rmd
+## |   \-- scripten
+## |       \-- set_up.R
+## +-- meta_genomics
+## |   +-- html
+## |   |   +-- formatieve_opdracht.html
+## |   |   \-- les_opdrachten.html
+## |   +-- raw
+## |   +-- readme.txt
+## |   +-- rmd
+## |   |   +-- formatieve_opdracht.Rmd
+## |   |   \-- les_opdrachten.Rmd
+## |   \-- scripten
+## |       \-- set_up.R
+## \-- rnaseq
+##     +-- html
+##     |   +-- formatieve_opdracht.html
+##     |   \-- les_opdrachten.html
+##     +-- raw
+##     +-- readme.txt
+##     +-- rmd
+##     |   +-- formatieve_opdracht.Rmd
+##     |   \-- les_opdrachten.Rmd
+##     \-- scripten
+##         \-- set_up.R</code></pre>
+</div>
+<div id="version-control" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> version control<a href="ordering-datafiles.html#version-control" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>besides ordering the data structures on my own computer, I use version control with github for both my own repositories as well as those which I work on in projects.</p>
+<p>Working with github on group projects has helped me in many ways. It makes it far easier to work on the same documents together. Further more, we can far easier merge files, without the need for many different in between verions of the same file. This imrpoves both the speed, accuracy and communication within our projects.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="reproducibility.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="free-studying-period.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

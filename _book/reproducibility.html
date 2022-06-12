@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 reproducibility | portfolio Arthur Timmermans</title>
+  <meta name="description" content="3 reproducibility | portfolio Arthur Timmermans" />
+  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 reproducibility | portfolio Arthur Timmermans" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 reproducibility | portfolio Arthur Timmermans" />
+  
+  
+  
+
+<meta name="author" content="Arthur Timmermans" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="loading-sorting-and-visualising-data.html"/>
+<link rel="next" href="ordering-datafiles.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.23/datatables.js"></script>
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="loading-sorting-and-visualising-data.html"><a href="loading-sorting-and-visualising-data.html"><i class="fa fa-check"></i><b>2</b> loading, sorting and visualising data</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="loading-sorting-and-visualising-data.html"><a href="loading-sorting-and-visualising-data.html#analysing-the-data"><i class="fa fa-check"></i><b>2.1</b> analysing the data:</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="reproducibility.html"><a href="reproducibility.html"><i class="fa fa-check"></i><b>3</b> reproducibility</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="reproducibility.html"><a href="reproducibility.html#paper1"><i class="fa fa-check"></i><b>3.1</b> paper1</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="reproducibility.html"><a href="reproducibility.html#study-purpose"><i class="fa fa-check"></i><b>3.1.1</b> study purpose:</a></li>
+<li class="chapter" data-level="3.1.2" data-path="reproducibility.html"><a href="reproducibility.html#data-availibalitylocation"><i class="fa fa-check"></i><b>3.1.2</b> data availibality/location:</a></li>
+<li class="chapter" data-level="3.1.3" data-path="reproducibility.html"><a href="reproducibility.html#study-location"><i class="fa fa-check"></i><b>3.1.3</b> study location:</a></li>
+<li class="chapter" data-level="3.1.4" data-path="reproducibility.html"><a href="reproducibility.html#author-review"><i class="fa fa-check"></i><b>3.1.4</b> author review:</a></li>
+<li class="chapter" data-level="3.1.5" data-path="reproducibility.html"><a href="reproducibility.html#ethics-statement"><i class="fa fa-check"></i><b>3.1.5</b> ethics statement:</a></li>
+<li class="chapter" data-level="3.1.6" data-path="reproducibility.html"><a href="reproducibility.html#funding-statement"><i class="fa fa-check"></i><b>3.1.6</b> funding statement:</a></li>
+<li class="chapter" data-level="3.1.7" data-path="reproducibility.html"><a href="reproducibility.html#code-availability"><i class="fa fa-check"></i><b>3.1.7</b> code availability:</a></li>
+<li class="chapter" data-level="3.1.8" data-path="reproducibility.html"><a href="reproducibility.html#conclusion"><i class="fa fa-check"></i><b>3.1.8</b> conclusion:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="reproducibility.html"><a href="reproducibility.html#paper2"><i class="fa fa-check"></i><b>3.2</b> paper2</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="reproducibility.html"><a href="reproducibility.html#code-paper-2"><i class="fa fa-check"></i><b>3.2.1</b> code paper 2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ordering-datafiles.html"><a href="ordering-datafiles.html"><i class="fa fa-check"></i><b>4</b> ordering datafiles</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ordering-datafiles.html"><a href="ordering-datafiles.html#directory-trees"><i class="fa fa-check"></i><b>4.1</b> directory trees</a></li>
+<li class="chapter" data-level="4.2" data-path="ordering-datafiles.html"><a href="ordering-datafiles.html#version-control"><i class="fa fa-check"></i><b>4.2</b> version control</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="free-studying-period.html"><a href="free-studying-period.html"><i class="fa fa-check"></i><b>5</b> free studying period</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="free-studying-period.html"><a href="free-studying-period.html#planning-and-organisation-to-learn-python"><i class="fa fa-check"></i><b>5.1</b> planning and organisation to learn python</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="project-liquid-biopsies.html"><a href="project-liquid-biopsies.html"><i class="fa fa-check"></i><b>6</b> project liquid biopsies</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="project-liquid-biopsies.html"><a href="project-liquid-biopsies.html#background"><i class="fa fa-check"></i><b>6.1</b> background</a></li>
+<li class="chapter" data-level="6.2" data-path="project-liquid-biopsies.html"><a href="project-liquid-biopsies.html#project"><i class="fa fa-check"></i><b>6.2</b> project</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">portfolio Arthur Timmermans</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="reproducibility" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> reproducibility<a href="reproducibility.html#reproducibility" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Making sure that a research is reproducible, is an important measure to avoid fraud and generating results based on the general interest of a person or company. A big step towards making research reproducible is the movement towards open science, where the methods of both research and the data analysis are shared. In my opinion, open research helps to speed up progression and holds potential to decrease fraud. Therefor, I support the movement towards open science. In this chapter, I will review 2 papers, to show that I am able to determine how open the researchers are about their methods for both the laboratory work and the data analysis.</p>
+<p>The first paper will be a more ‘traditional’ research paper, and is found on <a href="https://pubmed.ncbi.nlm.nih.gov/">pubmed</a>. This paper will be reviewed based upon following ‘Repita’ criteria, as shown in figure <a href="reproducibility.html#fig:table2">3.1</a>.</p>
+<p>The second paper, will be a r code paper, and is found on the <a href="https://osf.io/">OSF website</a>. The review of this paper will focus more heavily on the readability and reproducibility of the r code and will be less centered around the criteria shown in figure <a href="reproducibility.html#fig:table2">3.1</a></p>
+<div class="figure"><span style="display:block;" id="fig:table2"></span>
+<div id="htmlwidget-406ee8f738af626fc7c8" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-406ee8f738af626fc7c8">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8"],["Study Purpose","Data Availability Statement","Data Location","Study Location","Author Review","Ethics Statement","Funding Statement","Code Availability"],["A concise statement in the introduction of the article, often in the last paragraph, that establishes the reason the research was conducted. Also called the study objective.","A statement, in an individual section offset from the main body of text, that explains how or if one can access a study’s data. The title of the section may vary, but it must explicitly mention data; it is therefore distinct from a supplementary materials section.","Where the article’s data can be accessed, either raw or processed.","Author has stated in the methods section where the study took place or the data’s country/region of origin.","The professionalism of the contact information that the author has provided in the manuscript.","A statement within the manuscript indicating any ethical concerns, including the presence of sensitive data.","A statement within the manuscript indicating whether or not the authors received funding for their research.","Authors have shared access to the most updated code that they used in their study, including code used for analysis."],["Binary","Binary","Found Value","Binary; Found Value","Found Value","Binary","Binary","Binary"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Transparency Criteria<\/th>\n      <th>Definition<\/th>\n      <th>Response Type<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p class="caption">
+Figure 3.1: table with repita criteria for reviewing articles
+</p>
+</div>
+<div id="paper1" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> paper1<a href="reproducibility.html#paper1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The following article will be reviewed:
+S. Ahmed, et all. (2-12-2020), A five-day course of ivermectin for the treatment of COVID-19 may reduce the duration of illness, read at 30-04-2022 from:
+<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7709596/" class="uri">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7709596/</a></p>
+<p>this study involved 72 patients from Dhaka, Bangladesh (criteria were age 18–65 years;admitted to hospital within the last 7 days; presence of a fever (≥37.5 °C), cough, and/or sore throat; diagnosed positive for SARS-CoV-2)</p>
+<p>the patients were seperated into 3 groups:
+- oral ivermectin alone (12 mg once daily for 5 days)
+- oral ivermectin in combination with doxycycline (12 mg ivermectin single dose and 200 mg doxycycline on day 1, followed by 100 mg every 12 h for the next 4 days)
+- a placebo control group.</p>
+<p>The primary endpoints that were measured were the time required for virological clearance, and the remission of fever (≥37.5 °C) and cough within 7 days.</p>
+<p>in conclusion, the study found that Virological clearance was earlier in the 5-day ivermectin treatment arm when compared to the placebo group (9.7 days vs 12.7 days; p = 0.02). However, the virological clearance was not lower for the ivermectin + doxycycline arm (11.5 days; p = 0.27). There were no severe adverse drug events recorded in the study. A 5-day course of ivermectin was found to be safe and effective in treating adult patients with mild COVID-19. Larger trials, however, would still be needed to confirm these preliminary findings.</p>
+<div id="study-purpose" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> study purpose:<a href="reproducibility.html#study-purpose" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>the study purpose was clearly destribed in the introduction:
+The study was performed to evaluate the rapidity of viral clearance and safety of a 5-day course of ivermectin or a single-dose of ivermectin and a 5-day course of doxycycline in the treatment of mild COVID-19 in adults.</p>
+</div>
+<div id="data-availibalitylocation" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> data availibality/location:<a href="reproducibility.html#data-availibalitylocation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>there was no data availability statement found, neither was the (raw) data found anywhere linked by the article.</p>
+</div>
+<div id="study-location" class="section level3 hasAnchor" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> study location:<a href="reproducibility.html#study-location" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>the study location, and origin of the patients has been given. The criteria which had to be met for patients to take place in the research has also been listed.</p>
+</div>
+<div id="author-review" class="section level3 hasAnchor" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> author review:<a href="reproducibility.html#author-review" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>proper information of how to contact the authors has been provided.</p>
+</div>
+<div id="ethics-statement" class="section level3 hasAnchor" number="3.1.5">
+<h3><span class="header-section-number">3.1.5</span> ethics statement:<a href="reproducibility.html#ethics-statement" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>there is an ethics statement in the study, for aproval of the experimental setup by both medical institutes and the patients. However, no further mention has been made of ethics regarding the experimental data.</p>
+</div>
+<div id="funding-statement" class="section level3 hasAnchor" number="3.1.6">
+<h3><span class="header-section-number">3.1.6</span> funding statement:<a href="reproducibility.html#funding-statement" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A funding statement was provided, the study was funded by Beximco Pharmaceutical Limited, Bangladesh.</p>
+</div>
+<div id="code-availability" class="section level3 hasAnchor" number="3.1.7">
+<h3><span class="header-section-number">3.1.7</span> code availability:<a href="reproducibility.html#code-availability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>no mention of code has been made.</p>
+</div>
+<div id="conclusion" class="section level3 hasAnchor" number="3.1.8">
+<h3><span class="header-section-number">3.1.8</span> conclusion:<a href="reproducibility.html#conclusion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>in conclusion: this paper has properly described their findings, sources and conclusions. However, the raw/processed data is not available nor is the code with which the data was analysed. Therefor, this paper is not entirely open science and can still improve, by providing the data and the used code to analyse the data.</p>
+</div>
+</div>
+<div id="paper2" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> paper2<a href="reproducibility.html#paper2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>the second article that will be reviewed is: <a href="https://osf.io/6pxjh/" class="uri">https://osf.io/6pxjh/</a></p>
+<p>In this paper, is tested if appointed local executives in Russian voting will produce more election manipulation for national parties and if this comes at a cost to the party’s un-manipulated support.
+To test this theory, the study will use an election-forensic analysis of precinct-level election data from 176 Russian cities over six national elections from 2003 to 2012.</p>
+<p>the provided r code appears to have a few goals:
+- making the data tidy (removing na, proper row/colum orginisation for the data analysis, etc.)
+- visualizing and interpreting the data
+- creating marginal structural models to account for selection bias and confounding.</p>
+<p>The code has a good readability. It is properly spaced out, and lines of code are provided with comments to explain the code. However, not all code lines have comments. This makes some of the code, sightly harder to read. Therefor, in terms of readability, I rate the code of this paper a 4 out of 5.</p>
+<p>After downloading and running the code, I hardly had to make any changes at all to let the code run. The only changes that were required, were:
+- installing the packages I didnt have yet with the install.package() function.
+- specify where I stored the data files on my computer</p>
+<p>With the provided code, I was also easily able to recreate the images that were in the original paper. An example of this, is shown in figure <a href="reproducibility.html#fig:graph3">3.2</a>. This was figure2 in the original paper. Because it was so easy to run the code, and recreate the same figures, the reproducibility of this code gets a 5 out of 5. The used code is further shown down bellow figure <a href="reproducibility.html#fig:graph3">3.2</a>.</p>
+<div class="figure"><span style="display:block;" id="fig:graph3"></span>
+<img src="images/coefplot_manipution_multiple.png" alt="recreated graph from reviewed paper"  />
+<p class="caption">
+Figure 3.2: recreated graph from reviewed paper
+</p>
+</div>
+<div id="code-paper-2" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> code paper 2<a href="reproducibility.html#code-paper-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="reproducibility.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="reproducibility.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(interactions)</span>
+<span id="cb1-3"><a href="reproducibility.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb1-4"><a href="reproducibility.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fastDummies)</span>
+<span id="cb1-5"><a href="reproducibility.html#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="reproducibility.html#cb1-6" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;raw/coefs with city covariates cleaned.csv&quot;</span>)</span>
+<span id="cb1-7"><a href="reproducibility.html#cb1-7" aria-hidden="true" tabindex="-1"></a>precincts_total <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;raw/n_precincts_all.csv&quot;</span>)</span>
+<span id="cb1-8"><a href="reproducibility.html#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="reproducibility.html#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="reproducibility.html#cb1-10" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">presidential =</span> <span class="fu">ifelse</span>(year.x <span class="sc">==</span> <span class="dv">2004</span> <span class="sc">|</span> year.x <span class="sc">==</span> <span class="dv">2008</span> <span class="sc">|</span> year.x <span class="sc">==</span> <span class="dv">2012</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb1-11"><a href="reproducibility.html#cb1-11" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">known.opp.mayor =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(opp_mayor1) <span class="sc">==</span> T, <span class="dv">0</span>, <span class="fu">ifelse</span>(opp_mayor1<span class="sc">==</span><span class="dv">1</span>, <span class="dv">1</span>,<span class="dv">0</span>)))</span>
+<span id="cb1-12"><a href="reproducibility.html#cb1-12" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">appointed.exec =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(cancel.year)<span class="sc">==</span>T, <span class="dv">0</span>, <span class="fu">ifelse</span>(year.x <span class="sc">&gt;=</span> cancel.year, <span class="dv">1</span>, <span class="dv">0</span>)))</span>
+<span id="cb1-13"><a href="reproducibility.html#cb1-13" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">turnout.coef =</span> turnout)</span>
+<span id="cb1-14"><a href="reproducibility.html#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="reproducibility.html#cb1-15" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">years.with.elections =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(cancel.year)<span class="sc">==</span>T, year.x<span class="dv">-1996</span>, <span class="fu">ifelse</span>(year.x <span class="sc">-</span> cancel.year <span class="sc">&lt;</span> <span class="dv">0</span>, year.x <span class="sc">-</span> <span class="dv">1996</span>, cancel.year <span class="sc">-</span> <span class="dv">1996</span>))) <span class="co">#This gives a measure of early vs late vs. control; 1996 bc this is when local elections first took place </span></span>
+<span id="cb1-16"><a href="reproducibility.html#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="reproducibility.html#cb1-17" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">years.post.treatment =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(cancel.year)<span class="sc">==</span>T, <span class="dv">0</span>, <span class="fu">ifelse</span>(year.x <span class="sc">-</span> cancel.year <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, year.x <span class="sc">-</span> cancel.year)))</span>
+<span id="cb1-18"><a href="reproducibility.html#cb1-18" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">years.post.treatment =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(cancel.year)<span class="sc">==</span>F <span class="sc">&amp;</span> cancel.year <span class="sc">==</span> <span class="dv">2007</span> <span class="sc">&amp;</span> year.x <span class="sc">==</span><span class="dv">2007</span>, <span class="dv">1</span>, years.post.treatment)) <span class="co">#This codes cancelations in 2007 and 2011 as 1 for those years, since elections take place at year-end.</span></span>
+<span id="cb1-19"><a href="reproducibility.html#cb1-19" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">years.post.treatment =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(cancel.year)<span class="sc">==</span>F <span class="sc">&amp;</span> cancel.year <span class="sc">==</span> <span class="dv">2011</span> <span class="sc">&amp;</span> year.x <span class="sc">==</span><span class="dv">2011</span>, <span class="dv">1</span>, years.post.treatment)) <span class="co">#This codes cancelations in 2007 and 2011 as 1 for those years, since elections take place at year-end.</span></span>
+<span id="cb1-20"><a href="reproducibility.html#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="reproducibility.html#cb1-21" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">treated.post.treatment =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(cancel.year)<span class="sc">==</span>T, <span class="dv">0</span>, <span class="fu">ifelse</span>(year.x <span class="sc">-</span> cancel.year <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>)))</span>
+<span id="cb1-22"><a href="reproducibility.html#cb1-22" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">treated.post.treatment =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(cancel.year)<span class="sc">==</span>F <span class="sc">&amp;</span> cancel.year <span class="sc">==</span> <span class="dv">2007</span> <span class="sc">&amp;</span> year.x <span class="sc">==</span><span class="dv">2007</span>, <span class="dv">1</span>, treated.post.treatment)) <span class="co">#This codes cancelations in 2007 and 2011 as 1 for those years, since elections take place at year-end.</span></span>
+<span id="cb1-23"><a href="reproducibility.html#cb1-23" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">treated.post.treatment =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(cancel.year)<span class="sc">==</span>F <span class="sc">&amp;</span> cancel.year <span class="sc">==</span> <span class="dv">2011</span> <span class="sc">&amp;</span> year.x <span class="sc">==</span><span class="dv">2011</span>, <span class="dv">1</span>, treated.post.treatment)) <span class="co">#This codes cancelations in 2007 and 2011 as 1 for those years, since elections take place at year-end.</span></span>
+<span id="cb1-24"><a href="reproducibility.html#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="reproducibility.html#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="reproducibility.html#cb1-26" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">years.under.appt =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(cancel.year) <span class="sc">==</span> T, <span class="dv">0</span>, <span class="fu">ifelse</span>(year.x <span class="sc">-</span> cancel.year <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, <span class="fu">ifelse</span>(year.x <span class="sc">==</span> <span class="dv">2007</span> <span class="sc">|</span> year.x <span class="sc">==</span> <span class="dv">2011</span> <span class="sc">&amp;</span> year.x <span class="sc">==</span> cancel.year, <span class="dv">1</span>, year.x <span class="sc">-</span> cancel.year))))</span>
+<span id="cb1-27"><a href="reproducibility.html#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="reproducibility.html#cb1-28" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">city_id_factor =</span> <span class="fu">as.factor</span>(city_id))</span>
+<span id="cb1-29"><a href="reproducibility.html#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="reproducibility.html#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="reproducibility.html#cb1-31" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">treatment.group =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(cancel.year)<span class="sc">==</span>F, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb1-32"><a href="reproducibility.html#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="reproducibility.html#cb1-33" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">control =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(cancel.year)<span class="sc">==</span>T, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb1-34"><a href="reproducibility.html#cb1-34" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">early.treated =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(cancel.year)<span class="sc">==</span>F <span class="sc">&amp;</span> cancel.year <span class="sc">&lt;=</span> <span class="dv">2007</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb1-35"><a href="reproducibility.html#cb1-35" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">late.treated =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(cancel.year)<span class="sc">==</span>F <span class="sc">&amp;</span> cancel.year <span class="sc">&gt;</span> <span class="dv">2007</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb1-36"><a href="reproducibility.html#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="reproducibility.html#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="reproducibility.html#cb1-38" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">years.under.regime =</span> <span class="fu">ifelse</span>(appointed.exec <span class="sc">==</span> <span class="dv">0</span>, year.x <span class="sc">-</span> <span class="dv">2000</span>, year.x <span class="sc">-</span> cancel.year))</span>
+<span id="cb1-39"><a href="reproducibility.html#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="reproducibility.html#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="do">##Dummies for ethnic categorical</span></span>
+<span id="cb1-41"><a href="reproducibility.html#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="reproducibility.html#cb1-42" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> <span class="fu">dummy_cols</span>(full.data, <span class="at">select_columns =</span> <span class="st">&quot;ethnic.categorical&quot;</span>)</span>
+<span id="cb1-43"><a href="reproducibility.html#cb1-43" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">majority.russian.republic =</span> ethnic.categorical_Majority_Russian_republic)</span>
+<span id="cb1-44"><a href="reproducibility.html#cb1-44" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">majority.minority.republic =</span> <span class="st">`</span><span class="at">ethnic.categorical_Majority-minority_republic</span><span class="st">`</span>)</span>
+<span id="cb1-45"><a href="reproducibility.html#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="reproducibility.html#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="do">##Adding n_precincts</span></span>
+<span id="cb1-47"><a href="reproducibility.html#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="reproducibility.html#cb1-48" aria-hidden="true" tabindex="-1"></a>precincts_total <span class="ot">&lt;-</span> precincts_total <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">city_id_year =</span> <span class="fu">paste</span>(city_id, year, <span class="at">sep =</span> <span class="st">&quot;_&quot;</span>))</span>
+<span id="cb1-49"><a href="reproducibility.html#cb1-49" aria-hidden="true" tabindex="-1"></a>precincts_total <span class="ot">&lt;-</span> precincts_total <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>year, <span class="sc">-</span>city_id)</span>
+<span id="cb1-50"><a href="reproducibility.html#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="reproducibility.html#cb1-51" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> <span class="fu">left_join</span>(full.data, precincts_total, <span class="at">by =</span><span class="st">&quot;city_id_year&quot;</span>)</span>
+<span id="cb1-52"><a href="reproducibility.html#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="reproducibility.html#cb1-53" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">n.precincts =</span> n)</span>
+<span id="cb1-54"><a href="reproducibility.html#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="reproducibility.html#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="do">##Share of appointed mayors nationwide</span></span>
+<span id="cb1-56"><a href="reproducibility.html#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="reproducibility.html#cb1-57" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(year.x) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">total.appointed =</span> <span class="fu">sum</span>(appointed.exec, <span class="at">na.rm=</span>T))</span>
+<span id="cb1-58"><a href="reproducibility.html#cb1-58" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(year.x) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">total.cities =</span> <span class="fu">length</span>(<span class="fu">unique</span>(city_id)))</span>
+<span id="cb1-59"><a href="reproducibility.html#cb1-59" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">appointed.share =</span> total.appointed<span class="sc">/</span>total.cities)</span>
+<span id="cb1-60"><a href="reproducibility.html#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="reproducibility.html#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="reproducibility.html#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="do">## Creating &#39;.mod&#39; variables, which are lagged one year for presidential election years</span></span>
+<span id="cb1-63"><a href="reproducibility.html#cb1-63" aria-hidden="true" tabindex="-1"></a>             </span>
+<span id="cb1-64"><a href="reproducibility.html#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="reproducibility.html#cb1-65" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">urgov.mod =</span> <span class="fu">ifelse</span>(year.x <span class="sc">==</span> <span class="dv">2004</span> <span class="sc">|</span> year.x <span class="sc">==</span> <span class="dv">2008</span> <span class="sc">|</span> year.x <span class="sc">==</span> <span class="dv">2012</span>, <span class="fu">lag</span>(urgov, <span class="dv">1</span>), urgov))</span>
+<span id="cb1-66"><a href="reproducibility.html#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="reproducibility.html#cb1-67" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">mayor.tenure.mod =</span> <span class="fu">ifelse</span>(year.x <span class="sc">==</span> <span class="dv">2004</span> <span class="sc">|</span> year.x <span class="sc">==</span> <span class="dv">2008</span> <span class="sc">|</span> year.x <span class="sc">==</span> <span class="dv">2012</span>, <span class="fu">lag</span>(mayor.tenure, <span class="dv">1</span>), mayor.tenure))</span>
+<span id="cb1-68"><a href="reproducibility.html#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="reproducibility.html#cb1-69" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">lnAvgSalary.mod =</span> <span class="fu">ifelse</span>(year.x <span class="sc">==</span> <span class="dv">2004</span> <span class="sc">|</span> year.x <span class="sc">==</span> <span class="dv">2008</span> <span class="sc">|</span> year.x <span class="sc">==</span> <span class="dv">2012</span>, <span class="fu">lag</span>(lnAvgSalary, <span class="dv">1</span>), lnAvgSalary))</span>
+<span id="cb1-70"><a href="reproducibility.html#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="reproducibility.html#cb1-71" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">dem.mod =</span> <span class="fu">ifelse</span>(year.x <span class="sc">==</span> <span class="dv">2004</span> <span class="sc">|</span> year.x <span class="sc">==</span> <span class="dv">2008</span> <span class="sc">|</span> year.x <span class="sc">==</span> <span class="dv">2012</span>, <span class="fu">lag</span>(dem, <span class="dv">1</span>), dem))</span>
+<span id="cb1-72"><a href="reproducibility.html#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="reproducibility.html#cb1-73" aria-hidden="true" tabindex="-1"></a>full.data <span class="ot">&lt;-</span> full.data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">comp.scale.mod =</span> <span class="fu">ifelse</span>(year.x <span class="sc">==</span> <span class="dv">2004</span> <span class="sc">|</span> year.x <span class="sc">==</span> <span class="dv">2008</span> <span class="sc">|</span> year.x <span class="sc">==</span> <span class="dv">2012</span>, <span class="fu">lag</span>(comp.scale2, <span class="dv">1</span>), comp.scale2))</span></code></pre></div>
+<div id="overall-manipulation" class="section level4 hasAnchor" number="3.2.1.1">
+<h4><span class="header-section-number">3.2.1.1</span> Overall manipulation<a href="reproducibility.html#overall-manipulation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="reproducibility.html#cb2-1" aria-hidden="true" tabindex="-1"></a>model.tc2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(turnout.coef <span class="sc">~</span> <span class="fu">factor</span>(city_id) <span class="sc">+</span> <span class="fu">factor</span>(year.x) <span class="sc">+</span>  urgov.mod <span class="sc">+</span> margin.most.recent <span class="sc">+</span> n.precincts <span class="sc">+</span></span>
+<span id="cb2-2"><a href="reproducibility.html#cb2-2" aria-hidden="true" tabindex="-1"></a>                 mayor.tenure.mod <span class="sc">+</span>  lnAvgSalary.mod <span class="sc">+</span> dem.mod <span class="sc">+</span> comp.scale.mod <span class="sc">+</span>  known.opp.mayor <span class="sc">+</span> years.under.regime <span class="sc">+</span></span>
+<span id="cb2-3"><a href="reproducibility.html#cb2-3" aria-hidden="true" tabindex="-1"></a>                 appointed.exec, <span class="at">data =</span> full.data)</span>
+<span id="cb2-4"><a href="reproducibility.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(model.tc2)</span></span>
+<span id="cb2-5"><a href="reproducibility.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#sjPlot::plot_model(model.tc2, type = &quot;int&quot;, show.data = T)</span></span>
+<span id="cb2-6"><a href="reproducibility.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#sim_slopes(model.tc2, pred = appointed.exec, modx = years.under.regime, jnplot = TRUE)</span></span>
+<span id="cb2-7"><a href="reproducibility.html#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="reproducibility.html#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="reproducibility.html#cb2-9" aria-hidden="true" tabindex="-1"></a>model.tc.base <span class="ot">&lt;-</span> <span class="fu">lm</span>(turnout.coef <span class="sc">~</span> <span class="fu">factor</span>(city_id) <span class="sc">+</span> presidential <span class="sc">+</span> xconst.lag <span class="sc">+</span> putin.app<span class="fl">.3</span>mo  <span class="sc">+</span>  urgov.mod  <span class="sc">+</span> margin.most.recent <span class="sc">+</span> n.precincts <span class="sc">+</span> mayor.tenure.mod <span class="sc">+</span>  lnAvgSalary.mod <span class="sc">+</span> dem.mod <span class="sc">+</span> comp.scale.mod <span class="sc">+</span> known.opp.mayor <span class="sc">+</span>  years.under.regime <span class="sc">+</span></span>
+<span id="cb2-10"><a href="reproducibility.html#cb2-10" aria-hidden="true" tabindex="-1"></a>                      appointed.exec, <span class="at">data =</span> full.data)</span>
+<span id="cb2-11"><a href="reproducibility.html#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(model.tc.base)</span></span>
+<span id="cb2-12"><a href="reproducibility.html#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="reproducibility.html#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="do">##Plot base model</span></span>
+<span id="cb2-14"><a href="reproducibility.html#cb2-14" aria-hidden="true" tabindex="-1"></a>p.tc.base <span class="ot">&lt;-</span> sjPlot<span class="sc">::</span><span class="fu">plot_model</span>(model.tc.base, <span class="at">colors =</span> <span class="st">&quot;bw&quot;</span>, <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">&quot;presidential&quot;</span>,  <span class="st">&quot;xconst.lag&quot;</span>, <span class="st">&quot;putin.app.3mo&quot;</span>, <span class="st">&quot;urgov.mod&quot;</span>, <span class="st">&quot;margin.most.recent&quot;</span>, <span class="st">&quot;n.precincts&quot;</span>, <span class="st">&quot;mayor.tenure.mod&quot;</span>,  <span class="st">&quot;lnAvgSalary.mod&quot;</span>, <span class="st">&quot;dem.mod&quot;</span>, <span class="st">&quot;comp.scale.mod&quot;</span>, <span class="st">&quot;known.opp.mayor&quot;</span>, </span>
+<span id="cb2-15"><a href="reproducibility.html#cb2-15" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;appointed.exec&quot;</span>, <span class="st">&quot;years.under.regime&quot;</span>)) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="sc">-</span>.<span class="dv">45</span>, <span class="fl">1.65</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Overall manipulation&quot;</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="dv">0</span>))</span>
+<span id="cb2-16"><a href="reproducibility.html#cb2-16" aria-hidden="true" tabindex="-1"></a>p.tc.base <span class="ot">&lt;-</span> p.tc.base <span class="sc">+</span> <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Appointed exec.&quot;</span>, <span class="st">&quot;Years under regime&quot;</span>, <span class="st">&quot;Known opposition mayor&quot;</span>, <span class="st">&quot;Regional competitivness&quot;</span>, <span class="st">&quot;Regional political openness&quot;</span>, <span class="st">&quot;Average salary&quot;</span>, <span class="st">&quot;Mayor tenure&quot;</span>, <span class="st">&quot;Number of precincts&quot;</span>, <span class="st">&quot;Mayor&#39;s margin of victory&quot;</span>,  <span class="st">&quot;UR governor&quot;</span>, <span class="st">&quot;Putin approval&quot;</span>, <span class="st">&quot;Exec. constraints&quot;</span>, <span class="st">&quot;Presidential election&quot;</span>)) </span>
+<span id="cb2-17"><a href="reproducibility.html#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="reproducibility.html#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="do">##Plot second model</span></span>
+<span id="cb2-19"><a href="reproducibility.html#cb2-19" aria-hidden="true" tabindex="-1"></a>p.tc<span class="fl">.2</span> <span class="ot">&lt;-</span> sjPlot<span class="sc">::</span><span class="fu">plot_model</span>(model.tc2, <span class="at">colors =</span> <span class="st">&quot;bw&quot;</span>, <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">&quot;urgov.mod&quot;</span>, <span class="st">&quot;margin.most.recent&quot;</span>, <span class="st">&quot;n.precincts&quot;</span>, <span class="st">&quot;mayor.tenure.mod&quot;</span>,  <span class="st">&quot;lnAvgSalary.mod&quot;</span>, <span class="st">&quot;dem.mod&quot;</span>, <span class="st">&quot;comp.scale.mod&quot;</span>, <span class="st">&quot;known.opp.mayor&quot;</span>, </span>
+<span id="cb2-20"><a href="reproducibility.html#cb2-20" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;appointed.exec&quot;</span>, <span class="st">&quot;years.under.regime&quot;</span>)) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="sc">-</span>.<span class="dv">45</span>, .<span class="dv">45</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Overall manipulation&quot;</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="dv">0</span>))</span>
+<span id="cb2-21"><a href="reproducibility.html#cb2-21" aria-hidden="true" tabindex="-1"></a>p.tc<span class="fl">.2</span> <span class="ot">&lt;-</span> p.tc<span class="fl">.2</span> <span class="sc">+</span> <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Appointed exec.&quot;</span>, <span class="st">&quot;Years under regime&quot;</span>, <span class="st">&quot;Known opposition mayor&quot;</span>, <span class="st">&quot;Regional competitivness&quot;</span>, <span class="st">&quot;Regional political openness&quot;</span>, <span class="st">&quot;Average salary&quot;</span>, <span class="st">&quot;Mayor tenure&quot;</span>, <span class="st">&quot;Number of precincts&quot;</span>, <span class="st">&quot;Mayor&#39;s margin of victory&quot;</span>, <span class="st">&quot;UR governor&quot;</span>)) <span class="co">#Write the coefficient names in backwards order, because the plot is transposed</span></span></code></pre></div>
+</div>
+<div id="ur-voteshare" class="section level4 hasAnchor" number="3.2.1.2">
+<h4><span class="header-section-number">3.2.1.2</span> UR voteshare<a href="reproducibility.html#ur-voteshare" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="reproducibility.html#cb3-1" aria-hidden="true" tabindex="-1"></a>model.ur2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(ur.voteshare <span class="sc">~</span> <span class="fu">factor</span>(city_id) <span class="sc">+</span> <span class="fu">factor</span>(year.x) <span class="sc">+</span>   urgov.mod  <span class="sc">+</span> margin.most.recent <span class="sc">+</span> n.precincts <span class="sc">+</span> mayor.tenure.mod <span class="sc">+</span>  lnAvgSalary.mod <span class="sc">+</span> dem.mod <span class="sc">+</span> comp.scale.mod <span class="sc">+</span> known.opp.mayor <span class="sc">+</span>  years.under.regime <span class="sc">+</span> turnout.coef <span class="sc">+</span></span>
+<span id="cb3-2"><a href="reproducibility.html#cb3-2" aria-hidden="true" tabindex="-1"></a>                      appointed.exec, <span class="at">data =</span> full.data)</span>
+<span id="cb3-3"><a href="reproducibility.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(model.ur2)</span></span>
+<span id="cb3-4"><a href="reproducibility.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#sjPlot::plot_model(model.ur2, type = &quot;int&quot;)</span></span>
+<span id="cb3-5"><a href="reproducibility.html#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="reproducibility.html#cb3-6" aria-hidden="true" tabindex="-1"></a>model.ur.base <span class="ot">&lt;-</span> <span class="fu">lm</span>(ur.voteshare <span class="sc">~</span> <span class="fu">factor</span>(city_id) <span class="sc">+</span> presidential <span class="sc">+</span> xconst.lag <span class="sc">+</span> putin.app<span class="fl">.3</span>mo  <span class="sc">+</span>  urgov.mod  <span class="sc">+</span> margin.most.recent <span class="sc">+</span> n.precincts <span class="sc">+</span>   mayor.tenure.mod <span class="sc">+</span>  lnAvgSalary.mod <span class="sc">+</span> dem.mod <span class="sc">+</span> comp.scale.mod <span class="sc">+</span> known.opp.mayor <span class="sc">+</span>  years.under.regime <span class="sc">+</span> turnout.coef <span class="sc">+</span></span>
+<span id="cb3-7"><a href="reproducibility.html#cb3-7" aria-hidden="true" tabindex="-1"></a>                      appointed.exec, <span class="at">data =</span> full.data)</span>
+<span id="cb3-8"><a href="reproducibility.html#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#summary(model.ur.base)</span></span>
+<span id="cb3-9"><a href="reproducibility.html#cb3-9" aria-hidden="true" tabindex="-1"></a>p.ur.base <span class="ot">&lt;-</span> sjPlot<span class="sc">::</span><span class="fu">plot_model</span>(model.ur.base, <span class="at">colors =</span> <span class="st">&quot;bw&quot;</span>, <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">&quot;presidential&quot;</span>,  <span class="st">&quot;xconst.lag&quot;</span>, <span class="st">&quot;putin.app.3mo&quot;</span>, <span class="st">&quot;urgov.mod&quot;</span>, <span class="st">&quot;margin.most.recent&quot;</span>, <span class="st">&quot;n.precincts&quot;</span>, <span class="st">&quot;mayor.tenure.mod&quot;</span>,  <span class="st">&quot;lnAvgSalary.mod&quot;</span>, <span class="st">&quot;dem.mod&quot;</span>, <span class="st">&quot;comp.scale.mod&quot;</span>, <span class="st">&quot;known.opp.mayor&quot;</span>, </span>
+<span id="cb3-10"><a href="reproducibility.html#cb3-10" aria-hidden="true" tabindex="-1"></a>                     <span class="st">&quot;years.under.regime&quot;</span>, <span class="st">&quot;turnout.coef&quot;</span>,  <span class="st">&quot;appointed.exec&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb3-11"><a href="reproducibility.html#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span>.<span class="dv">25</span>, .<span class="dv">5</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;United Russia vote-share&quot;</span>) <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span>
+<span id="cb3-12"><a href="reproducibility.html#cb3-12" aria-hidden="true" tabindex="-1"></a>p.ur.base <span class="ot">&lt;-</span> p.ur.base <span class="sc">+</span> <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Appointed exec.&quot;</span>, <span class="st">&quot;Turnout coef.&quot;</span>, <span class="st">&quot;Years under regime&quot;</span>, <span class="st">&quot;Known opposition mayor&quot;</span>, <span class="st">&quot;Regional competitivness&quot;</span>, <span class="st">&quot;Regional political openness&quot;</span>, <span class="st">&quot;Average salary&quot;</span>, <span class="st">&quot;Mayor tenure&quot;</span>, <span class="st">&quot;Number of precincts&quot;</span>, <span class="st">&quot;Mayor&#39;s margin of victory&quot;</span>, <span class="st">&quot;UR governor&quot;</span>, <span class="st">&quot;Putin approval&quot;</span>, <span class="st">&quot;Exec. constraints&quot;</span>, <span class="st">&quot;Presidential election&quot;</span>))</span>
+<span id="cb3-13"><a href="reproducibility.html#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="reproducibility.html#cb3-14" aria-hidden="true" tabindex="-1"></a>p.ur<span class="fl">.2</span> <span class="ot">&lt;-</span> sjPlot<span class="sc">::</span><span class="fu">plot_model</span>(model.ur2, <span class="at">colors =</span> <span class="st">&quot;bw&quot;</span>, <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">&quot;urgov.mod&quot;</span>, <span class="st">&quot;margin.most.recent&quot;</span>, <span class="st">&quot;n.precincts&quot;</span>, <span class="st">&quot;mayor.tenure.mod&quot;</span>,  <span class="st">&quot;lnAvgSalary.mod&quot;</span>, <span class="st">&quot;dem.mod&quot;</span>, <span class="st">&quot;comp.scale.mod&quot;</span>, <span class="st">&quot;known.opp.mayor&quot;</span>, </span>
+<span id="cb3-15"><a href="reproducibility.html#cb3-15" aria-hidden="true" tabindex="-1"></a>                      <span class="st">&quot;appointed.exec&quot;</span>, <span class="st">&quot;years.under.regime&quot;</span>, <span class="st">&quot;turnout.coef&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb3-16"><a href="reproducibility.html#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="sc">-</span>.<span class="dv">1</span>, .<span class="dv">5</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;United Russia vote-share&quot;</span>) <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span>
+<span id="cb3-17"><a href="reproducibility.html#cb3-17" aria-hidden="true" tabindex="-1"></a>p.ur<span class="fl">.2</span> <span class="ot">&lt;-</span> p.ur<span class="fl">.2</span> <span class="sc">+</span> <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Appointed exec.&quot;</span>, <span class="st">&quot;Turnout coef.&quot;</span>, <span class="st">&quot;Years under regime&quot;</span>, <span class="st">&quot;Known opposition mayor&quot;</span>, <span class="st">&quot;Regional competitivness&quot;</span>, <span class="st">&quot;Regional political openness&quot;</span>, <span class="st">&quot;Average salary&quot;</span>, <span class="st">&quot;Mayor tenure&quot;</span>, <span class="st">&quot;Number of precincts&quot;</span>, <span class="st">&quot;Mayor&#39;s margin of victory&quot;</span>, <span class="st">&quot;UR governor&quot;</span>))</span></code></pre></div>
+</div>
+<div id="table" class="section level4 hasAnchor" number="3.2.1.3">
+<h4><span class="header-section-number">3.2.1.3</span> Table<a href="reproducibility.html#table" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="reproducibility.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(model.tc.base, model.tc2, model.ur.base, model.ur2, <span class="at">type =</span> <span class="st">&quot;html&quot;</span>, <span class="at">digits =</span> <span class="dv">2</span>, <span class="at">omit =</span> <span class="st">&quot;factor&quot;</span>, <span class="at">out =</span> <span class="st">&quot;table_main.html&quot;</span>)</span></code></pre></div>
+</div>
+<div id="multiplot" class="section level4 hasAnchor" number="3.2.1.4">
+<h4><span class="header-section-number">3.2.1.4</span> Multiplot<a href="reproducibility.html#multiplot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="reproducibility.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiple plot function</span></span>
+<span id="cb5-2"><a href="reproducibility.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb5-3"><a href="reproducibility.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)</span></span>
+<span id="cb5-4"><a href="reproducibility.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># - cols:   Number of columns in layout</span></span>
+<span id="cb5-5"><a href="reproducibility.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># - layout: A matrix specifying the layout. If present, &#39;cols&#39; is ignored.</span></span>
+<span id="cb5-6"><a href="reproducibility.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb5-7"><a href="reproducibility.html#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),</span></span>
+<span id="cb5-8"><a href="reproducibility.html#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># then plot 1 will go in the upper left, 2 will go in the upper right, and</span></span>
+<span id="cb5-9"><a href="reproducibility.html#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 will go all the way across the bottom.</span></span>
+<span id="cb5-10"><a href="reproducibility.html#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb5-11"><a href="reproducibility.html#cb5-11" aria-hidden="true" tabindex="-1"></a>multiplot <span class="ot">&lt;-</span> <span class="cf">function</span>(..., <span class="at">plotlist=</span><span class="cn">NULL</span>, file, <span class="at">cols=</span><span class="dv">1</span>, <span class="at">layout=</span><span class="cn">NULL</span>) {</span>
+<span id="cb5-12"><a href="reproducibility.html#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(grid)</span>
+<span id="cb5-13"><a href="reproducibility.html#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="reproducibility.html#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Make a list from the ... arguments and plotlist</span></span>
+<span id="cb5-15"><a href="reproducibility.html#cb5-15" aria-hidden="true" tabindex="-1"></a>  plots <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">list</span>(...), plotlist)</span>
+<span id="cb5-16"><a href="reproducibility.html#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="reproducibility.html#cb5-17" aria-hidden="true" tabindex="-1"></a>  numPlots <span class="ot">=</span> <span class="fu">length</span>(plots)</span>
+<span id="cb5-18"><a href="reproducibility.html#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="reproducibility.html#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If layout is NULL, then use &#39;cols&#39; to determine layout</span></span>
+<span id="cb5-20"><a href="reproducibility.html#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(layout)) {</span>
+<span id="cb5-21"><a href="reproducibility.html#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Make the panel</span></span>
+<span id="cb5-22"><a href="reproducibility.html#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ncol: Number of columns of plots</span></span>
+<span id="cb5-23"><a href="reproducibility.html#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># nrow: Number of rows needed, calculated from # of cols</span></span>
+<span id="cb5-24"><a href="reproducibility.html#cb5-24" aria-hidden="true" tabindex="-1"></a>    layout <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="dv">1</span>, cols <span class="sc">*</span> <span class="fu">ceiling</span>(numPlots<span class="sc">/</span>cols)),</span>
+<span id="cb5-25"><a href="reproducibility.html#cb5-25" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ncol =</span> cols, <span class="at">nrow =</span> <span class="fu">ceiling</span>(numPlots<span class="sc">/</span>cols))</span>
+<span id="cb5-26"><a href="reproducibility.html#cb5-26" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-27"><a href="reproducibility.html#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="reproducibility.html#cb5-28" aria-hidden="true" tabindex="-1"></a> <span class="cf">if</span> (numPlots<span class="sc">==</span><span class="dv">1</span>) {</span>
+<span id="cb5-29"><a href="reproducibility.html#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(plots[[<span class="dv">1</span>]])</span>
+<span id="cb5-30"><a href="reproducibility.html#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="reproducibility.html#cb5-31" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb5-32"><a href="reproducibility.html#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set up the page</span></span>
+<span id="cb5-33"><a href="reproducibility.html#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">grid.newpage</span>()</span>
+<span id="cb5-34"><a href="reproducibility.html#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pushViewport</span>(<span class="fu">viewport</span>(<span class="at">layout =</span> <span class="fu">grid.layout</span>(<span class="fu">nrow</span>(layout), <span class="fu">ncol</span>(layout))))</span>
+<span id="cb5-35"><a href="reproducibility.html#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-36"><a href="reproducibility.html#cb5-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Make each plot, in the correct location</span></span>
+<span id="cb5-37"><a href="reproducibility.html#cb5-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>numPlots) {</span>
+<span id="cb5-38"><a href="reproducibility.html#cb5-38" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Get the i,j matrix positions of the regions that contain this subplot</span></span>
+<span id="cb5-39"><a href="reproducibility.html#cb5-39" aria-hidden="true" tabindex="-1"></a>      matchidx <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">which</span>(layout <span class="sc">==</span> i, <span class="at">arr.ind =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb5-40"><a href="reproducibility.html#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-41"><a href="reproducibility.html#cb5-41" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(plots[[i]], <span class="at">vp =</span> <span class="fu">viewport</span>(<span class="at">layout.pos.row =</span> matchidx<span class="sc">$</span>row,</span>
+<span id="cb5-42"><a href="reproducibility.html#cb5-42" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">layout.pos.col =</span> matchidx<span class="sc">$</span>col))</span>
+<span id="cb5-43"><a href="reproducibility.html#cb5-43" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-44"><a href="reproducibility.html#cb5-44" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-45"><a href="reproducibility.html#cb5-45" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="plotting" class="section level4 hasAnchor" number="3.2.1.5">
+<h4><span class="header-section-number">3.2.1.5</span> Plotting<a href="reproducibility.html#plotting" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="reproducibility.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="at">filename =</span> <span class="st">&quot;coefplot manipulation multiple.png&quot;</span>, <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>, <span class="at">res =</span> <span class="dv">500</span>, <span class="at">units =</span> <span class="st">&quot;in&quot;</span>)</span>
+<span id="cb6-2"><a href="reproducibility.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">multiplot</span>(p.tc.base, p.tc<span class="fl">.2</span>, <span class="at">cols =</span> <span class="dv">1</span>)</span>
+<span id="cb6-3"><a href="reproducibility.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span>
+<span id="cb6-4"><a href="reproducibility.html#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="reproducibility.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="at">filename =</span> <span class="st">&quot;coefplot voteshare multiple.png&quot;</span>, <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>, <span class="at">res =</span> <span class="dv">500</span>, <span class="at">units =</span> <span class="st">&quot;in&quot;</span>)</span>
+<span id="cb6-6"><a href="reproducibility.html#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">multiplot</span>(p.ur.base, p.ur<span class="fl">.2</span>, <span class="at">cols =</span> <span class="dv">1</span>)</span>
+<span id="cb6-7"><a href="reproducibility.html#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="loading-sorting-and-visualising-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ordering-datafiles.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

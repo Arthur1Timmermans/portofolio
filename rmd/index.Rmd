@@ -1,0 +1,13 @@
+---
+title: "portfolio Arthur Timmermans"
+author: "Arthur Timmermans"
+data: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book 
+base_format: rticles::jss_article
+bibliography: bibliography.bib
+---
+
+# prerequisites 
+Welcome to my personal portfolio. On this website I will give more inside into what my skills are and  which projects I work(ed) on. I am a life science student at the Hoge School Utrecht (HU), and will graduate in 2023 as a lab technician. 
