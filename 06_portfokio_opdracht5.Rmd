@@ -1,0 +1,20 @@
+# project liquid biopsies 
+
+Between May and June, 2022, I wrote R-code for the Princess Máxima Center within a project called "liquid biopsies". I worked on this project together with 2 other students: Pedro de Bos and Thijmen van Brenk. On this page, I will provide a short introduction with regards to why the research was important. I will also give a short summary of the r-code we eventually wrote. 
+
+## background 
+Neuroblastoma is an embryonic malignancy that affects normal development of the adrenal medulla and para vertebral sympathetic ganglia in early childhood. Despite extensive studies to the molecular characteristics of human neuroblastomas, the initiation mechanisms and even its origin are still largly unknown. @marisRecentAdvancesNeuroblastoma2010
+
+However, neuroblastoma is the most common extracranial solid tumor in children. Further more, it has high recurrence rates and low survival rates. Therefore, early diagnosis, treatment response evaluation, and recurrence monitoring are of great significance for NB patients. @YeTiHuoJianZaiShenJingMuXiBaoLiuZhongDeLinChuangYanJiuJinZhan2022
+
+A further complication is that neuroblastoma exhibits genetic, morphological and clinical heterogeneity. This in term limits the efficacy of existing treatment. Therefor, Gaining detailed knowledge of the molecular signatures and genetic variations involved in the pathogenesis of neuroblastoma is necessary to develop safer and more effective treatments for neuroblastomas. @zafarMolecularTargetingTherapies2021 
+
+The wide genetic variation, also means that several different kinds of cell progresses can be effected. These include changes in the regulatory role in differentiation, apoptosis, cell proliferation, tumourigenesis, angiogenesis or metastasis of neuroblastoma @aygunBiologicalGeneticFeatures2018
+
+One of the isseus with neuroblastoma is that to properly monitor the progression of the tumor, samples need to be taken often. And tumor biopsies can be very invasive. A possible solution, lays with liquid biopsies. Liquid biopsies, is a method of obtaining genomic material of tumors from  blood samples. tumors secret DNA to the blood, which is called cell free DNA. This cell free DNA  can be amplified, sequences and analysed. A study has shown that the proportion of tumor-derived DNA in cell free DNA was 42.5% (16.9%-55.9% across all samples). This could potentially mean sufficient sensitivity of liquid biopsy for neuroblastoma.@shiraiQuantitativeAssessmentCopy2022
+
+## project 
+
+At this moment, data sets of DNA from tumor biopsies and liquid biopsies of patients with neuoblastoma are compared manual at the Princes Maxima Center. This is very time consuming, and when working with time pressure from an increasing number of patients, can lead to human error. Therefor, using shinny, we created a web database which allows for easy comparing and visualization of sequencing results. 
+
+## refrences 

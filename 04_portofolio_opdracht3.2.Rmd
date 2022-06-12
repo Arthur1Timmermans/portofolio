@@ -1,0 +1,21 @@
+# free studying period
+
+I have taken a course data science during the minor of my study. One of our assingments was to set our own learning goals for skills we want to obtain in the future. During my minor, I spend about 30-40 hours on getting started with learning these new skills. The aim was to get started, and to lay a fundation on which I could build further after I graduated.  On this page, I will describe what I choose to do with this free learning period and how I spend my time on. 
+
+I got started by asking myself what I wanted to do and Where I wanted to be in ~2 years time?
+
+It was during this time that I realized I still have multiple things I wanna learn and develop myself in. These include:
+
+- working in an ecological lab 
+- clinical lab work (like labratory work in a hospital)
+- working in a project with organoids
+
+Because there are still many things that interest me, and I still have multiple jobs I would like to try, it was difficult for me to set my sites on a specific goal. Especially since I'm not certain if I still want to continue working in the field of bioinformatics in the future. Therefor, I decided to take a more general approach and get a wider few of what's all still possible for me  with bioinformatics. This would help me to more easily adept, and learn specific skills later when I've a more clear vision of what I want to do. 
+
+To generally widen my view, I decided to learn python. This would be useful to more easily flow into jobs where python is a required programming language. Further more, python is a very useful language for software creation, which I would like to learn, to create my own software at some point in the future. This latter use is not necessarily needed for my job within the life sciences, but, certainly could be an useful skill to obtain nevertheless. 
+
+## planning and organisation to learn python 
+
+I didn't really make any further plans yet. 
+
+In general I wanted to follow a crashcourse, or read a book, and show case here what I've learned and how I can now use python to get started on software creation and for general manipulation of data (files). Would love to hear your thoughts on this, for whoever is reviewing my portfolio right now. Thanks in advance, appreciate any feedback I can use to improve :)  

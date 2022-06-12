@@ -1,0 +1,21 @@
+# ordering datafiles 
+
+Besides keeping a data file tidy, it is also important to keep the folders in which these data files are stored tidy. A properly made directory with version control, helps to avoid that data gets lost. It also generally improves speed and reproducibility. 
+
+## directory trees 
+In directory tree bellow, I showed the directory tree from this portfolio, as an example of how I think data can be stored tidy. 
+
+```{r dirtree1, echo=FALSE}
+fs::dir_tree(here::here("~/documents/hu/R/DSFB2/portofolio"))
+```
+
+Another example of how a directory tree can look is shown in figure bellow. This is one of my directories of a previous school project. 
+
+```{r dirtree2, echo=FALSE}
+fs::dir_tree(here::here("~/documents/hu/R/DSFB2/daur2"))
+```
+
+## version control 
+besides ordering the data structures on my own computer, I use version control with github for both my own repositories as well as those which I work on in projects. 
+
+Working with github on group projects has helped me in many ways. It makes it far easier to work on the same documents together. Further more, we can far easier merge files, without the need for many different in between verions of the same file. This imrpoves both the speed, accuracy and communication within our projects. 
