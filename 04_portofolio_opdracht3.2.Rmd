@@ -1,13 +1,13 @@
 # free studying period
 
-I have taken a course data science during the minor of my study. One of our assingments was to set our own learning goals for skills we want to obtain in the future. During my minor, I spend about 30-40 hours on getting started with learning these new skills. The aim was to get started, and to lay a fundation on which I could build further after I graduated.  On this page, I will describe what I choose to do with this free learning period and how I spend my time on. 
+I have taken a course data science during the minor of my study. One of our assignments was to set our own learning goals for skills we want to obtain in the future. During my minor, I spend about 30-40 hours on getting started with learning these new skills. The aim was to get started, and to lay a foundation on which I could build further after I graduated.  On this page, I will describe what I choose to do with this free learning period and how I spend my time on. 
 
-I got started by asking myself what I wanted to do and Where I wanted to be in ~2 years time?
+I got started by asking myself what I wanted to do and Where I wanted to be in ~2 years time. 
 
 It was during this time that I realized I still have multiple things I wanna learn and develop myself in. These include:
 
 - working in an ecological lab 
-- clinical lab work (like labratory work in a hospital)
+- clinical lab work (like laboratory work in a hospital)
 - working in a project with organoids
 
 Because there are still many things that interest me, and I still have multiple jobs I would like to try, it was difficult for me to set my sites on a specific goal. Especially since I'm not certain if I still want to continue working in the field of bioinformatics in the future. Therefor, I decided to take a more general approach and get a wider few of what's all still possible for me  with bioinformatics. This would help me to more easily adept, and learn specific skills later when I've a more clear vision of what I want to do. 

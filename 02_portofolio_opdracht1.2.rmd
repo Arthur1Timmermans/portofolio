@@ -10,7 +10,7 @@ library(fs)
 library(DT)
 ```
 
-Making sure that a research is reproducible, is an important measure to avoid fraud and generating results based on the general interest of a person or company. A big step towards making research reproducible is the movement towards open science, where the methods of both research and the data analysis are shared. In my opinion, open research helps to speed up progression and holds potential to decrease fraud. Therefor, I support the movement towards open science. In this chapter, I will review 2 papers, to show that I am able to determine how open the researchers are about their methods for both the laboratory work and the data analysis. 
+Making sure that research is reproducible, is an important measure to avoid fraud and generating results based on the general interest of a person or company. A big step towards making research reproducible is the movement towards open science, where the methods of both research and the data analysis are shared. In my opinion, open research helps to speed up progression and holds potential to decrease fraud. Therefor, I support the movement towards open science. In this chapter, I will review 2 papers, to show that I am able to determine how open the researchers are about their methods for both the laboratory work and the data analysis. 
 
 The first paper will be a more 'traditional' research paper, and is found on [pubmed](https://pubmed.ncbi.nlm.nih.gov/). This paper will be reviewed based upon following  ‘Repita’ criteria, as shown in figure \@ref(fig:table2). 
 
@@ -67,10 +67,16 @@ in conclusion: this paper has properly described their findings, sources and con
 
 ## paper2 
 
-the second article that will be reviewed is: https://osf.io/6pxjh/
+the second article that will be reviewed is: 
+
+multiparty elections provide a variety of benefits for regime survival. Specifically,  the introduction of local elections in otherwise closed regimes has been shown to generate improvements in government legitimacy and performance. However, some non-democratic governments do not hold local executive elections, with the hopes of increasing control over local political resources. 
 
 In this paper, is tested if appointed local executives in Russian voting  will produce more election manipulation for national parties and if this comes at a cost to the party’s un-manipulated support. 
 To test this theory, the study will use an election-forensic analysis of precinct-level election data from 176 Russian cities over six national elections from 2003 to 2012. 
+
+this paper proposes that appointed local executives will produce more election manipulation for national parties, but that this comes at a cost to the party’s un-manipulated support. 
+
+### analysing the code 
 
 the provided  r code appears to have a few goals: 
 - making the data tidy (removing na, proper row/colum orginisation for the data analysis, etc.)
@@ -83,13 +89,13 @@ After downloading and running the code, I hardly had to make any changes at all 
 - installing the packages I didnt have yet with the install.package() function. 
 - specify where I stored the data files on my computer
 
-With the provided code, I was also easily able to recreate the images that were in the original paper. An example of this, is shown in figure \@ref(fig:graph3). This was figure2 in the original paper. Because it was so easy to run the code, and recreate the same figures, the reproducibility of this code gets a 5 out of 5. The used code is further shown down bellow figure \@ref(fig:graph3). 
+With the provided code, I was also easily able to recreate the images that were in the original paper. An example of this, is shown in figure \@ref(fig:graph3). This was figure2 in the original paper. In this figure, it is visible that putin has a far higher manipulation than the other politisians ands that appointed exec party also has sightly higher manipulation. Because it was so easy to run the code, and recreate the same figures, the reproducibility of this code gets a 5 out of 5. The used code is further shown down bellow figure \@ref(fig:graph3). 
 
 ```{r graph3, fig.cap="recreated graph from reviewed paper"}
 knitr::include_graphics("images/coefplot_manipution_multiple.png")
 ```
 
-### code paper 2 
+### raw code of paper 2 
 
 ```{r, eval=FALSE, echo=TRUE}
 library(tidyverse)

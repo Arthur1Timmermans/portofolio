@@ -10,7 +10,7 @@ library(fs)
 library(DT)
 ```
 
-For both readability and data analysis is it important to keep data tidy. Especially when loading data in, it is important to check if the format is tidy for the data analysis that will be conducted. In this chapter, I will show an example of how I loaded in an excel document, selected the needed data and made the used tables tidy. The excel document contains data from an experiment with C. Elegans. In this experiment, the influence of 3 substances on the growth of C. Elegans is tested. Further more, there is a positive and negative control. The positive control for this experiments is incubated in ethanol, the negative control for this experiment is incubated in s-medium. The raw data is shown in figure \@ref(fig:table1)
+For both readability and data analysis is it important to keep data tidy. Especially when loading data in, it is important to check if the format is tidy for the data analysis that will be conducted. In this chapter, I will show an example of how I loaded in an excel document, selected the needed data and made the used tables tidy. The excel document contains data from an experiment conducted by  by J. Louter (INT/ILC).In this experiment, the influence of 3 substances on the growth of C. Elegans is tested. Further more, there is a positive and negative control. The positive control for this experiments is incubated in ethanol, the negative control for this experiment is incubated in s-medium. The raw data is shown in figure \@ref(fig:table1)
 
 ```{r table1, fig.cap= "table with raw data"}
 datatable(read_excel(here::here("raw/CE.LIQ.FLOW.062_Tidydata.xlsx")), options = list(pageLength = 5)) 
@@ -21,7 +21,7 @@ based upon the names and values, as shown in figure \@ref(fig:table1), the expec
 - compNames: character 
 - compConcentration: numeric 
 
-In figure \@ref(fig:table1), Only the raw-data is numeric, both the compNames and compConcentrations are character strings. This would suggest that something went wrong during importation of the samples. This is also seen in figure \@ref(fig:graph1), where the data was not sorted based upon the actual size, because it is being read as character and therefor is literaly sorted based upon the characters.
+In figure \@ref(fig:table1), Only the raw-data is numeric, both the compNames and compConcentrations are character strings. This would suggest that something went wrong during importation of the samples. This is also seen in figure \@ref(fig:graph1), where the data was not sorted based upon the actual size, because it is being read as character and therefor is literally sorted based upon the characters.
 
 ```{r graph1, fig.cap= "graph without changing data type"}
 table1D <- read_excel(here("raw/CE.LIQ.FLOW.062_Tidydata.xlsx"))
@@ -41,16 +41,15 @@ In this graph, the data is still rather spread out. This can be corrected for by
 i really dunno how this graph would look, because the negative control has a value of 0, therefor scaling the exsisting data to this does not seem possible. 
 
 ## analysing the data: 
- To determine if there is a statistical significant difference between the control groups and the experimental group, the following tests can be conducted on the data set: 
+to further determine the (toxic) effect of the added substances, a dose-response analysis can be run.In this analysis, the following would be determined using a log-logistic model:
+- estimate the maximal
+- estimate the minimal 
+- determine the IC50 concentration 
+- determine the slope at IC50. 
 
-- make a simple dotted plot (already done) and look at how the data is roughly distributed. 
-- check if the controls of the experiments have the expected result (positive control is positive, negative control is negative) 
-- check if the data of each group is normally distributed (shapiro-wilk)
-- compare the experimental group to the (positive) control group with the propper statistical tests. these would include: 
-    - Levene's test of equality of error variances
-    - 2 sides unpaired t.test 
-    
-However, as analysis the entire data set is not the goal of this chapter, the further data analysis will not be conducted. 
+the results of the different subtances, can be compared to the positive and negative control, to determine if there is a toxic effect, and to what extend this toxic effect takes place. 
+
+However, as analysis the entire data set is not the goal of this chapter, the further data analysis will not be conducted. But a r package that could be used, is the "dcr" package. 
 
 
 
