@@ -17,8 +17,11 @@ datatable(read_excel(here::here("raw/CE.LIQ.FLOW.062_Tidydata.xlsx")), options =
 ```
 
 based upon the names and values, as shown in figure \@ref(fig:table1), the expected data-types are: 
+
 - Raw-data: numeric
+
 - compNames: character 
+
 - compConcentration: numeric 
 
 In figure \@ref(fig:table1), Only the raw-data is numeric, both the compNames and compConcentrations are character strings. This would suggest that something went wrong during importation of the samples. This is also seen in figure \@ref(fig:graph1), where the data was not sorted based upon the actual size, because it is being read as character and therefor is literally sorted based upon the characters.
@@ -36,18 +39,33 @@ table1D$compConcentration <- as.numeric(table1D$compConcentration)
 ggplot(table1D, aes(x=log10(compConcentration), y=RawData, color=expType)) +geom_point() + theme(axis.text.x = element_text(angle = 90)) + geom_jitter() + labs(title = "effect of compound concentration on amount of living C. elegans", y = "C. elegans count", x = "concentration of compound")
 ```
 
-In this graph, the data is still rather spread out. This can be corrected for by using the negative control as a scale of 1. This brings the data in the plot relatively closer together, making it easier to compare data of different groups. The graph would than look like this: 
+In this graph, the data is still rather spread out. This can be corrected for by using the negative control as a scale of 1. This brings the data in the plot relatively closer together, making it easier to compare data of different groups. The graph would than look like shown in figure \@ref(fig:graph3) 
 
-i really dunno how this graph would look, because the negative control has a value of 0, therefor scaling the exsisting data to this does not seem possible. 
+```{r graph3, fig.cap= "graph with normalized scale"}
+table1clean <- data.frame(table1D$expType, table1D$RawData, table1D$compConcentration) #filtering for just exptype, raw data and compound concentration)
+table1clean <-na.omit(table1clean) 
+
+table1negative <- table1clean %>% filter(table1D.expType=="controlNegative") #filtering negative control 
+average <- mean(table1negative$table1D.RawData) #adding average negative control to object 
+table1clean$normalised <- table1clean$table1D.RawData/average #normalising with average negative control as 1. 
+
+# making grahp: 
+ggplot(table1clean, aes(x=log10(as.numeric(table1D.compConcentration)), y=normalised, color=table1D.expType)) +geom_point() + theme(axis.text.x = element_text(angle = 90)) + geom_jitter() + labs(title = "effect of compound concentration on amount of living C. elegans with normalised x axis", y = "C. elegans count", x = "concentration of compound")
+```
+
 
 ## analysing the data: 
 to further determine the (toxic) effect of the added substances, a dose-response analysis can be run.In this analysis, the following would be determined using a log-logistic model:
+
 - estimate the maximal
+
 - estimate the minimal 
+
 - determine the IC50 concentration 
+
 - determine the slope at IC50. 
 
-the results of the different subtances, can be compared to the positive and negative control, to determine if there is a toxic effect, and to what extend this toxic effect takes place. 
+the results of the different substances, can be compared to the positive and negative control, to determine if there is a toxic effect, and to what extend this toxic effect takes place. 
 
 However, as analysis the entire data set is not the goal of this chapter, the further data analysis will not be conducted. But a r package that could be used, is the "dcr" package. 
 

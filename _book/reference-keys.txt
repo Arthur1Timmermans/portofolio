@@ -1,7 +1,6 @@
 fig:table1
 fig:graph1
 fig:graph2
-fig:table2
 fig:graph3
 prerequisites
 loading-sorting-and-visualising-data
@@ -17,7 +16,8 @@ funding-statement
 code-availability
 conclusion
 paper2
-code-paper-2
+analysing-the-code
+raw-code-of-paper-2
 overall-manipulation
 ur-voteshare
 table
@@ -28,7 +28,9 @@ directory-trees
 version-control
 free-studying-period
 planning-and-organisation-to-learn-python
+the-basics
 project-liquid-biopsies
 background
 project
 refrences
+structured-query-language

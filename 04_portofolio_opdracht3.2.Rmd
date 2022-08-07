@@ -16,6 +16,8 @@ To generally widen my view, I decided to learn python. This would be useful to m
 
 ## planning and organisation to learn python 
 
-I didn't really make any further plans yet. 
+## the basics 
 
-In general I wanted to follow a crashcourse, or read a book, and show case here what I've learned and how I can now use python to get started on software creation and for general manipulation of data (files). Would love to hear your thoughts on this, for whoever is reviewing my portfolio right now. Thanks in advance, appreciate any feedback I can use to improve :)  
+to get a general idea of how python works and what all possibilities are, I got started with watching [this youtube video](https://www.youtube.com/watch?v=kqtD5dpn9C8). With the help of this video I installed a different code editor, named [PyCharm](https://www.jetbrains.com/pycharm/download/?source=google&medium=cpc&campaign=14124132615&term=pycharm&gclid=Cj0KCQjworiXBhDJARIsAMuzAuyFYmcw1j7wk22Vc3ccWgCg3uEsjcXW6GtrGBkBHeJpcqd89tuKHOsaAjQpEALw_wcB#section=windows),and got familiar with how to use this code editor.I decided to try a different code editor, to further widen my experience and point of few. This is especially important to me because I am still trying to figure out what my personal preferences are. 
+
+Further more, in the video mentioned above I learned the basic code structure of Python. In this learning process I noticed that it was relatively easy to adept to Python, because there are many similarities between Python and R. 
