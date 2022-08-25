@@ -7,6 +7,12 @@ output: bookdown::gitbook
 documentclass: book 
 base_format: rticles::jss_article
 bibliography: bibliography.bib
+params:
+  country: Austria
+  year: 2021 
+  period_start: 1
+  period_end: 12
+
 ---
 
 # prerequisites 

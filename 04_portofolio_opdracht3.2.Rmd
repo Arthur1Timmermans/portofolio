@@ -16,8 +16,51 @@ To generally widen my view, I decided to learn python. This would be useful to m
 
 ## planning and organisation to learn python 
 
+When trying to learn a new skill, a proper plan makes the learning process more structured and helps to see if your goals are achieved. the overal planning of this project is: 
+
+- describing my learning process on this page (2 hour)
+
+- get to know the basic code structure of Python (1.5 hour)
+
+- getting familiar with other code editors (4 hours): 
+  - pychar 
+  - Jupyter Notebook
+  - Visual Studio Code
+  -
+  
+  https://www.hostinger.com/tutorials/best-code-editors
+
+
 ## the basics 
 
-to get a general idea of how python works and what all possibilities are, I got started with watching [this youtube video](https://www.youtube.com/watch?v=kqtD5dpn9C8). With the help of this video I installed a different code editor, named [PyCharm](https://www.jetbrains.com/pycharm/download/?source=google&medium=cpc&campaign=14124132615&term=pycharm&gclid=Cj0KCQjworiXBhDJARIsAMuzAuyFYmcw1j7wk22Vc3ccWgCg3uEsjcXW6GtrGBkBHeJpcqd89tuKHOsaAjQpEALw_wcB#section=windows),and got familiar with how to use this code editor.I decided to try a different code editor, to further widen my experience and point of few. This is especially important to me because I am still trying to figure out what my personal preferences are. 
+to get a general idea of how python works and what all possibilities are, I got started with watching [this youtube video](https://www.youtube.com/watch?v=kqtD5dpn9C8). in this video, I learned the following things: 
 
-Further more, in the video mentioned above I learned the basic code structure of Python. In this learning process I noticed that it was relatively easy to adept to Python, because there are many similarities between Python and R. 
+- Variables
+- Receiving Input
+- Type Conversion
+- Strings
+- Arithmetic Operators 
+- Operator Precedence 
+- Comparison Operators 
+- Logical Operators
+- If Statements
+- While Loops
+- Lists
+- List Methods
+- For Loops
+- The range() Function 
+- Tuples
+
+This helped me to better understand the basic structure of python. In this learning process I noticed that it was relatively easy to adept to Python, because there are many similarities between Python and R. Therefor, I picked python up rather easily, and after watching a video of an hour felt ready to move on to more advanced coding. 
+
+## code editors 
+
+The last half Year, I have used Rstudio, which has worked well for me so far. However, while learning python, I have seen people using many different code editors. And to further widen my few on what is all possible, I decided to try a few other code editors myself. In general, I noticed that there are subtle differences between code editors and that different code editors are more suited for different jobs. However, that switching between editors is not very difficult. I did notice that switching between editors got me a bid confused with which shortcuts worked in which programs. Therefor, I decided to not switch to much between code editors anymore and that it is more useful to be good/fast  with 1 than to be able to use all of them poorly. Thus, for the time being, I stick with R studio. Down bellow I describe which code editors I used and what my overal experience with them was. 
+
+### pycharm 
+
+The first code editor I used after installing python was [PyCharm](https://www.jetbrains.com/pycharm/download/?source=google&medium=cpc&campaign=14124132615&term=pycharm&gclid=Cj0KCQjworiXBhDJARIsAMuzAuyFYmcw1j7wk22Vc3ccWgCg3uEsjcXW6GtrGBkBHeJpcqd89tuKHOsaAjQpEALw_wcB#section=windows). 
+
+### visual studio code 
+
+soon after getting started with watching python tutorials, I saw people using Visual Studio Code (VSC). This is an open-source text editor, and by far the most used code editor. 

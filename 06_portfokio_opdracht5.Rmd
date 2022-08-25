@@ -17,5 +17,4 @@ One of the isseus with neuroblastoma is that to properly monitor the progression
 
 At this moment, data sets of DNA from tumor biopsies and liquid biopsies of patients with neuoblastoma are compared manual at the Princes Maxima Center. This is very time consuming, and when working with time pressure from an increasing number of patients, can lead to human error. Therefor, using shinny, we created a web database which allows for easy comparing and visualization of sequencing results. 
 
-## refrences 
 

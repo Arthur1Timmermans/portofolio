@@ -1,3 +1,302 @@
 # Structured Query Language
 
-Structured Query Language (SQL), is a programming language which was creating for communicating with and editing databases. With the increasing usage of cloud storage and databases, the importance of SQL has become higher as the world got more automated. nearly all databases use SQL as their main programming. Because of the high usage, learning SQL is very relevant. I currently have a basic knowledge of how to use SQL to create a database and to  add, edit and remove data from databases.  On this page, I will demonstrate what I can all do wit SQL. 
+Structured Query Language (SQL), is a programming language which was creating for communicating with and editing databases. With the increasing usage of cloud storage and databases, the importance of SQL has become higher as the world got more automated. nearly all databases use SQL as their main programming. Because of the high usage, learning SQL is very relevant. I currently have a basic knowledge of how to use SQL to create a database and to  add, edit and remove data from databases.  On this page, I will demonstrate what I can all do wit SQL and build a SQL database. For this, I used two files that contained the number of dengue fever cases and flu cases. These files provide cases from 2002 till 2015. The general stept I took in this analysis are: 
+
+- Manual download of the Dengue Fever dataset from the [dsfb2 repository](https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows)
+
+- Manual download of the Flu Fever dataset from the [dsfb2 repository](https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows).
+
+- Clean and tidy the data
+
+- Write the data away in the folder data
+
+- Make a SQL database of the data using RPostgreSQL
+
+- Data visualization
+
+- Conclusion
+
+## cleaning data 
+
+After loading in the data, I inspected the data. The data from the gapminder dataset is shown in table \@ref(fig:table1)
+
+The data from the dengue dataset is shown in table \@ref(fig:table2)
+
+The data from the flu dataset is shown in table \@ref(fig:table3)
+
+The gampminder dataset was already in tiny data format, and therefor did not need to be edited. The dengue and flu dataset did require editing to make the tables tidy. After making the data tidy, all data was stored in new CSV files. 
+
+```{r loading packages, warning = FALSE, message = FALSE, echo = FALSE} 
+library(RPostgreSQL)
+library(gapminder)
+library(tidyverse)
+library(RPostgres)
+library(gridExtra)
+library(ggplot2)
+library(ggtext)
+library(plotly)
+library(dslabs)
+library(here)
+library(DBI)
+library(DT)
+```
+
+```{r reading in data, warning = FALSE, message = FALSE, echo = FALSE}
+dengue <- read.csv(here::here("raw/007_dengue.csv"), skip = 11) #skip 11 is to ignore the meta data at the top
+
+flu <- read.csv(here::here("raw/007_flu.csv"), skip = 11) #skip 11 is to ignore the meta data at the top
+
+gapminder <- read_builtin("gapminder")
+```
+
+```{r table1,include=TRUE, warning = FALSE, message = FALSE, echo = FALSE, fig.cap= "data from gap minder dataset"}
+datatable(gapminder)
+
+```
+
+```{r table2, include=TRUE, warning = FALSE, message = FALSE, echo = FALSE, fig.cap= "data from dengue dataset"}
+datatable(dengue)
+
+```
+
+```{r table3, include=TRUE, warning = FALSE, message = FALSE, echo = FALSE, fig.cap= "data from flu dataset"}
+
+datatable(flu)
+```
+
+```{r tidy data, echo=FALSE, message=FALSE, warning=FALSE}
+# tidy the dengue dataset
+## Put all countries in one column, and the cases to one column
+dengue_tidy <- dengue %>%  pivot_longer(
+                                        cols = Argentina:Venezuela,
+                                        names_to = "Country",
+                                        values_to = "dengue_cases"
+                                        )
+
+# split the column Date to three columns named Year, Month and Day
+dengue_tidy <- dengue_tidy %>% separate(Date, c("Year", "Month", "Day"))
+
+# correct data classes
+dengue_tidy$Year <- as.numeric(dengue_tidy$Year)
+dengue_tidy$Month <- as.numeric(dengue_tidy$Month)
+dengue_tidy$Day <- as.numeric(dengue_tidy$Day)
+
+
+
+# tidy the flu dataset
+## Put all countries in one column and the cases in another column
+flu_tidy <- flu %>% pivot_longer(
+                                cols = Argentina:Uruguay,
+                                names_to = "Country",
+                                values_to = "flu_cases"
+                                )
+
+## split the column Date to three columns named Year, Month and Day
+flu_tidy <- flu_tidy %>% separate(Date, c("Year", "Month", "Day"))
+
+## correct data classes
+flu_tidy$Year <- as.numeric(flu_tidy$Year)
+flu_tidy$Month <- as.numeric(flu_tidy$Month)
+flu_tidy$Day <- as.numeric(flu_tidy$Day)
+```
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+
+#all data gets saved to the data folder in a csv file
+flu_tidy %>% write.csv(file = "./data/flu_tidy.csv")
+dengue_tidy %>% write.csv(file = "./data/dengue_tidy.csv")
+gapminder %>% write.csv(file = "./data/gapminder.csv")
+
+# all data also gets saved to the data folder in a RDS file
+saveRDS(gapminder, file = "./data/gapminder.rds")
+saveRDS(dengue_tidy, file = "./data/dengue_tidy.rds")
+saveRDS(flu_tidy, file = "./data/flu_tidy.rds")
+```
+
+## setting up a database 
+
+### exporting data to DBeaver
+
+the data was exporting to DBeaver using the following commands: 
+
+```{r export data to DBeaver, eval=FALSE, include=TRUE, warning=FALSE, message=FALSE}
+# the link to exporting files to DBeaver requires to fill in personal information such as a  password, which is unique for all users. 
+# this analysis is reproducible if you copy the code and insert your own local information. 
+
+con <- dbConnect(RPostgres::Postgres(),
+                 dbname = "workflowsdb",
+                 host = "localhost",
+                 port = "5432",
+                 user = "postgres",
+                 password = "fill in your own password here")
+dbWriteTable(con, "flu_tidy", flu_tidy)
+dbWriteTable(con, "dengue_tidy", dengue_tidy)
+dbWriteTable(con, "gapminder", gapminder)
+dbDisconnect(con)
+
+```
+### SQL script 
+In D beaver, the following script is written to inspect the data 
+
+---------------------------------------------------------------------------------------------------------------------
+SELECT dengue_cases, country 
+FROM dengue_tidy order 
+BY dengue_cases asc
+
+SELECT dengue_cases, country 
+FROM dengue_tidy order 
+BY dengue_cases desc
+
+SELECT flu_cases, country 
+FROM flu_tidy order 
+BY flu_cases asc
+
+SELECT flu_cases, country 
+FROM flu_tidy order 
+BY flu_cases desc
+
+SELECT population, country 
+FROM gapminder order 
+BY population asc 
+
+SELECT population, country 
+FROM gapminder order 
+BY population desc
+---------------------------------------------------------------------------------------------------------------------
+
+After inspecting the data, it was concluded that the data was imported properly. 
+
+### importing data from DBeaver 
+
+after exporting the data from Rstudio to DBeaver, the data was imported back from DBeaver to Rstudio with the following script: 
+
+```{r import data from dbeaver, eval=FALSE, include=TRUE}
+# import the data into R after inspecting the data in DBeaver
+gapminder <- dbReadTable(con, "gapminder")
+dengue <- dbReadTable(con, "dengue_tidy")
+flu <- dbReadTable(con, "flu_tidy")
+```
+
+## data visualization 
+
+The data will now be visualized to check if the flu or dengue fever is more prevalent in certain areas.
+
+The data from the flu dataset is shown in figure \@ref(fig:graph1)
+
+The data from the dengue  dataset is shown in figure \@ref(fig:graph2)
+
+```{r graph1, message=FALSE, warning=FALSE, echo=FALSE, fig.cap= "first graph from flu dataset, sorted by country"}
+#clean variables names
+flu_tidy <- janitor::clean_names(flu_tidy)
+
+flu_1 <- flu_tidy %>% group_by(year) %>% na.omit() %>% 
+  ggplot(aes(x = year,
+             y = flu_cases,
+             fill = year)) +
+  geom_col() +
+  labs(title = "Evaluating the number of flu cases",
+       subtitle = "Have flu cases risen over the years?",
+       x = "Year",
+       y = "Number of flu cases",
+       caption = "Data source: Course instructors") 
+
+
+## Check per country
+flu_1 + facet_wrap(~country)
+```
+
+```{r graph2, message=FALSE, warning=FALSE, echo=FALSE, fig.cap= "first graph from dengue dataset, sorted by country"}
+#clean variables names
+dengue_tidy <- janitor::clean_names(dengue_tidy)
+
+dengue_1 <- dengue_tidy %>% group_by(year) %>% na.omit() %>% 
+  ggplot(aes(x = year,
+             y = dengue_cases,
+             fill = year)) +
+  geom_col() +
+  labs(title = "Evaluating the number of flu cases",
+       subtitle = "Have flu cases risen over the years?",
+       x = "Year",
+       y = "Number of flu cases",
+       caption = "Data source: Course instructors")
+
+## let's see the difference between countries
+dengue_1 + facet_grid(~country)
+
+```
+
+## Conclusions on the flu dataset
+
+When considering the number of **flu** cases globally as shown in figure \@ref(fig:graph1), it becomes visible that the highest occurrence of the flu is in Spain, followed by Canada and the United States. The lowest flu occurrences on the other hand are found in Sweden, followed by Chile and New Zealand.
+The reason for this is partciular spread of flu cases is unknown. To establish significance it's possible to still run additional statistical testing, and to possibly research more metadata. 
+
+## Conclusions on the dengue dataset
+When looking at figure \@ref(fig:graph2), it's visible that the highest number of **dengue** cases are seen in Venezuele, followed by Indonesia and Brazil. Dengue fever develops after infection with the Flaviviridae virus carried by mosquitoes. These mosquitoes are more prevalent in countries with warmer climates, which might explain the spread of occurrences that is vissible within the graph.
+
+## joining graphs 
+To be able to better compare the two occurances of flu and dengue fever, the 2 plots will be joined together as is shown in figure \@ref(fig:graph3)
+
+```{r join, message=FALSE, warning=FALSE, echo=FALSE}
+flu_dengue <- full_join(flu_tidy, 
+                        dengue_tidy, 
+                        by = c("country", "year"), 
+                        suffix = c("_flu", "_dengue"))
+
+## let's also join the data from the gapminder dataset with the flu and dengue dataset
+gapminder_flu_dengue <- inner_join(flu_dengue, 
+                                   gapminder, 
+                                   by = c("country", 
+                                          "year"))
+
+```
+
+
+
+```{r Visualize the cases of flu per country, message=FALSE, warning=FALSE, echo=FALSE}
+# plot occurrences of flu and dengue per region
+flu_country <- gapminder_flu_dengue %>% 
+              ggplot() + 
+              geom_col(aes(x = country, 
+                           y = flu_cases,
+                           fill = country)) +
+  theme_minimal()  +
+  #turn the x axis labels by a 90 degree angle
+  theme(axis.text.x = element_text(angle = 90, 
+                                   hjust = 1),
+        #legend is unnecessary
+        legend.position = "none"
+        ) + 
+  #Explain the graph
+  labs(title = "Flu cases per country", 
+       x = "",
+       y = "Flu cases")
+
+```
+
+
+```{r Visualize the cases of dengue fever per country, message=FALSE, warning=FALSE, echo=FALSE}
+dengue_country <- gapminder_flu_dengue %>% 
+                  ggplot() + 
+                  geom_col(aes(x = country, 
+                               y = dengue_cases,
+                               fill = country)) +
+                  theme_bw() +
+  
+                  #turn the x axis label 90 degrees
+                  theme(axis.text.x = element_text(angle = 90, 
+                                     hjust = 1),
+                        legend.position = "none") + 
+  
+                  #explain the graph
+                  labs(title = "Cases of Dengue Fever per country", 
+                       x = "",
+                       y = "Cases of Dengue Fever")
+```
+
+```{r graph3, message=FALSE, warning=FALSE, full.width=TRUE, echo=FALSE, fig.cap="flu and dengue fever graphs joined together"}
+grid.arrange(flu_country, dengue_country, nrow = 1)
+```
+
+
+## Conclusions after joining
+Joining the dataset provides us with a singular object that contains data on all three diseases. This helps put things in perspective, hwoever in figure \@ref(fig:graph1), \@ref(fig:graph2) and \@ref(fig:graph3), the conclusions previously drawn remains the same.

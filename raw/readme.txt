@@ -1,0 +1,1 @@
+in this folder, all raw data-files are stored. Currently, there are no old versions, so therefor al versions within this raw folder are the most recent version. The files are ordered with a number at the start, which links them to their respective RMD file within the home folder. 

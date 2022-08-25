@@ -21,12 +21,7 @@ datatable(read_excel(here("raw/table_assignment1.2.xlsx")))
 ```
 
 ## paper1
-
-The following article will be reviewed: 
-S. Ahmed, et all. (2-12-2020), A five-day course of ivermectin for the treatment of COVID-19 may reduce the duration of illness, read at 30-04-2022 from: 
-https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7709596/
-
-
+The following article will be reviewed: @ahmedFivedayCourseIvermectin2021
 
 this study involved 72 patients from Dhaka, Bangladesh (criteria were age 18–65 years;admitted to hospital within the last 7 days; presence of a fever (≥37.5 °C), cough, and/or sore throat; diagnosed positive for SARS-CoV-2)
 
@@ -67,7 +62,7 @@ in conclusion: this paper has properly described their findings, sources and con
 
 ## paper2 
 
-the second article that will be reviewed is: 
+the second article that will be reviewed is: @harveyWhoDeliversVotes2022
 
 multiparty elections provide a variety of benefits for regime survival. Specifically,  the introduction of local elections in otherwise closed regimes has been shown to generate improvements in government legitimacy and performance. However, some non-democratic governments do not hold local executive elections, with the hopes of increasing control over local political resources. 
 

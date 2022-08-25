@@ -1,0 +1,1 @@
+in this folder, all HTML files of my r.markdown files are stored. The HTML files are stored and ordered in the same order as the chapters in my finished bookdown product. 

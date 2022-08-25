@@ -1,0 +1,1 @@
+this folder contains the R script which new users can run to install all required packages and to set up their r studio, to run my analysis. 

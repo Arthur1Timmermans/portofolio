@@ -1,0 +1,1 @@
+this folder containts all images which I rendered and used throughout the project 

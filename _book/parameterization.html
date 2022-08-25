@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 project liquid biopsies | portfolio Arthur Timmermans</title>
-  <meta name="description" content="6 project liquid biopsies | portfolio Arthur Timmermans" />
+  <title>8 parameterization | portfolio Arthur Timmermans</title>
+  <meta name="description" content="8 parameterization | portfolio Arthur Timmermans" />
   <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 project liquid biopsies | portfolio Arthur Timmermans" />
+  <meta property="og:title" content="8 parameterization | portfolio Arthur Timmermans" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 project liquid biopsies | portfolio Arthur Timmermans" />
+  <meta name="twitter:title" content="8 parameterization | portfolio Arthur Timmermans" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="free-studying-period.html"/>
-<link rel="next" href="structured-query-language.html"/>
+<link rel="prev" href="structured-query-language.html"/>
+<link rel="next" href="refrences-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -130,6 +130,8 @@ div.csl-indent {
 <li class="chapter" data-level="6.3" data-path="project-liquid-biopsies.html"><a href="project-liquid-biopsies.html#refrences"><i class="fa fa-check"></i><b>6.3</b> refrences</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="structured-query-language.html"><a href="structured-query-language.html"><i class="fa fa-check"></i><b>7</b> Structured Query Language</a></li>
+<li class="chapter" data-level="8" data-path="parameterization.html"><a href="parameterization.html"><i class="fa fa-check"></i><b>8</b> parameterization</a></li>
+<li class="chapter" data-level="9" data-path="refrences-1.html"><a href="refrences-1.html"><i class="fa fa-check"></i><b>9</b> refrences</a></li>
 </ul>
 
       </nav>
@@ -147,33 +149,37 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="project-liquid-biopsies" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">6</span> project liquid biopsies<a href="project-liquid-biopsies.html#project-liquid-biopsies" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Between May and June, 2022, I wrote R-code for the Princess Máxima Center within a project called “liquid biopsies”. I worked on this project together with 2 other students: Pedro de Bos and Thijmen van Brenk. On this page, I will provide a short introduction with regards to why the research was important. I will also give a short summary of the r-code we eventually wrote.</p>
-<div id="background" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> background<a href="project-liquid-biopsies.html#background" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Neuroblastoma is an embryonic malignancy that affects normal development of the adrenal medulla and para vertebral sympathetic ganglia in early childhood. Despite extensive studies to the molecular characteristics of human neuroblastomas, the initiation mechanisms and even its origin are still largly unknown. <span class="citation">Maris (2010)</span></p>
-<p>However, neuroblastoma is the most common extracranial solid tumor in children. Further more, it has high recurrence rates and low survival rates. Therefore, early diagnosis, treatment response evaluation, and recurrence monitoring are of great significance for NB patients. <span class="citation"><span>“<span>液体活检在神经母细胞瘤中的临床研究进展</span>”</span> (2022)</span></p>
-<p>A further complication is that neuroblastoma exhibits genetic, morphological and clinical heterogeneity. This in term limits the efficacy of existing treatment. Therefor, Gaining detailed knowledge of the molecular signatures and genetic variations involved in the pathogenesis of neuroblastoma is necessary to develop safer and more effective treatments for neuroblastomas. <span class="citation">Zafar et al. (2021)</span></p>
-<p>The wide genetic variation, also means that several different kinds of cell progresses can be effected. These include changes in the regulatory role in differentiation, apoptosis, cell proliferation, tumourigenesis, angiogenesis or metastasis of neuroblastoma <span class="citation">Aygun (2018)</span></p>
-<p>One of the isseus with neuroblastoma is that to properly monitor the progression of the tumor, samples need to be taken often. And tumor biopsies can be very invasive. A possible solution, lays with liquid biopsies. Liquid biopsies, is a method of obtaining genomic material of tumors from blood samples. tumors secret DNA to the blood, which is called cell free DNA. This cell free DNA can be amplified, sequences and analysed. A study has shown that the proportion of tumor-derived DNA in cell free DNA was 42.5% (16.9%-55.9% across all samples). This could potentially mean sufficient sensitivity of liquid biopsy for neuroblastoma.@shiraiQuantitativeAssessmentCopy2022</p>
+<div id="parameterization" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> parameterization<a href="parameterization.html#parameterization" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>parameterization is a good way to make code more robust and flexible. Furthermore, it also makes it easier for other people to change each other their codes without the risk of adding inconsistencies. In this chapter, I will make a paramererized report of the European Center for Disease Control (ECDC) COVID-19 case data. This data is available at <a href="https://www.ecdc.europa.eu/en/publications-data/data-daily-new-cases-covid-19-eueea-country">the ECDC website</a>. The aim of this analysis is to create 3 graphs, in which the amount of infections (new cases) and deaths will be mapped by the following params:</p>
+<ul>
+<li><p>The country to which the report applies to</p></li>
+<li><p>The year that the reported data applies to</p></li>
+<li><p>The period in months that the report applies to</p></li>
+</ul>
+<p>At first, I mapped the new cases, which can be seen in plot 1. In this plot, it is visible that by far the largest peak in covid19 cases is measured between October and December in 2021. This would correspond with the flu/cold season.</p>
+<div class="figure">
+<img src="images/09_plot1.png" alt="" />
+<p class="caption">plot1, covid 19 cases in Austria in 2021</p>
 </div>
-<div id="project" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> project<a href="project-liquid-biopsies.html#project" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>At this moment, data sets of DNA from tumor biopsies and liquid biopsies of patients with neuoblastoma are compared manual at the Princes Maxima Center. This is very time consuming, and when working with time pressure from an increasing number of patients, can lead to human error. Therefor, using shinny, we created a web database which allows for easy comparing and visualization of sequencing results.</p>
+<p>up next, I mapped the deaths caused by covid19. The results of this, can be seen in plot 2. Within this plot, a line somewhat similar to the covid19 cases (plot 1) can be seen. To further visualize this, plot 1 and 2 are also combined using the plot_grind function. This created plot 3, in which a clear connection between the 2 plots can be seen.</p>
+<div class="figure">
+<img src="images/09_plot2.png" alt="" />
+<p class="caption">plot2, covid19 deaths in Austria in 2021</p>
 </div>
-<div id="refrences" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> refrences<a href="project-liquid-biopsies.html#refrences" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure">
+<img src="images/09_plot3.png" alt="" />
+<p class="caption">plot3, covid19 cases and deaths in Austria in 2021</p>
+</div>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="free-studying-period.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="structured-query-language.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="structured-query-language.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="refrences-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
