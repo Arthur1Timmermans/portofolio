@@ -18,15 +18,16 @@ To generally widen my view, I decided to learn python. This would be useful to m
 
 When trying to learn a new skill, a proper plan makes the learning process more structured and helps to see if your goals are achieved. the overal planning of this project is: 
 
-- describing my learning process on this page (2 hour)
+- describing my learning process on this page (2 hours)
 
-- get to know the basic code structure of Python (1.5 hour)
+- get to know the basic code structure of Python (2 hours)
+
+- machine learning in python 
 
 - getting familiar with other code editors (4 hours): 
   - pychar 
   - Jupyter Notebook
   - Visual Studio Code
-  -
   
   https://www.hostinger.com/tutorials/best-code-editors
 
@@ -51,16 +52,38 @@ to get a general idea of how python works and what all possibilities are, I got 
 - The range() Function 
 - Tuples
 
-This helped me to better understand the basic structure of python. In this learning process I noticed that it was relatively easy to adept to Python, because there are many similarities between Python and R. Therefor, I picked python up rather easily, and after watching a video of an hour felt ready to move on to more advanced coding. 
+This helped me to better understand the basic structure of python. In this learning process I noticed that it was relatively easy to adept to Python, because there are many similarities between Python and R. Therefor, I picked python up rather easily. After watching the mentioned above video, some googling, and playing around with some data I felt ready to move on to more advances programming. 
+
+## machine learning
+
+As I was learning the basics of python, I got more interested in machine learning and the possibilities that machine learning brings with it. Therefor, I watched [this youtube video](https://www.youtube.com/watch?v=7eh4d6sabA0&t=1586s) to learn more about machine learning (rather interesting I learn how to make a machine learn, ain't it?). 
+
+I got familiar with some of the most famous python machine learning libraries, including: 
+- numpy 
+- pandas 
+- matplotlib
+- scikit-learning 
+
+I got started with machine learning in pycharm, as this also the environment where I got started with learning python. However, the constant data inspection was rather messy and difficult in the terminal. Therefor, I rather quickly switched to using Jupyter notebook, as frequent data inspection is far easier in this program. The first form of machine learning I practiced with, was with a decision tree algorythm. This is a algorythm is rahter easy to understand and use. The results of this are shown in the jupyter notebook file located here. 
+
+### neuro networks (1 hour)
+A rather famous kind of machine learning that I've heard a lot about are neuro networks. I did not understand how they worked, and therefor, I wathced these videos: 
+- [what is a neuronetwork?](https://www.youtube.com/watch?v=aircAruvnKk)
+- [how neuronetworks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w)
+- [what does backpropagation do?](https://www.youtube.com/watch?v=Ilg3gGewQ5U)
+- [Backpropagation calculus](https://www.youtube.com/watch?v=tIeHLnjs5U8)
 
 ## code editors 
 
-The last half Year, I have used Rstudio, which has worked well for me so far. However, while learning python, I have seen people using many different code editors. And to further widen my few on what is all possible, I decided to try a few other code editors myself. In general, I noticed that there are subtle differences between code editors and that different code editors are more suited for different jobs. However, that switching between editors is not very difficult. I did notice that switching between editors got me a bid confused with which shortcuts worked in which programs. Therefor, I decided to not switch to much between code editors anymore and that it is more useful to be good/fast  with 1 than to be able to use all of them poorly. Thus, for the time being, I stick with R studio. Down bellow I describe which code editors I used and what my overal experience with them was. 
+The last half Year, I have used Rstudio, which has worked well for me so far. However, while learning python, I have seen people using many different code editors. And to further widen my few on what is all possible, I decided to try a few other code editors myself. In general, I noticed that there are subtle differences between code editors and that different code editors are more suited for different jobs. However, that switching between editors is not very difficult. I did notice that switching between editors got me a bid confused with which shortcuts worked in which programs. Therefor, I decided to not switch to much between code editors anymore and that it is more useful to be good/fast  with 1 than to be able to use all of them poorly. Thus, for the time being, I stick with R studio. Down bellow I describe which code editors I used and what my overall experience with them was. 
 
 ### pycharm 
 
-The first code editor I used after installing python was [PyCharm](https://www.jetbrains.com/pycharm/download/?source=google&medium=cpc&campaign=14124132615&term=pycharm&gclid=Cj0KCQjworiXBhDJARIsAMuzAuyFYmcw1j7wk22Vc3ccWgCg3uEsjcXW6GtrGBkBHeJpcqd89tuKHOsaAjQpEALw_wcB#section=windows). 
+I got started with learning python in [PyCharm](https://www.jetbrains.com/pycharm/download/?source=google&medium=cpc&campaign=14124132615&term=pycharm&gclid=Cj0KCQjworiXBhDJARIsAMuzAuyFYmcw1j7wk22Vc3ccWgCg3uEsjcXW6GtrGBkBHeJpcqd89tuKHOsaAjQpEALw_wcB#section=windows). This is an Integrated Development Environment (IDE). My overall experience with Pycharm was very positive. In Pycharm it is easy to create and manage projects and the build in vision control mechanisms work well. It is also possible to integrate git into pycharm. Further more The code editing is easy with good auto-indentation. The ease of use helped me to get comfortable with Python quickly. There are also many more advances options, and many customization options with packages, which makes this a great code editor for both new and experienced data annalists. A downside of Pycharm is that that the  professional version with all features needs to be purchased. This makes this program less suitable within the idea of "reproducible research". Therefor, I decided to look for another (free) code editor or IDE.  
 
 ### visual studio code 
 
-soon after getting started with watching python tutorials, I saw people using Visual Studio Code (VSC). This is an open-source text editor, and by far the most used code editor. 
+soon after getting started with watching python tutorials, I saw people using Visual Studio Code (VSC). This is an open-source text editor, and by far the most used code editor. Because this code editor is open-source, it is more suitable for reproducible research. There are also many packages available due to the wide spread use of VSC. I noticed that VSC is a more light weight code editor, that is easier on the computer but offers less processing power in return. The overall inter phase was easy to work with and offered a lot of customization. There is also a git plug in available, to add version control. This made VSC a pleasant code editor to work with and a great alternative to rstudio. 
+
+## conclusion 
+

@@ -8,12 +8,12 @@ library(dplyr)
 library(cowplot)
 ```
 
-```{r loading data, echo=FALSE, warning = FALSE, message = FALSE}
+```{r 09 loading data, echo=FALSE, warning = FALSE, message = FALSE}
 #loading in data into object 
 covidT9 <- read.csv(here::here("raw", "data_covid19_cases.csv"))
 ```
 
-```{r setting params, echo=FALSE, warning=FALSE, message=FALSE}
+```{r 09 setting params, echo=FALSE, warning=FALSE, message=FALSE}
 #divining the params 
 covidT9 <- covidT9 %>% 
   dplyr::filter(countriesAndTerritories == params$country, 
@@ -34,7 +34,7 @@ parameterization is a good way to make code more robust and flexible. Furthermor
 
 At first, I mapped the new cases, which can be seen in plot 1. In this plot, it is visible that by far the largest peak in covid19 cases is measured between October and December in 2021. This would correspond with the flu/cold season.
 
-```{r cases plot, eval=FALSE, include=TRUE, warning=FALSE, message=FALSE}
+```{r 09 cases plot, eval=FALSE, include=TRUE, warning=FALSE, message=FALSE}
 # plot the number of reported COVID-19 cases in the year 2020
 cases <- covidT9 %>%
   ggplot(aes(x = dateRep, y = cases)) +
@@ -50,7 +50,7 @@ cases
 
 up next, I mapped the deaths caused by covid19. The results of this, can be seen in plot 2. Within this plot, a line somewhat similar to the covid19 cases (plot 1) can be seen. To further visualize this, plot 1 and 2 are also combined using the plot_grind function. This created plot 3, in which a clear connection between the 2 plots can be seen. 
 
-```{r deaths, message=FALSE, warning=FALSE, eval=FALSE, include=TRUE}
+```{r 09 deaths, message=FALSE, warning=FALSE, eval=FALSE, include=TRUE}
 # plot the number of deaths by COVID-19 in the year 2020
 deaths <- covidT9 %>%
   ggplot(aes(x = dateRep, y = deaths)) +
@@ -63,7 +63,7 @@ deaths <- covidT9 %>%
 deaths
 ```
 ![plot2, covid19 deaths in Austria in 2021](images/09_plot2.png)
-```{r combine, eval=FALSE, include=TRUE, warning=FALSE, message=FALSE}
+```{r 09 combine, eval=FALSE, include=TRUE, warning=FALSE, message=FALSE}
 # combine the 2 previously made plots in 1 image with the plot grind function 
 plot_grid(cases, deaths,
           label_size = 8)

@@ -10,14 +10,14 @@ library(fs)
 library(DT)
 ```
 
-For both readability and data analysis is it important to keep data tidy. Especially when loading data in, it is important to check if the format is tidy for the data analysis that will be conducted. In this chapter, I will show an example of how I loaded in an excel document, selected the needed data and made the used tables tidy. The excel document contains data from an experiment conducted by  by J. Louter (INT/ILC).In this experiment, the influence of 3 substances on the growth of C. Elegans is tested. Further more, there is a positive and negative control. The positive control for this experiments is incubated in ethanol, the negative control for this experiment is incubated in s-medium. The raw data is shown in figure \@ref(fig:table1)
+For both readability and data analysis is it important to keep data tidy. Especially when loading data in, it is important to check if the format is tidy for the data analysis that will be conducted. In this chapter, I will show an example of how I loaded in an excel document, selected the needed data and made the used tables tidy. The excel document contains data from an experiment conducted by  by J. Louter (INT/ILC).In this experiment, the influence of 3 substances on the growth of C. Elegans is tested. Further more, there is a positive and negative control. The positive control for this experiments is incubated in ethanol, the negative control for this experiment is incubated in s-medium. The raw data is shown in figure \@ref(fig:01table1)
 
-```{r table1, fig.cap= "table with raw data"}
+```{r 01table1, fig.cap= "table with raw data"}
 #showing the raw C.elegans data in a datatable
 datatable(read_excel(here::here("raw/CE.LIQ.FLOW.062_Tidydata.xlsx")), options = list(pageLength = 5)) 
 ```
 
-based upon the names and values, as shown in figure \@ref(fig:table1), the expected data-types are: 
+based upon the names and values, as shown in figure \@ref(fig:01table1), the expected data-types are: 
 
 - Raw-data: numeric
 
@@ -25,16 +25,16 @@ based upon the names and values, as shown in figure \@ref(fig:table1), the expec
 
 - compConcentration: numeric 
 
-In figure \@ref(fig:table1), Only the raw-data is numeric, both the compNames and compConcentrations are character strings. This would suggest that something went wrong during importation of the samples. This is also seen in figure \@ref(fig:graph1), where the data was not sorted based upon the actual size, because it is being read as character and therefor is literally sorted based upon the characters.
+In figure \@ref(fig:01table1), Only the raw-data is numeric, both the compNames and compConcentrations are character strings. This would suggest that something went wrong during importation of the samples. This is also seen in figure \@ref(fig:01graph1), where the data was not sorted based upon the actual size, because it is being read as character and therefor is literally sorted based upon the characters.
 
-```{r graph1, fig.cap= "graph without changing data type"}
+```{r 01graph1, fig.cap= "graph without changing data type"}
 #loading the data into a object 
 table1D <- read_excel(here("raw/CE.LIQ.FLOW.062_Tidydata.xlsx"))
 
 #visualising the (not edited) data in a plot
 ggplot(table1D, aes(x=compConcentration, 
                     y=RawData, 
-                    color=compName, 
+                    color=compName,
                     shape=expType)) +
   geom_point() + 
   theme(axis.text.x = element_text(angle = 90)) +
@@ -44,9 +44,9 @@ ggplot(table1D, aes(x=compConcentration,
 ```
 
  
-When correcting the data type of the compound concentration back to numeric, the graph in figure \@ref(fig:graph2) can be created. 
+When correcting the data type of the compound concentration back to numeric, the graph in figure \@ref(fig:01graph2) can be created. 
 
-```{r graph2, fig.cap= "graph with changing data type"}
+```{r 01graph2, fig.cap= "graph with changing data type"}
 #changing the data type of the compound concentration to nummeric 
 table1D$compConcentration <- as.numeric(table1D$compConcentration)
 
@@ -54,7 +54,7 @@ table1D$compConcentration <- as.numeric(table1D$compConcentration)
 ggplot(table1D, aes(x=log10(compConcentration), 
                     y=RawData, 
                     color=expType)) +
-  geom_point() + 
+  geom_point(na.rm = TRUE) + 
   theme(axis.text.x = element_text(angle = 90)) + 
   geom_jitter(position = position_jitter(0.2)) + 
   labs(title = "effect of compound concentration on amount of living C. elegans", 
@@ -62,9 +62,9 @@ ggplot(table1D, aes(x=log10(compConcentration),
        x = "concentration of compound")
 ```
 
-In this graph, the data is still rather spread out. This can be corrected for by using the negative control as a scale of 1. This brings the data in the plot relatively closer together, making it easier to compare data of different groups. The graph would than look like shown in figure \@ref(fig:graph3) 
+In this graph, the data is still rather spread out. This can be corrected for by using the negative control as a scale of 1. This brings the data in the plot relatively closer together, making it easier to compare data of different groups. The graph would than look like shown in figure \@ref(fig:01graph3) 
 
-```{r graph3, fig.cap= "graph with normalized scale"}
+```{r 01graph3, fig.cap= "graph with normalized scale"}
 #making new table with only experiment type, raw data and compound concentration
 table1clean <- data.frame(table1D$expType, table1D$RawData, table1D$compConcentration)
 
@@ -79,7 +79,7 @@ table1clean$normalised <- table1clean$table1D.RawData/average #normalising with 
 ggplot(table1clean, aes(x=log10(as.numeric(table1D.compConcentration)), 
                         y=normalised, 
                         color=table1D.expType)) +
-  geom_point() + 
+  geom_point(na.rm = TRUE) + 
   theme(axis.text.x = element_text(angle = 90)) + 
   geom_jitter(position = position_jitter(0.2)) + 
   labs(title = "effect of compound concentration on amount of living C. elegans with normalised x axis", 

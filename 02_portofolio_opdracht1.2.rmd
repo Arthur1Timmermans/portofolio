@@ -14,9 +14,9 @@ Making sure that research is reproducible, is an important measure to avoid frau
 
 The first paper will be a more 'traditional' research paper, and is found on [pubmed](https://pubmed.ncbi.nlm.nih.gov/). This paper will be reviewed based upon following  ‘Repita’ criteria, as shown in figure \@ref(fig:table2). 
 
-The second paper, will be a r code paper, and is found on the [OSF website](https://osf.io/). The review of this paper will focus more heavily on the readability and reproducibility of the r code and will be less centered around the criteria shown in figure \@ref(fig:table2)
+The second paper, will be a r code paper, and is found on the [OSF website](https://osf.io/). The review of this paper will focus more heavily on the readability and reproducibility of the r code and will be less centered around the criteria shown in figure \@ref(fig:02table1)
 
-```{r table2, fig.cap="table with repita criteria for reviewing articles"}
+```{r 02table1, fig.cap="table with repita criteria for reviewing articles"}
 datatable(read_excel(here("raw/table_assignment1.2.xlsx")))
 ```
 
@@ -84,9 +84,9 @@ After downloading and running the code, I hardly had to make any changes at all 
 - installing the packages I didnt have yet with the install.package() function. 
 - specify where I stored the data files on my computer
 
-With the provided code, I was also easily able to recreate the images that were in the original paper. An example of this, is shown in figure \@ref(fig:graph3). This was figure2 in the original paper. In this figure, it is visible that putin has a far higher manipulation than the other politisians ands that appointed exec party also has sightly higher manipulation. Because it was so easy to run the code, and recreate the same figures, the reproducibility of this code gets a 5 out of 5. The used code is further shown down bellow figure \@ref(fig:graph3). 
+With the provided code, I was also easily able to recreate the images that were in the original paper. An example of this, is shown in figure \@ref(fig:02graph1). This was figure2 in the original paper. In this figure, it is visible that putin has a far higher manipulation than the other politisians ands that appointed exec party also has sightly higher manipulation. Because it was so easy to run the code, and recreate the same figures, the reproducibility of this code gets a 5 out of 5. The used code is further shown down bellow figure \@ref(fig:02graph1). 
 
-```{r graph3, fig.cap="recreated graph from reviewed paper"}
+```{r 02graph1, fig.cap="recreated graph from reviewed paper"}
 knitr::include_graphics("images/coefplot_manipution_multiple.png")
 ```
 
