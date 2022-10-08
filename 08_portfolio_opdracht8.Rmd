@@ -1,3 +1,3 @@
 # rpackages 
 
-a rather big part of R, are the R packages that are available.These packages can add in many new features and customization. Further more, R packages make sharing code a lot easier. This supports the movement towards open source code and can save up a lot of time for everyone. To demonstrate I know how to build an R package, I created my own costum package which adds a blacn and white theme to all graphs and plots. My R package can be found at: 
+a rather big part of R, are the R packages that are available.These packages can add in many new features and customization. Further more, R packages make sharing code a lot easier. This supports the movement towards open source code and can save up a lot of time for everyone. To demonstrate I know how to build an R package, I created my own costum package which adds a blacn and white theme to all graphs and plots. My R package can be found at: https://github.com/Arthur1Timmermans/fiftyshadesofgrey

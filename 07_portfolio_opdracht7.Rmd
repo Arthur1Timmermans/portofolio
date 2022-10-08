@@ -185,7 +185,7 @@ The data from the flu dataset is shown in figure \@ref(fig:07graph1)
 
 The data from the dengue  dataset is shown in figure \@ref(fig:07graph2)
 
-```{r 07graph4, message=FALSE, warning=FALSE, echo=FALSE, fig.cap= "first graph from flu dataset, sorted by country"}
+```{r 07graph1, message=FALSE, warning=FALSE, echo=FALSE, fig.cap= "first graph from flu dataset, sorted by country"}
 #clean variables names
 flu_tidy <- janitor::clean_names(flu_tidy)
 
@@ -205,7 +205,7 @@ flu_1 <- flu_tidy %>% group_by(year) %>% na.omit() %>%
 flu_1 + facet_wrap(~country)
 ```
 
-```{r 07graph5, message=FALSE, warning=FALSE, echo=FALSE, fig.cap= "first graph from dengue dataset, sorted by country"}
+```{r 07graph2, message=FALSE, warning=FALSE, echo=FALSE, fig.cap= "first graph from dengue dataset, sorted by country"}
 #clean variables names
 dengue_tidy <- janitor::clean_names(dengue_tidy)
 
@@ -293,7 +293,7 @@ dengue_country <- gapminder_flu_dengue %>%
                        y = "Cases of Dengue Fever")
 ```
 
-```{r 07graph6, message=FALSE, warning=FALSE, full.width=TRUE, echo=FALSE, fig.cap="flu and dengue fever graphs joined together"}
+```{r 07graph3, message=FALSE, warning=FALSE, full.width=TRUE, echo=FALSE, fig.cap="flu and dengue fever graphs joined together"}
 grid.arrange(flu_country, dengue_country, nrow = 1)
 ```
 

@@ -17,3 +17,10 @@ params:
 
 # prerequisites 
 Welcome to my personal portfolio. On this website I will give more inside into what my skills are and  which projects I work(ed) on. I am a life science student at the Hoge School Utrecht (HU), and will graduate in 2023 as a lab technician. 
+
+Within the science field, not just for data analysis's, but also for science in a whole, I strongly believe in the movement towards open science. In my personal opinion, being open about our research and sharing our knowledge and experience will help to reunite people. And when we work together, feats that seem impossible right now suddenly become achievable. While making this website, I worked in a github repository in RMD files. To see the underlying code of my website, you can visit my github [reposetory](https://github.com/Arthur1Timmermans/portofolio.git). Make sure to read the "readme" on the home page for further instructions on how to use my github repository. 
+
+For those who are interested in getting more underlying information about me, here is my resume: 
+
+![resume](images/cv.png)
+

@@ -7,9 +7,9 @@ fig:02graph1
 fig:07table1
 fig:07table2
 fig:07table3
-fig:07graph4
-fig:07graph5
-fig:07graph6
+fig:07graph1
+fig:07graph2
+fig:07graph3
 prerequisites
 loading-sorting-and-visualising-data
 analysing-the-data

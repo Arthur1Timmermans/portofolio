@@ -12,7 +12,7 @@ library(DT)
 
 Making sure that research is reproducible, is an important measure to avoid fraud and generating results based on the general interest of a person or company. A big step towards making research reproducible is the movement towards open science, where the methods of both research and the data analysis are shared. In my opinion, open research helps to speed up progression and holds potential to decrease fraud. Therefor, I support the movement towards open science. In this chapter, I will review 2 papers, to show that I am able to determine how open the researchers are about their methods for both the laboratory work and the data analysis. 
 
-The first paper will be a more 'traditional' research paper, and is found on [pubmed](https://pubmed.ncbi.nlm.nih.gov/). This paper will be reviewed based upon following  ‘Repita’ criteria, as shown in figure \@ref(fig:table2). 
+The first paper will be a more 'traditional' research paper, and is found on [pubmed](https://pubmed.ncbi.nlm.nih.gov/). This paper will be reviewed based upon following  ‘Repita’ criteria, as shown in figure \@ref(fig:02table1). 
 
 The second paper, will be a r code paper, and is found on the [OSF website](https://osf.io/). The review of this paper will focus more heavily on the readability and reproducibility of the r code and will be less centered around the criteria shown in figure \@ref(fig:02table1)
 
