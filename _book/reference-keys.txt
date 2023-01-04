@@ -38,7 +38,7 @@ free-studying-period
 planning-and-organisation-to-learn-python
 the-basics
 machine-learning
-neuro-networks-1-hour
+neuro-networks
 code-editors
 pycharm
 visual-studio-code

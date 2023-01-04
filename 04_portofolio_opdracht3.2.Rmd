@@ -52,7 +52,15 @@ to get a general idea of how python works and what all possibilities are, I got 
 - The range() Function 
 - Tuples
 
-This helped me to better understand the basic structure of python. In this learning process I noticed that it was relatively easy to adept to Python, because there are many similarities between Python and R. Therefor, I picked python up rather easily. After watching the mentioned above video, some googling, and playing around with some data I felt ready to move on to more advances programming. 
+This helped me to better understand the basic structure of python. In this learning process I noticed that it was relatively easy to adept to Python, because there are many similarities between Python and R. Therefor, I picked python up rather easily. After watching the mentioned above video, some googling, and playing around with some data I felt ready to start writing my own scripts. I got started with making some basic python scripts, like: 
+
+- a basic calculator 
+- rock-paper-scissors game 
+- password generator 
+- a timer which can remind me to get up while coding 
+
+all my python scripts can be found in my personal portfolio, which was linked in the introduction. 
+
 
 ## machine learning
 
@@ -65,7 +73,7 @@ I got familiar with some of the most famous python machine learning libraries, i
 - matplotlib
 - scikit-learning 
 
-I got started with machine learning in pycharm, as this also the environment where I got started with learning python. However, the constant data inspection was rather messy and difficult in the terminal. Therefor, I rather quickly switched to using Jupyter notebook, as frequent data inspection is far easier in this program. The first form of machine learning I practiced with, was with a decision tree algorithm. This is an algorithm that is rather easy to understand and use. I used a decision tree algorithm to determine which drug patients received based on their Age, sex, blood pressure, Cholesterol, and Na_to_K. This is a rather simple method, that falls apart when using bigger more complex datasets. However, it is still sufficient to get some basic understandings.  The results of this are shown in the jupyter notebook file located here. 
+I got started with machine learning in pycharm, as this also the environment where I got started with learning python. However, the constant data inspection was rather messy and difficult in the terminal. Therefor, I rather quickly switched to using Jupyter notebook, as frequent data inspection is far easier in this program. The first form of machine learning I practiced with, was with a decision tree algorithm. This is an algorithm that is rather easy to understand and use. I used a decision tree algorithm to determine which drug patients received based on their Age, sex, blood pressure, Cholesterol, and Na_to_K. This is a rather simple method, that falls apart when using bigger more complex datasets. However, it is still sufficient to get some basic understandings.  The results of this are shown in the jupyter notebook file located in my personal portfolio. 
 
 
 ### neuro networks
