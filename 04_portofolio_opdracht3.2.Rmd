@@ -1,35 +1,35 @@
 # free studying period
 
-I have taken a course data science during the minor of my study. One of our assignments was to set our own learning goals for skills we want to obtain in the future. During my minor, I spend about 30-40 hours on getting started with learning these new skills. The aim was to get started, and to lay a foundation on which I could build further after I graduated.  On this page, I will describe what I choose to do with this free learning period and how I spend my time on. 
+I have taken a course data science during the minor of my study. One of our assignments was to set our own learning goals for skills we want to obtain in the future. During my minor, I spend about 30-40 hours on getting started with learning these new skills. The aim was to get started, and to lay a foundation on which I could build further after I graduated.  On this page, I will describe what I choose to do with this free learning period and how I spend my time on it. 
 
 I got started by asking myself what I wanted to do and Where I wanted to be in ~2 years time. 
 
-It was during this time that I realized I still have multiple things I wanna learn and develop myself in. These include:
+It was during this time that I realized I still have multiple things I want to learn and develop myself in within the life science field. These include:
 
 - working in an ecological lab 
 - clinical lab work (like laboratory work in a hospital)
 - working in a project with organoids
 
-Because there are still many things that interest me, and I still have multiple jobs I would like to try, it was difficult for me to set my sites on a specific goal. Especially since I'm not certain if I still want to continue working in the field of bioinformatics in the future. Therefor, I decided to take a more general approach and get a wider few of what's all still possible for me  with bioinformatics. This would help me to more easily adept, and learn specific skills later when I've a more clear vision of what I want to do. 
+aside from these goals within the life science field, I also still had many personal goals. However, because these do not relate to this portfolio I did not add them here. But, it did rather quickly become clear to me that there is still a lot that I want to learn and do.This made it difficult for me to set my sites on a specific goal. Especially since I'm not certain if I still want to continue working in the field of bioinformatics and data science in the future. Therefor, I decided to take a more general approach and get a wider few of what's all still possible for me  with bioinformatics. This would help me to more easily adept, and learn specific skills later when I've a more clear vision of what I want to do. 
 
-To generally widen my view, I decided to learn python. This would be useful to more easily flow into jobs where python is a required programming language. Further more, python is a very useful language for software creation, which I would like to learn, to create my own software at some point in the future. This latter use is not necessarily needed for my job within the life sciences, but, certainly could be an useful skill to obtain nevertheless. 
+To generally widen my view, I decided to learn python. This would be useful to more easily flow into jobs where python is a required programming language. Further more, python is a very useful language for software creation, which I would like to learn, to create my own software at some point in the future. This latter use is not necessarily needed for my job within life sciences, but, certainly could be an useful skill to obtain nevertheless. 
 
 ## planning and organisation to learn python 
 
-When trying to learn a new skill, a proper plan makes the learning process more structured and helps to see if your goals are achieved. the overal planning of this project is: 
+When trying to learn a new skill, a proper plan makes the learning process more structured and helps to see if your goals are achieved. the overall planning of this project is: 
 
-- describing my learning process on this page (2 hours)
+- describing my learning process on this page and showing what I learned (5 hours)
 
-- get to know the basic code structure of Python (2 hours)
+- get to know the basic code structure of Python (10 hours)
 
-- machine learning in python 
+- machine learning in python (10 hours)
 
-- getting familiar with other code editors (4 hours): 
+- getting familiar with other code editors (5 hours): 
   - pychar 
   - Jupyter Notebook
   - Visual Studio Code
+  - obsidian 
   
-  https://www.hostinger.com/tutorials/best-code-editors
 
 
 ## the basics 
@@ -59,23 +59,28 @@ This helped me to better understand the basic structure of python. In this learn
 As I was learning the basics of python, I got more interested in machine learning and the possibilities that machine learning brings with it. Therefor, I watched [this youtube video](https://www.youtube.com/watch?v=7eh4d6sabA0&t=1586s) to learn more about machine learning (rather interesting I learn how to make a machine learn, ain't it?). 
 
 I got familiar with some of the most famous python machine learning libraries, including: 
+
 - numpy 
 - pandas 
 - matplotlib
 - scikit-learning 
 
-I got started with machine learning in pycharm, as this also the environment where I got started with learning python. However, the constant data inspection was rather messy and difficult in the terminal. Therefor, I rather quickly switched to using Jupyter notebook, as frequent data inspection is far easier in this program. The first form of machine learning I practiced with, was with a decision tree algorythm. This is a algorythm is rahter easy to understand and use. The results of this are shown in the jupyter notebook file located here. 
+I got started with machine learning in pycharm, as this also the environment where I got started with learning python. However, the constant data inspection was rather messy and difficult in the terminal. Therefor, I rather quickly switched to using Jupyter notebook, as frequent data inspection is far easier in this program. The first form of machine learning I practiced with, was with a decision tree algorithm. This is an algorithm that is rather easy to understand and use. I used a decision tree algorithm to determine which drug patients received based on their Age, sex, blood pressure, Cholesterol, and Na_to_K. This is a rather simple method, that falls apart when using bigger more complex datasets. However, it is still sufficient to get some basic understandings.  The results of this are shown in the jupyter notebook file located here. 
 
-### neuro networks (1 hour)
-A rather famous kind of machine learning that I've heard a lot about are neuro networks. I did not understand how they worked, and therefor, I wathced these videos: 
+
+### neuro networks
+A rather famous kind of machine learning that I've heard a lot about are neuro networks. I did not understand how they worked, and therefor, I watched these videos: 
+
 - [what is a neuronetwork?](https://www.youtube.com/watch?v=aircAruvnKk)
 - [how neuronetworks learn](https://www.youtube.com/watch?v=IHZwWFHWa-w)
 - [what does backpropagation do?](https://www.youtube.com/watch?v=Ilg3gGewQ5U)
 - [Backpropagation calculus](https://www.youtube.com/watch?v=tIeHLnjs5U8)
 
+In these videos, the creator really inspired me and suggested me to check out [this book](http://neuralnetworksanddeeplearning.com/) by Michael Nielsen introducing neural networks and deep learning. In this book, neuro networks get explained in more depth and an example with code is given. A neuro network was trained to recognize hand written digits with 96% accuracy.All code and data was open source and accessible from [this github page](https://github.com/mnielsen/neural-networks-and-deep-learning.git).I also tried to type along to recreate the network. However, for this I was to inexperienced and the network did not work. Therefor, I did not include that into this repository. 
+
 ## code editors 
 
-The last half Year, I have used Rstudio, which has worked well for me so far. However, while learning python, I have seen people using many different code editors. And to further widen my few on what is all possible, I decided to try a few other code editors myself. In general, I noticed that there are subtle differences between code editors and that different code editors are more suited for different jobs. However, that switching between editors is not very difficult. I did notice that switching between editors got me a bid confused with which shortcuts worked in which programs. Therefor, I decided to not switch to much between code editors anymore and that it is more useful to be good/fast  with 1 than to be able to use all of them poorly. Thus, for the time being, I stick with R studio. Down bellow I describe which code editors I used and what my overall experience with them was. 
+The last half Year, I have used Rstudio, which has worked well for me so far. However, while learning python, I have seen people using many different code editors. And to further widen my few on what is all possible, I decided to try a few other code editors myself. Down bellow I describe which code editors I used and what my overall experience with them was. 
 
 ### pycharm 
 
@@ -83,7 +88,17 @@ I got started with learning python in [PyCharm](https://www.jetbrains.com/pychar
 
 ### visual studio code 
 
-soon after getting started with watching python tutorials, I saw people using Visual Studio Code (VSC). This is an open-source text editor, and by far the most used code editor. Because this code editor is open-source, it is more suitable for reproducible research. There are also many packages available due to the wide spread use of VSC. I noticed that VSC is a more light weight code editor, that is easier on the computer but offers less processing power in return. The overall inter phase was easy to work with and offered a lot of customization. There is also a git plug in available, to add version control. This made VSC a pleasant code editor to work with and a great alternative to rstudio. 
+soon after getting started with watching python tutorials, I saw people using Visual Studio Code (VSC). This is an open-source text editor, and by far the most used code editor. Because this code editor is open-source, it is more suitable for reproducible research. There are also many packages available due to the wide spread use of VSC. I noticed that, compared to pycharm, VSC is a more light weight code editor, that is easier on the computer but offers less processing power in return. The overall inter phase was easy to work with and offered a lot of customization. There is also a git plug in available, to add version control. This made VSC a pleasant code editor to work with and a great alternative to rstudio. 
+
+### jupyter notebook 
+
+I started working with jupyter notebook while learning some basics about machine learning. The main benefit of jupyter notebook is that, all results will be stored under the code chunks. These results will be saved and maintained until the code chunk is ran again. Therefor, code chunks only need to be run once and looking back at results becomes far easier. This makes it much easier to make small changes based upon earlier results. And further more, it felt convenient that unlike in R, where the data in the terminal disappears each time the r session is terminated, the data in jupyter notebook was maintained. Just like R studio and cisual studio code, jupyter notebook is free and helps the movement towards open science. 
+
+### obsidian 
+
+I came across obsidian while watching [this youtube video](https://www.youtube.com/watch?v=cBzc5r-FNW0&t=9s). Obsidian allows to edit R markdown documents and create networks between markdown files. Because I mainly focused on python In this period, I didn't go to much in depth into how obsidian works. But it seems like a program I'd still want to try in the future, to possibly replace Rstudio. 
+
 
 ## conclusion 
+As I worked with python in various different types of code editors, and than switched back to R studio to write this markdown file, I noticed how quickly I had grown unfamiliar with rstudio and that I started to confuse shortcuts and features from other programs. This showed me that, even though switching between different langues and programs may be relatively easy, it also has high value to be well familiar with the tools you use. Therefor, my entire idea that knowing a bid about everything, was not correct. And I really noticed that it is better to know 1 or 2 langues and programs well than to know a bunch of them poorly. Therefor, I will for now stick with rstudio and VScode, and if I need to learn any other programs in the future, I will make the switch at the time. 
 

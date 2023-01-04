@@ -1,10 +1,10 @@
 # Structured Query Language
 
-Structured Query Language (SQL), is a programming language which was creating for communicating with and editing databases. With the increasing usage of cloud storage and databases, the importance of SQL has become higher as the world got more automated. nearly all databases use SQL as their main programming. Because of the high usage, learning SQL is very relevant. I currently have a basic knowledge of how to use SQL to create a database and to  add, edit and remove data from databases.  On this page, I will demonstrate what I can all do wit SQL and build a SQL database. For this, I used two files that contained the number of dengue fever cases and flu cases. These files provide cases from 2002 till 2015. The general stept I took in this analysis are: 
+Structured Query Language (SQL), is a programming language which was creating for communicating with and editing databases. With the increasing usage of cloud storage and databases, the importance of SQL has become higher as the world got more automated. nearly all databases use SQL as their main programming. Because of the high usage, learning SQL is very relevant. I currently have a basic knowledge of how to use SQL to create a database and to  add, edit and remove data from databases.  On this page, I will demonstrate what I can all do wit SQL and build a SQL database. For this, I used two files that contained the number of dengue fever cases and flu cases. These files provide cases from 2002 till 2015. The general steps I took in this analysis are: 
 
-- Manual download of the Dengue Fever dataset from the [dsfb2 repository](https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows)
+- Manual download of the Dengue Fever data set from the [dsfb2 repository](https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows)
 
-- Manual download of the Flu Fever dataset from the [dsfb2 repository](https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows).
+- Manual download of the Flu Fever data set from the [dsfb2 repository](https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows).
 
 - Clean and tidy the data
 
@@ -24,7 +24,7 @@ The data from the dengue dataset is shown in table \@ref(fig:07table2)
 
 The data from the flu dataset is shown in table \@ref(fig:07table3)
 
-The gampminder dataset was already in tiny data format, and therefor did not need to be edited. The dengue and flu dataset did require editing to make the tables tidy. After making the data tidy, all data was stored in new CSV files. 
+The gampminder data set was already in tidy data format, and therefor did not need to be edited. The dengue and flu data set did require editing to make the tables tidy. After making the data tidy, all data was stored in new CSV files. 
 
 ```{r setup7, warning = FALSE, message = FALSE, echo = FALSE} 
 library(RPostgreSQL)
@@ -119,7 +119,7 @@ saveRDS(flu_tidy, file = "./data/flu_tidy.rds")
 
 the data was exporting to DBeaver using the following commands: 
 
-```{r 07 export data to DBeaver, eval=FALSE, include=TRUE, warning=FALSE, message=FALSE}
+```{r 07 export data to DBeaver, eval=FALSE, echo=TRUE, warning=FALSE, message=FALSE}
 # the link to exporting files to DBeaver requires to fill in personal information such as a  password, which is unique for all users. 
 # this analysis is reproducible if you copy the code and insert your own local information. 
 
@@ -170,7 +170,7 @@ After inspecting the data, it was concluded that the data was imported properly.
 
 after exporting the data from Rstudio to DBeaver, the data was imported back from DBeaver to Rstudio with the following script: 
 
-```{r 07 import data from dbeaver, eval=FALSE, include=TRUE}
+```{r 07 import data from dbeaver, eval=FALSE, echo=TRUE}
 # import the data into R after inspecting the data in DBeaver
 gapminder <- dbReadTable(con, "gapminder")
 dengue <- dbReadTable(con, "dengue_tidy")
@@ -194,6 +194,7 @@ flu_1 <- flu_tidy %>% group_by(year) %>% na.omit() %>%
              y = flu_cases,
              fill = year)) +
   geom_col() +
+  theme(axis.text.x = element_text(angle = 90))+
   labs(title = "Evaluating the number of flu cases",
        subtitle = "Have flu cases risen over the years?",
        x = "Year",
@@ -214,6 +215,7 @@ dengue_1 <- dengue_tidy %>% group_by(year) %>% na.omit() %>%
              y = dengue_cases,
              fill = year)) +
   geom_col() +
+  theme(axis.text.x = element_text(angle = 90))+
   labs(title = "Evaluating the number of flu cases",
        subtitle = "Have flu cases risen over the years?",
        x = "Year",

@@ -42,6 +42,8 @@ neuro-networks-1-hour
 code-editors
 pycharm
 visual-studio-code
+jupyter-notebook
+obsidian
 conclusion-1
 project-liquid-biopsies
 background

@@ -74,6 +74,7 @@ this paper proposes that appointed local executives will produce more election m
 ### analysing the code 
 
 the provided  r code appears to have a few goals: 
+
 - making the data tidy (removing na, proper row/colum orginisation for the data analysis, etc.)
 - visualizing and interpreting the data 
 - creating marginal structural models to account for selection bias and confounding.
@@ -81,6 +82,7 @@ the provided  r code appears to have a few goals:
 The code has a good readability. It is properly spaced out, and lines of code are provided with comments to explain the code. However, not all code lines have comments. This makes some of the code, sightly harder to read. Therefor, in terms of readability, I rate the code of this paper a 4 out of 5. 
 
 After downloading and running the code, I hardly had to make any changes at all to let the code run. The only changes that were required, were: 
+
 - installing the packages I didnt have yet with the install.package() function. 
 - specify where I stored the data files on my computer
 
