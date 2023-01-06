@@ -7,6 +7,4 @@ images used for "parameterization":
 
 - coefplot_manipution.png: image of plot describing the manipolation in votes by Russian goverment parties. Used for "reproducability "
 
-- image.png: image of me used for my cv 
-
-- cv.png: image of my cv
+- cv.png: image of my cv, with personal information blurred for privacy 

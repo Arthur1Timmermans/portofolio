@@ -1,12 +1,15 @@
 in this folder, all raw data-files are stored. Currently, there are no old versions, so therefor al versions within this raw folder are the most recent version. The data in this folder: 
 
-- 007_dengue.csv: dengue fever cases across different countries: used for "SQL chapter"
-- 007_flu.csv: flu cases across different countries "SQL chapter"
+- 007_dengue.csv: dengue fever cases across different countries: used for "SQL chapter". The data was downlaoded from: (https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows) 
+
+- 007_flu.csv: flu cases across different countries "SQL chapter". The data was downloaded from: (https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows)
 
 - CE.LIQ.FLOW.062_Tidydata.xlsx: data from an experiment conducted by by J. Louter (INT/ILC).In this experiment, the influence of 3 substances on the growth of C. Elegans is tested. Used for "loading, sorting and visualising data"
 
 - coefs with city covariates cleaned: data about rusian votes across cities. used for "reproducability"
+
 - n_precincts_all.csv: provides data for city ID's. used for "reproducability"
+
 - table_assignment1.2.xlsx: table with repita criteria for reviewing articles. Used for "reproducability"
 
 - data_covid19_cases.csv: provides information about the spread and deathrate of covid19 cases. Used for "parameterization"

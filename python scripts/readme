@@ -1,0 +1,8 @@
+This folder contains all python scripts I have written for my free studying period: 
+
+- calculator: a basic calculator that allows additions, subtractions, multiplication, devision and power. 
+- password-generator: creates a random password with: 2 lowercase letters, 2 uppercase letters, 4 numbers and 1 symbol. 
+- rock-paper-scisorcs: allows the user to play a game of rock paper scisorcs against the computer 
+- reminder-to-get-up: allows to set an alarm, as a reminder to take breaks in between of work 
+
+In the folder 'jupyter_notebook', all files I used in jupyternote book are stored, as well as the notebook files themselves. 
