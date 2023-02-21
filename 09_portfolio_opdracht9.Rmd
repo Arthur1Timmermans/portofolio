@@ -32,7 +32,9 @@ parameterization is a good way to make code more robust and flexible. Furthermor
 
 - The period in months that the report applies to
 
-At first, I mapped the new cases, which can be seen in plot 1. In this plot, it is visible that by far the largest peak in covid19 cases is measured between October and December in 2021. This would correspond with the flu/cold season.
+The further aim of this report is to analyse the correlation between the time of the year, the Covid cases and the Covid deaths. 
+
+At first, I mapped the new cases, which can be seen in plot 1. In this graph, the y axis shows the time in months and the x axis shows the amount of new covid cases. It is visible that by far the largest peak in covid19 cases is measured between October and December in 2021. This would correspond with the flu/cold season.
 
 ```{r 09 cases plot, eval=FALSE, include=TRUE, warning=FALSE, message=FALSE}
 # plot the number of reported COVID-19 cases in the year 2020
@@ -48,7 +50,9 @@ cases
 ```
 ![plot1, covid 19 cases in Austria in 2021](images/09_plot1.png)
 
-up next, I mapped the deaths caused by covid19. The results of this, can be seen in plot 2. Within this plot, a line somewhat similar to the covid19 cases (plot 1) can be seen. To further visualize this, plot 1 and 2 are also combined using the plot_grind function. This created plot 3, in which a clear connection between the 2 plots can be seen. 
+The deaths caused by covid19 are mapped in plot2. In this graph, the y axis shows the time in months and the x axis shows the amount of people who died as a result of covid19. Within this plot, a line somewhat similar to the covid19 cases (plot 1) can be seen, with a large spike in covid19 deaths between October and December 2021. 
+
+To further visualize the simalarity between plot 1 and 2, plot 1 and 2 are also combined using the plot_grind function. This created plot 3, in which a clear connection between the 2 plots can be seen. 
 
 ```{r 09 deaths, message=FALSE, warning=FALSE, eval=FALSE, include=TRUE}
 # plot the number of deaths by COVID-19 in the year 2020

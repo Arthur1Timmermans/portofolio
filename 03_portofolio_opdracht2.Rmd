@@ -1,16 +1,38 @@
 # ordering datafiles 
 
-Besides keeping a data file tidy, it is also important to keep the folders in which these data files are stored tidy. A properly made directory with version control, helps to avoid that data gets lost. It also generally improves speed and reproducibility. 
+Besides keeping a data file tidy, it is also important to keep the folders in which these data files are stored tidy. A properly made directory with version control, helps to avoid that data gets lost. It also generally improves speed and reproducibility, especially when working in a team. 
 
-## directory trees 
-In directory tree bellow, I showed the directory tree from this portfolio, as an example of how I think data can be stored tidy. 
+## basic frame work 
+
+To store, edit, analyse and maintain my data, I follow the basic Guerrilla analytics framework, written by Enda Ridge. The basic frame work is: 
+
+- Space is cheap, confusion is expensive
+- Use simple, visual project structures and conventions
+- Automate with program code
+- Link stored data to data in the analytics environment to data in work products (rmarkdown) 
+- Version control changes to data and analytics code (Git/Github.com)
+- Consolidate team knowledge (agree on guidelines and stick to it as a team)
+- Use code that runs from start to finish 
+
+The full description of Guarilla analytics framework can be found [here](https://guerrilla-analytics.net/), and it is recommendable to read through this for anyone who is not yet familiar with the framework. There are of course still plenty of other proper frame works designed for working tidy and reproducible. The key is in remaining consistent and sticking with something that works well for you. Therefor I also encourage doing your own research and finding a method that works well for you and your team. 
+
+### directory tree of this project 
+
+In the directory tree bellow, I showed the directory tree from this portfolio, as an example of how I think data can be stored tidy. A few notes of thing I try to keep track of: 
+
+- I avoid deep bedding (max 2-3 folder layers) to keep the relative path short 
+- Every folder is given a readme.txt file, giving a description of all files/folders that are present, the origin of the files, and the date at which the files are downloaded
+- The name structure of the files is consistent and does not contain special caracters (accept for _ and . )
 
 ```{r 03dirtree1, echo=FALSE}
 #adding directory tree of the "portfolio" folder 
 fs::dir_tree(here::here("~/documents/hu/R/DSFB2/portofolio"))
 ```
 
-Another example of how a directory tree can look is shown in figure bellow. This is one of my directories of a previous school project. 
+
+### directory tree of another project 
+
+Another example of how a directory tree can look is shown in figure bellow. This is one of my directories of a previous school project. I recently made the format of this project tidy according to the principals mentioned above. 
 
 ```{r 03dirtree2, echo=FALSE}
 # adding directory tree of the "daur2" folder 
@@ -20,4 +42,6 @@ fs::dir_tree(here::here("~/documents/hu/R/DSFB2/daur2"))
 ## version control 
 besides ordering the data structures on my own computer, I use version control with github for both my own repositories as well as those which I work on in projects. 
 
-Working with github on group projects has helped me in many ways. It makes it far easier to work on the same documents together. Further more, we can far easier merge files, without the need for many different in between versions of the same file. This imrpoves both the speed, accuracy and communication within our projects. 
+Working with github on group projects has helped me in many ways. It makes it far easier to work on the same documents together. Further more, we can far easier merge files, without the need for many different in between versions of the same file. This improves both the speed, accuracy and communication within our projects. 
+
+Within my personal repositories github helped to avoid that data would get lost, and made going back to older versions far easier. Further more, switching between different computers is also far easier with github, if the code is set up robust. 

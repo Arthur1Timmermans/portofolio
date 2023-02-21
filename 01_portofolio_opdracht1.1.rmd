@@ -8,16 +8,45 @@ library(here)
 library(ggplot2)
 library(fs)
 library(DT)
+library(data.table)
 ```
 
-For both readability and data analysis is it important to keep data tidy. Especially when loading data in, it is important to check if the format is tidy for the data analysis that will be conducted. In this chapter, I will show an example of how I loaded in an excel document, selected the needed data and made the used tables tidy. The excel document contains data from an experiment conducted by  by J. Louter (INT/ILC).In this experiment, the influence of 3 substances on the growth of C. Elegans is tested. Further more, there is a positive and negative control. The positive control for this experiments is incubated in ethanol, the negative control for this experiment is incubated in s-medium. The raw data is shown in figure \@ref(fig:01table1)
+For both readability and data analysis is it important to keep data tidy. Especially when loading data in, it is important to check if the format is tidy for the data analysis that will be conducted. In this chapter, I will show an example of how I loaded in an excel document, selected the needed data and made the used tables tidy. The excel document contains data from an experiment conducted by  by J. Louter (INT/ILC).In this experiment, the influence of 3 substances on the growth of C. Elegans is tested for their toxicity.The more growth is inhibited, the more toxic the substance is expected to be. The substances that were tested are: 
 
-```{r 01table1, fig.cap= "table with raw data"}
-#showing the raw C.elegans data in a datatable
-datatable(read_excel(here::here("raw/CE.LIQ.FLOW.062_Tidydata.xlsx")), options = list(pageLength = 5)) 
+- 2,6 disopropylnaphealene 
+
+- decane 
+
+- naphthalene
+
+Further more, there is a positive and negative control. The positive control for this experiments is incubated in ethanol, which is expected to be very toxic and inhibit the growth of C. elegans a lot. The negative control for this experiment is incubated in s-medium, which is expected to offer proper living conditions and allow C. elegans to grow and live. 
+
+The raw data is shown in figure \@ref(fig:01table1). Within this table: 
+
+- The "expType" column shows if the data is a experimental condition or a control
+
+- The "rawdata" column shows the living C. elegans. 
+
+- The "compName" Column shows the compound name 
+
+- The "compConcentration" column shows the compound concentration. 
+
+More metadata is available in the original Excel sheet, which can be found [here](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2FDataScienceILC%2Ftlsc-dsfb26v-20_workflows%2Fmain%2Fdata%2FCE.LIQ.FLOW.062_Tidydata.xlsx&wdOrigin=BROWSELINK). However, in figure \@ref(fig:01table1) only the main variables that will be worked with are shown for readability.  
+
+```{r 01table1, fig.cap= "table with raw data from c. elegans project"}
+#load the data into a datatable using the read excel and here functions
+table1y <- data.table(read_excel(here::here("raw/CE.LIQ.FLOW.062_Tidydata.xlsx")))
+
+#dropping the columns "platerow" and "platecolumn" from the table, because manual inspection showed that  these columns were empty 
+table1y[, c("plateRow","plateColumn"):=NULL]
+
+#showing as a datatable, with 5 rows, showing most relevant columns
+datatable(table1y[, c('expType', 'RawData', 'compName', 'compConcentration')], options  = list(pageLength = 5))
 ```
 
 based upon the names and values, as shown in figure \@ref(fig:01table1), the expected data-types are: 
+
+- expType: character 
 
 - Raw-data: numeric
 
@@ -25,7 +54,7 @@ based upon the names and values, as shown in figure \@ref(fig:01table1), the exp
 
 - compConcentration: numeric 
 
-In figure \@ref(fig:01table1), Only the raw-data is numeric, both the compNames and compConcentrations are character strings. This would suggest that something went wrong during importation of the samples. This is also seen in figure \@ref(fig:01graph1), where the data was not sorted based upon the actual size, because it is being read as character and therefor is literally sorted based upon the characters.
+In figure \@ref(fig:01table1), Only the raw-data is numeric, both the compNames, compConcentrations and expType are character strings. This would suggest that something went wrong during importation of the samples. This is also seen in figure \@ref(fig:01graph1), where the data was not sorted based upon the actual size, because it is being read as character and therefor is literally sorted based upon the characters.This is an error that occurs more often when importing files into a R object, and showcases why it is important to check the datatypes after importing data. 
 
 ```{r 01graph1, fig.cap= "graph without changing data type"}
 #loading the data into a object 
@@ -39,12 +68,14 @@ ggplot(table1D, aes(x=compConcentration,
   geom_point() + 
   theme(axis.text.x = element_text(angle = 90)) +
   labs(title = "effect of compound concentration on amount of living C. elegans", 
-       y = "C. elegans count", 
-       x = "concentration of compound")
+       y = "living C. elegans count", 
+       x = "concentration of compound in nanomol")
 ```
 
  
-When correcting the data type of the compound concentration back to numeric, the graph in figure \@ref(fig:01graph2) can be created. 
+When correcting the data type of the compound concentration back to numeric, the graph in figure \@ref(fig:01graph2) can be created. In this graph, the X-axis shows the compound concentration in a log value. A log value was chosen because on a normal scale, the spread was very difficult to see. The Y axis shows the amount of living C. elegans. 
+
+On the left side of figure \@ref(fig:01graph2), the negative control in s medium grew properly. This showcases that the C. elegans nematodes grew as expected. The positive control with ethanol also seems to show a negative correlation between the concentration of ethanol and the living C. elegans. This would showcase that the principal to test the toxicity by correlating concentration of a compound to the amount of living C. elegans worked in this assay. The other compounds also seem inhibit the growth of C. elegans as the compound concentration increases. 
 
 ```{r 01graph2, fig.cap= "graph with changing data type"}
 #changing the data type of the compound concentration to nummeric 
@@ -53,20 +84,23 @@ table1D$compConcentration <- as.numeric(table1D$compConcentration)
 #making a new plot to visualise the data 
 ggplot(table1D, aes(x=log10(compConcentration), 
                     y=RawData, 
-                    color=expType)) +
+                    color=compName,
+                    shape=expType)) +
   geom_point(na.rm = TRUE) + 
   theme(axis.text.x = element_text(angle = 90)) + 
-  geom_jitter(position = position_jitter(0.2)) + 
+  geom_jitter(position = position_jitter(0.2)) +
+  scale_x_continuous(breaks = seq(-6, 2, by = 1)) + 
+  scale_y_continuous(breaks = seq(0, 120, by = 20)) +
   labs(title = "effect of compound concentration on amount of living C. elegans", 
-       y = "C. elegans count", 
-       x = "concentration of compound")
+       y = "living C. elegans count", 
+       x = "log concentration of compound in nanomol")
 ```
 
-In this graph, the data is still rather spread out. This can be corrected for by using the negative control as a scale of 1. This brings the data in the plot relatively closer together, making it easier to compare data of different groups. The graph would than look like shown in figure \@ref(fig:01graph3) 
+In this \@ref(fig:01graph2), the data on the Y axis is still rather spread out. This can be corrected for by using the negative control as a scale of 1 on the Y axis. This brings the data in the plot relatively closer together, making it easier to compare data of different groups too the negative control. The graph would than look like shown in figure \@ref(fig:01graph3). In this plot the negative correlation between living C. elegans and the increase in compound concentration again seems to become visible. However, because no statistical tests are run yet, the correlation can not officially be claimed to be present yet. 
 
 ```{r 01graph3, fig.cap= "graph with normalized scale"}
 #making new table with only experiment type, raw data and compound concentration
-table1clean <- data.frame(table1D$expType, table1D$RawData, table1D$compConcentration)
+table1clean <- data.frame(table1D$expType, table1D$RawData, table1D$compConcentration, table1D$compName)
 
 #removing na from new table
 table1clean <-na.omit(table1clean) 
@@ -78,30 +112,40 @@ table1clean$normalised <- table1clean$table1D.RawData/average #normalising with 
 # making grahp: 
 ggplot(table1clean, aes(x=log10(as.numeric(table1D.compConcentration)), 
                         y=normalised, 
-                        color=table1D.expType)) +
+                        color=table1D.compName,
+                        shape=table1D.expType)) +
   geom_point(na.rm = TRUE) + 
   theme(axis.text.x = element_text(angle = 90)) + 
   geom_jitter(position = position_jitter(0.2)) + 
+    scale_x_continuous(breaks = seq(-6, 2, by = 1)) + 
+  scale_y_continuous(breaks = seq(0, 2, by = 0.4)) +
   labs(title = "effect of compound concentration on amount of living C. elegans with normalised x axis", 
-       y = "C. elegans count", 
-       x = "concentration of compound")
+       y = "living C. elegans count", 
+       x = "log concentration of compound in nanomol")
 ```
 
-
 ## analysing the data: 
-to further determine the (toxic) effect of the added substances, a dose-response analysis can be run.In this analysis, the following would be determined using a log-logistic model:
+to further determine the (toxic) effect of the added substances, a dose-response analysis can be run. In this analysis, a log-logistic model can be used, such as the glm function of R. In this model, each compound would be tested separately and the  the amount of living C. elegans and the compound concentration would be used as input. the model would return data including: 
 
-- estimate the maximal
+- estimated maximal
 
-- estimate the minimal 
+- estimated minimal 
 
-- determine the IC50 concentration 
+The output data from the model can be used in the dose.p function from the MASS library. This function  will calculate any fractional dosage value, including the the IC50 concentration 
 
-- determine the slope at IC50. 
+Now the slope at IC50 can also be calculated, and put into a dot-plot with a trend line.  
 
-the results of the different substances, can be compared to the positive and negative control, to determine if there is a toxic effect, and to what extend this toxic effect takes place. 
+The different graphs from different compounds can be compared to the positive and negative control and to each other, to estimate if there is a difference in toxicity. If a difference is suspected, the calculated values, including the maximal, minimal and IC 50 can be compared. This comparison can be done by: 
 
-However, as analysis the entire data set is not the goal of this chapter, the further data analysis will not be conducted. But a r package that could be used, is the "dcr" package. 
+- testing for normality: levene's test for normality
+
+- if normaly distrubuted: unpaired t.test 
+
+- if not normally distributed: Mann-Whitney U-test 
+
+- compare found P-values. 
+
+However, as analysis the entire data set is not the goal of this chapter, the further data analysis will not be conducted. 
 
 
 

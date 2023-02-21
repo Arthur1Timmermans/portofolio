@@ -20,11 +20,11 @@ Structured Query Language (SQL), is a programming language which was creating fo
 
 After loading in the data, I inspected the data. The data from the gapminder dataset is shown in table \@ref(fig:07table1)
 
-The data from the dengue dataset is shown in table \@ref(fig:07table2)
+The data from the dengue data set is shown in table \@ref(fig:07table2)
 
-The data from the flu dataset is shown in table \@ref(fig:07table3)
+The data from the flu data set is shown in table \@ref(fig:07table3)
 
-The gampminder data set was already in tidy data format, and therefor did not need to be edited. The dengue and flu data set did require editing to make the tables tidy. After making the data tidy, all data was stored in new CSV files. 
+
 
 ```{r setup7, warning = FALSE, message = FALSE, echo = FALSE} 
 library(RPostgreSQL)
@@ -64,6 +64,17 @@ datatable(dengue)
 datatable(flu)
 ```
 
+The gapminder data set was already in tidy data format, and therefor did not need to be edited. The dengue and flu data set did require editing to make the tables tidy. To make later comparisons of the different data sets easier, the format of the flu and dengue data sets were changed to match the format of the gapminder data set. The changes made were: 
+
+- Put all countries in one column, and the cases to one column
+- split the column Date to three columns named Year, Month and Day 
+- correct data classes 
+
+The new tidy dengue table is shown in table \@ref(fig:07table4)
+The new tidy flu table is shown in table \@ref(fig:07table5)
+
+The new tables were stored as a .csv file and as a .rds file in the "[data folder](https://github.com/Arthur1Timmermans/portofolio/tree/main/data)"
+
 ```{r 07 tidy data, echo=FALSE, message=FALSE, warning=FALSE}
 # tidy the dengue dataset
 ## Put all countries in one column, and the cases to one column
@@ -100,6 +111,15 @@ flu_tidy$Month <- as.numeric(flu_tidy$Month)
 flu_tidy$Day <- as.numeric(flu_tidy$Day)
 ```
 
+```{r 07table4, include=TRUE, warning = FALSE, message = FALSE, echo = FALSE, fig.cap= "tidy data from dengue dataset"}
+datatable(dengue_tidy)
+```
+
+```{r 07table5, include=TRUE, warning = FALSE, message = FALSE, echo = FALSE, fig.cap= "tidy data from flu dataset"}
+datatable(flu_tidy)
+```
+
+
 ```{r 07 saving in the desired formats, warning=FALSE, message=FALSE, echo=FALSE}
 
 #all data gets saved to the data folder in a csv file
@@ -117,7 +137,7 @@ saveRDS(flu_tidy, file = "./data/flu_tidy.rds")
 
 ### exporting data to DBeaver
 
-the data was exporting to DBeaver using the following commands: 
+the new tidy data files were exporting to DBeaver using Rpostgres: 
 
 ```{r 07 export data to DBeaver, eval=FALSE, echo=TRUE, warning=FALSE, message=FALSE}
 # the link to exporting files to DBeaver requires to fill in personal information such as a  password, which is unique for all users. 
@@ -164,7 +184,13 @@ FROM gapminder order
 BY population desc
 ---------------------------------------------------------------------------------------------------------------------
 
-After inspecting the data, it was concluded that the data was imported properly. 
+After inspected the data in Dbeaver, the data was also still inspected in R using the dplyr package. Based on these 2 checks, it was concluded that the data was loaded in properly. 
+
+```{r 07 dyplr table, include=TRUE, warning = FALSE, message = FALSE, echo = FALSE}
+dplyr::data_frame(dengue_tidy)
+```
+
+ 
 
 ### importing data from DBeaver 
 

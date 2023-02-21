@@ -14,7 +14,7 @@ The following folders are available:
 
 Further more, this main directory contains: 
 - a git ignore file
-- all used RMD files for my bookdown project 
+- all used RMD files to render my bookdown project 
 - a bibliography.bib file to create a bibliography 
 - an index.rmd file which creates the yamal header and thus, set the settings for my bookdown project 
 - a r project file

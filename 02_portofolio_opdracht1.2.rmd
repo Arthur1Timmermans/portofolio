@@ -35,29 +35,28 @@ The primary endpoints that were measured were the time required for virological 
 in conclusion, the study found that Virological clearance was earlier in the 5-day ivermectin treatment arm when compared to the placebo group (9.7 days vs 12.7 days; p = 0.02). However, the virological clearance was not lower for the ivermectin + doxycycline arm (11.5 days; p = 0.27). There were no severe adverse drug events recorded in the study. A 5-day course of ivermectin was found to be safe and effective in treating adult patients with mild COVID-19. Larger trials, however, would still be needed to confirm these preliminary findings.
 
 ### study purpose: 
-the study purpose was clearly destribed in the introduction: 
+The study purpose was clearly described in the introduction. Locating the purpose was easy as well. The authors/article did a good job at this. The purpose was: 
+
 The study was performed to evaluate the rapidity of viral clearance and safety of a 5-day course of ivermectin or a single-dose of ivermectin and a 5-day course of doxycycline in the treatment of mild COVID-19 in adults.
 
-### data availibality/location: 
-there was no data availability statement found, neither was the (raw) data found anywhere linked by the article. 
+### data and code availibality/location: 
+there was no data availability statement found, neither was the (raw) data found anywhere linked in the article. The code was also never mentioned in the article. This is not uncommon for these kinds of articles, however, it makes the article less reproducible and puts it out of contention for the movement of open science. 
 
 ### study location: 
-the study location, and origin of the patients has been given. The criteria which had to be met for patients to take place in the research has also been listed. 
+the study location, and origin of the patients has been given. The criteria which had to be met for patients to take place in the research has also been listed. I provided these in the introduction above. Even though the data itself was not provided, tracing the locations of the study is now still possible which is a proper move towards open science. 
 
 ### author review: 
-proper information of how to contact the authors has been provided. 
+proper information of how to contact the authors has been provided in the paper, mail adresses of all authors were available. The professionalism of the authors could also be verified.  In my opinion, the authors seemed professional and this makes the findings of the article more reliable. 
 
 ### ethics statement: 
-there is an ethics statement in the study, for aproval of the experimental setup by both medical institutes and the patients. However, no further mention has been made of ethics regarding the experimental data. 
+there is an ethics statement in the study, for approval of the experimental setup by both medical institutes and the patients. However, no further mention has been made of ethics regarding the experimental data. 
 
 ### funding statement: 
 A funding statement was provided, the study was funded by Beximco Pharmaceutical Limited, Bangladesh. 
 
-### code availability: 
-no mention of code has been made. 
 
 ### conclusion: 
-in conclusion: this paper has properly described their findings, sources and conclusions. However, the raw/processed data is not available nor is the code with which the data was analysed. Therefor, this paper is not entirely open science and can still improve, by providing the data and the used code to analyse the data. 
+in conclusion: this paper has properly described their findings, sources and conclusions.Somethings like the professionalism of the authors and the funding/interest of the project can be verified.  However, the raw/processed data is not available nor is the code with which the data was analysed. Therefor, this paper is not entirely open science and can still improve, by providing the data and the used code to analyse the data. 
 
 
 ## paper2 
@@ -75,18 +74,20 @@ this paper proposes that appointed local executives will produce more election m
 
 the provided  r code appears to have a few goals: 
 
-- making the data tidy (removing na, proper row/colum orginisation for the data analysis, etc.)
+- loading in data
+- making the data tidy (removing NA, proper row/column organisation for the data analysis, etc.)
 - visualizing and interpreting the data 
 - creating marginal structural models to account for selection bias and confounding.
+- run the model and put the results into plots 
 
 The code has a good readability. It is properly spaced out, and lines of code are provided with comments to explain the code. However, not all code lines have comments. This makes some of the code, sightly harder to read. Therefor, in terms of readability, I rate the code of this paper a 4 out of 5. 
 
 After downloading and running the code, I hardly had to make any changes at all to let the code run. The only changes that were required, were: 
 
-- installing the packages I didnt have yet with the install.package() function. 
+- installing the packages I didn't have yet with the install.package() function. 
 - specify where I stored the data files on my computer
 
-With the provided code, I was also easily able to recreate the images that were in the original paper. An example of this, is shown in figure \@ref(fig:02graph1). This was figure2 in the original paper. In this figure, it is visible that putin has a far higher manipulation than the other politisians ands that appointed exec party also has sightly higher manipulation. Because it was so easy to run the code, and recreate the same figures, the reproducibility of this code gets a 5 out of 5. The used code is further shown down bellow figure \@ref(fig:02graph1). 
+With the provided code, I was also easily able to recreate the images that were in the original paper. An example of this, is shown in figure \@ref(fig:02graph1). This was figure2 in the original paper. In this figure, it is visible that Putin has a far higher manipulation than the other politicians and that appointed exec party also has sightly higher manipulation. Because it was so easy to run the code, and recreate the same figures, I would rate the reproducibility of this code a 5 out of 5. The used code is further shown down bellow figure \@ref(fig:02graph1). 
 
 ```{r 02graph1, fig.cap="recreated graph from reviewed paper"}
 knitr::include_graphics("images/coefplot_manipution_multiple.png")
@@ -100,9 +101,15 @@ library(interactions)
 library(stargazer)
 library(fastDummies)
 
+#####################################################################################################################
+
+# this is the only section that requires changes, add your own location where you saved the .csv files. 
+
 full.data <- read.csv("raw/coefs with city covariates cleaned.csv")
 precincts_total <- read.csv("raw/n_precincts_all.csv")
 
+
+#####################################################################################################################
 
 full.data <- full.data %>% mutate(presidential = ifelse(year.x == 2004 | year.x == 2008 | year.x == 2012, 1, 0))
 full.data <- full.data %>% mutate(known.opp.mayor = ifelse(is.na(opp_mayor1) == T, 0, ifelse(opp_mayor1==1, 1,0)))

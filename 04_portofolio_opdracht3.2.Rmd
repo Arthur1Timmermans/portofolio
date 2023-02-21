@@ -10,20 +10,27 @@ It was during this time that I realized I still have multiple things I want to l
 - clinical lab work (like laboratory work in a hospital)
 - working in a project with organoids
 
-aside from these goals within the life science field, I also still had many personal goals. However, because these do not relate to this portfolio I did not add them here. But, it did rather quickly become clear to me that there is still a lot that I want to learn and do.This made it difficult for me to set my sites on a specific goal. Especially since I'm not certain if I still want to continue working in the field of bioinformatics and data science in the future. Therefor, I decided to take a more general approach and get a wider few of what's all still possible for me  with bioinformatics. This would help me to more easily adept, and learn specific skills later when I've a more clear vision of what I want to do. 
+aside from these goals within the life science field, I also still had many personal goals. However, because these do not relate to this portfolio I did not add them here. But, it did rather quickly become clear to me that there is still a lot that I want to learn and do.This made it difficult for me to set my sight on a specific goal. Especially since I'm not certain if I still want to continue working in the field of bioinformatics and data science in the future. Therefor, I decided to take a more general approach and get a wider few of what's all still possible for me  with bioinformatics. This would help me to more easily adept, and learn specific skills later when I've a more clear vision of what I want to do. 
 
-To generally widen my view, I decided to learn python. This would be useful to more easily flow into jobs where python is a required programming language. Further more, python is a very useful language for software creation, which I would like to learn, to create my own software at some point in the future. This latter use is not necessarily needed for my job within life sciences, but, certainly could be an useful skill to obtain nevertheless. 
+To generally widen my view, I decided to learn python. This would be useful to more easily flow into jobs where python is a required programming language. Further more, python is a very useful language for software creation, which I would like to learn, to create my own software at some point in the future. This latter use is not necessarily needed for my job within life sciences, but, certainly could be an useful skill to obtain nevertheless.
+
+At the time I decided I wanted to learn how to program in python, I had no experience or knowledge of how to do so. Therefor, I had to start learning this new language from scratch, and start at the basics. 
 
 ## planning and organisation to learn python 
 
-When trying to learn a new skill, a proper plan makes the learning process more structured and helps to see if your goals are achieved. the overall planning of this project is: 
+When trying to learn a new skill, a proper plan makes the learning process more structured and helps to see if your goals are achieved. In this free period I want to take the time to learn some basic python from some tutorials on YouTube, and after that use this knowledge to create some own scripts, and to learn some basic machine learning. furthermore, I will try to use some different code editors. My general plan is: 
 
 - describing my learning process on this page and showing what I learned (5 hours)
 
-- get to know the basic code structure of Python (10 hours)
+- get to know the basic code structure of Python (15 hours)
+  - watch YouTube tutorials 
+  - read through some basic python scripts and try to recreate my own 
+  - apply the gained skills to create my own scripts from scratch 
 
-- machine learning in python (10 hours)
-
+- machine learning in python (15 hours)
+  - watch YouTube tutorials, and write along with the videos to recreate the tutorial scripts 
+  - apply the gained skills to create my own scripts from scratch and apply them to a dataset 
+  
 - getting familiar with other code editors (5 hours): 
   - pychar 
   - Jupyter Notebook

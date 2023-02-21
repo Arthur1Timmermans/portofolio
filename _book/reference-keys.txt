@@ -1,4 +1,3 @@
-fig:01table1
 fig:01graph1
 fig:01graph2
 fig:01graph3
@@ -62,3 +61,12 @@ conclusions-after-joining
 rpackages
 parameterization
 refrences
+fig:01table1
+data-and-code-availibalitylocation
+basic-frame-work
+directory-tree-of-this-project
+directory-tree-of-another-project
+theoretical-background
+r-project
+fig:07table4
+fig:07table5
