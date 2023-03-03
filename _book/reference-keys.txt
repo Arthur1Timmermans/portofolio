@@ -1,3 +1,4 @@
+fig:01table1
 fig:01graph1
 fig:01graph2
 fig:01graph3
@@ -6,6 +7,8 @@ fig:02graph1
 fig:07table1
 fig:07table2
 fig:07table3
+fig:07table4
+fig:07table5
 fig:07graph1
 fig:07graph2
 fig:07graph3
@@ -15,12 +18,11 @@ analysing-the-data
 reproducibility
 paper1
 study-purpose
-data-availibalitylocation
+data-and-code-availibalitylocation
 study-location
 author-review
 ethics-statement
 funding-statement
-code-availability
 conclusion
 paper2
 analysing-the-code
@@ -31,7 +33,9 @@ table
 multiplot
 plotting
 ordering-datafiles
-directory-trees
+basic-frame-work
+directory-tree-of-this-project
+directory-tree-of-another-project
 version-control
 free-studying-period
 planning-and-organisation-to-learn-python
@@ -45,8 +49,8 @@ jupyter-notebook
 obsidian
 conclusion-1
 project-liquid-biopsies
-background
-project
+theoretical-background
+r-project
 structured-query-language
 cleaning-data
 setting-up-a-database
@@ -61,12 +65,3 @@ conclusions-after-joining
 rpackages
 parameterization
 refrences
-fig:01table1
-data-and-code-availibalitylocation
-basic-frame-work
-directory-tree-of-this-project
-directory-tree-of-another-project
-theoretical-background
-r-project
-fig:07table4
-fig:07table5

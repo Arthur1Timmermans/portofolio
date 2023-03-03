@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 reproducibility | portfolio Arthur Timmermans</title>
   <meta name="description" content="3 reproducibility | portfolio Arthur Timmermans" />
-  <meta name="generator" content="bookdown 0.26.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 reproducibility | portfolio Arthur Timmermans" />
   <meta property="og:type" content="book" />
@@ -51,12 +51,12 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.23/datatables.js"></script>
-<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="libs/datatables-binding-0.27/datatables.js"></script>
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
 <link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 
@@ -99,7 +99,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -112,7 +112,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -126,6 +126,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 </head>
 
@@ -234,8 +256,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The first paper will be a more ‘traditional’ research paper, and is found on <a href="https://pubmed.ncbi.nlm.nih.gov/">pubmed</a>. This paper will be reviewed based upon following ‘Repita’ criteria, as shown in figure <a href="reproducibility.html#fig:02table1">3.1</a>.</p>
 <p>The second paper, will be a r code paper, and is found on the <a href="https://osf.io/">OSF website</a>. The review of this paper will focus more heavily on the readability and reproducibility of the r code and will be less centered around the criteria shown in figure <a href="reproducibility.html#fig:02table1">3.1</a></p>
 <div class="figure"><span style="display:block;" id="fig:02table1"></span>
-<div id="htmlwidget-90f53c844becfd970597" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-90f53c844becfd970597">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8"],["Study Purpose","Data Availability Statement","Data Location","Study Location","Author Review","Ethics Statement","Funding Statement","Code Availability"],["A concise statement in the introduction of the article, often in the last paragraph, that establishes the reason the research was conducted. Also called the study objective.","A statement, in an individual section offset from the main body of text, that explains how or if one can access a study’s data. The title of the section may vary, but it must explicitly mention data; it is therefore distinct from a supplementary materials section.","Where the article’s data can be accessed, either raw or processed.","Author has stated in the methods section where the study took place or the data’s country/region of origin.","The professionalism of the contact information that the author has provided in the manuscript.","A statement within the manuscript indicating any ethical concerns, including the presence of sensitive data.","A statement within the manuscript indicating whether or not the authors received funding for their research.","Authors have shared access to the most updated code that they used in their study, including code used for analysis."],["Binary","Binary","Found Value","Binary; Found Value","Found Value","Binary","Binary","Binary"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Transparency Criteria<\/th>\n      <th>Definition<\/th>\n      <th>Response Type<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-5d28f53c6a07a217b754" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-5d28f53c6a07a217b754">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8"],["Study Purpose","Data Availability Statement","Data Location","Study Location","Author Review","Ethics Statement","Funding Statement","Code Availability"],["A concise statement in the introduction of the article, often in the last paragraph, that establishes the reason the research was conducted. Also called the study objective.","A statement, in an individual section offset from the main body of text, that explains how or if one can access a study’s data. The title of the section may vary, but it must explicitly mention data; it is therefore distinct from a supplementary materials section.","Where the article’s data can be accessed, either raw or processed.","Author has stated in the methods section where the study took place or the data’s country/region of origin.","The professionalism of the contact information that the author has provided in the manuscript.","A statement within the manuscript indicating any ethical concerns, including the presence of sensitive data.","A statement within the manuscript indicating whether or not the authors received funding for their research.","Authors have shared access to the most updated code that they used in their study, including code used for analysis."],["Binary","Binary","Found Value","Binary; Found Value","Found Value","Binary","Binary","Binary"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Transparency Criteria<\/th>\n      <th>Definition<\/th>\n      <th>Response Type<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p class="caption">
 Figure 3.1: table with repita criteria for reviewing articles
 </p>
@@ -295,7 +317,7 @@ To test this theory, the study will use an election-forensic analysis of precinc
 <li>making the data tidy (removing NA, proper row/column organisation for the data analysis, etc.)</li>
 <li>visualizing and interpreting the data</li>
 <li>creating marginal structural models to account for selection bias and confounding.</li>
-<li>run the model and put the results into a plot.</li>
+<li>run the model and put the results into plots</li>
 </ul>
 <p>The code has a good readability. It is properly spaced out, and lines of code are provided with comments to explain the code. However, not all code lines have comments. This makes some of the code, sightly harder to read. Therefor, in terms of readability, I rate the code of this paper a 4 out of 5.</p>
 <p>After downloading and running the code, I hardly had to make any changes at all to let the code run. The only changes that were required, were:</p>
