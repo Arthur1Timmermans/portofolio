@@ -1,10 +1,12 @@
 # Structured Query Language
 
-Structured Query Language (SQL), is a programming language which was creating for communicating with and editing databases. With the increasing usage of cloud storage and databases, the importance of SQL has become higher as the world got more automated. nearly all databases use SQL as their main programming. Because of the high usage, learning SQL is very relevant. I currently have a basic knowledge of how to use SQL to create a database and to  add, edit and remove data from databases.  On this page, I will demonstrate what I can all do wit SQL and build a SQL database. For this, I used two files that contained the number of dengue fever cases and flu cases. These files provide cases from 2002 till 2015. The general steps I took in this analysis are: 
+Structured Query Language (SQL), is a programming language which was creating for communicating with and editing databases. With the increasing usage of cloud storage and databases, the importance of SQL has become higher as the world got more automated. nearly all databases use SQL as their main programming language. Because of the high usage, learning SQL is very relevant. I currently have a basic knowledge of how to use SQL to create a database and to  add, edit and remove data from databases.  On this page, I will demonstrate what I can all do with SQL and build a SQL database. For this, I used two files that contained the number of dengue fever cases and flu cases from 2002 till 2015. Further more, some additional information about the countries was obtained from the gap minder data set, which is available as a R-package. I will make a short analysis of the data sets. The general steps I took in this analysis are: 
 
 - Manual download of the Dengue Fever data set from the [dsfb2 repository](https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows)
 
 - Manual download of the Flu Fever data set from the [dsfb2 repository](https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows).
+
+- install the "gapminder" r-package 
 
 - Clean and tidy the data
 
@@ -12,13 +14,19 @@ Structured Query Language (SQL), is a programming language which was creating fo
 
 - Make a SQL database of the data using RPostgreSQL
 
-- Data visualization
+- join the different data tables in the database 
+
+- download the joined table from the database 
+
+- Visualize the data in graphs 
+
+- if a correlation is suspected, perform descriptive statistics 
 
 - Conclusion
 
 ## cleaning data 
 
-After loading in the data, I inspected the data. The data from the gapminder dataset is shown in table \@ref(fig:07table1)
+After loading in the data, I inspected the data. The data from the gap minder data set is shown in table \@ref(fig:07table1)
 
 The data from the dengue data set is shown in table \@ref(fig:07table2)
 
@@ -137,7 +145,7 @@ saveRDS(flu_tidy, file = "./data/flu_tidy.rds")
 
 ### exporting data to DBeaver
 
-the new tidy data files were exporting to DBeaver using Rpostgres: 
+The program "[DBeaver](https://dbeaver.io/)" was used to set up and maintain a database for this project. The new tidy data files were exporting to DBeaver using Rpostgres. This is further shown in the code chunk bellow. 
 
 ```{r 07 export data to DBeaver, eval=FALSE, echo=TRUE, warning=FALSE, message=FALSE}
 # the link to exporting files to DBeaver requires to fill in personal information such as a  password, which is unique for all users. 
@@ -148,48 +156,75 @@ con <- dbConnect(RPostgres::Postgres(),
                  host = "localhost",
                  port = "5432",
                  user = "postgres",
-                 password = "fill in your own password here")
+                 password = "231mm1AM!")
 dbWriteTable(con, "flu_tidy", flu_tidy)
 dbWriteTable(con, "dengue_tidy", dengue_tidy)
 dbWriteTable(con, "gapminder", gapminder)
+
+dbListTables(con)
+
 dbDisconnect(con)
 
 ```
+
+After checking both in R using the "dbListTables(con)" funcion, and in DBeaver, it was confimred that the data was imported properly. This can also be seen in the image bellow. 
+
+![inspecting if data was loaded into DBEAVER](images/DB1.png)
+
+
 ### SQL script 
-In D beaver, the following script is written to inspect the data 
+In D beaver, the following script is written to further inspect the data. All used SQL scripts can also be found [here]
 
 ---------------------------------------------------------------------------------------------------------------------
 SELECT dengue_cases, country 
 FROM dengue_tidy order 
 BY dengue_cases asc
 
-SELECT dengue_cases, country 
-FROM dengue_tidy order 
-BY dengue_cases desc
-
 SELECT flu_cases, country 
 FROM flu_tidy order 
 BY flu_cases asc
-
-SELECT flu_cases, country 
-FROM flu_tidy order 
-BY flu_cases desc
-
-SELECT population, country 
-FROM gapminder order 
-BY population asc 
 
 SELECT population, country 
 FROM gapminder order 
 BY population desc
 ---------------------------------------------------------------------------------------------------------------------
 
-After inspected the data in Dbeaver, the data was also still inspected in R using the dplyr package. Based on these 2 checks, it was concluded that the data was loaded in properly. 
+The images bellow further show the data loaded into DBeaver: 
 
-```{r 07 dyplr table, include=TRUE, warning = FALSE, message = FALSE, echo = FALSE}
-dplyr::data_frame(dengue_tidy)
+![inspecting if dengue fever data was loaded into DBEAVER](images/DBD1.png)
+
+![inspecting if flu data was loaded into DBEAVER](images/DBF1.png)
+
+![inspecting if gapminder data was loaded into DBEAVER](images/DBG1.png)
+
+
+After inspected the data in Dbeaver, the data was also still inspected in R using the dplyr package. Bellow the data from the dengue, flu and gapminder data set are shown respectively. It becomes visible that, the data in these tables are the same as the data that was loaded into DBeaver. This confirms that the data was exported properly. 
+
+```{r 07 visualizing  data sets with dplyr, include=TRUE, warning = FALSE, message = FALSE, echo = FALSE}
+dplyr::tbl_df(dengue_tidy)
+
+dplyr::tbl_df(flu_tidy)
+
+dplyr::tbl_df(gapminder)
 ```
 
+The file from the gapminder dataset still contained a lot of additional information from additional years, that was not included in the flu and dengue fever data set. Therefor, table \@ref(fig:07table6) was created. In this table only the years 2002 - 2015 were selected. This new tidy data file from the gapminder data set was also exported to DBeaver using Rpostgres. 
+
+```{r creating tidy gapminder table,  warning=FALSE, message=FALSE, echo=FALSE}
+gapminder_tidy <- gapminder[between(gapminder$year, 2002, 2015), ] #filter the years of the flu/dengue fever data set 
+
+gapminder_tidy <- gapminder_tidy %>% select(year, country, infant_mortality:region) # change the order to year, country. This is the same order as in the flu/dengue fever data set 
+
+
+```
+
+```{r 07 export data to DBeaver, eval=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+dbWriteTable(con, "gapminder_tidy", gapminder_tidy) # exporting the new gapminder table to DBeaver. 
+```
+
+```{r 07table6, include=TRUE, warning = FALSE, message = FALSE, echo = FALSE, fig.cap= "tidy data from gapminder dataset"}
+datatable(gapminder_tidy)
+``` 
  
 
 ### importing data from DBeaver 
