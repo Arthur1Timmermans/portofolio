@@ -1,11 +1,38 @@
+---
+title: "portfolio Arthur Timmermans"
+author: "Arthur Timmermans"
+data: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book 
+base_format: rticles::jss_article
+bibliography: bibliography.bib
+params:
+  country: Austria
+  year: 2021 
+  period_start: 1
+  period_end: 12
+---
+
+```{r, eval=FALSE, include=FALSE}
+yaml::yaml.load(
+params:
+  country: Austria,
+  year: 2021, 
+  period_start: 1,
+  period_end: 12)
+
+```
+
 # parameterization
 ```{r setup9, echo=FALSE, warning = FALSE, message = FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE)
+# running library to load in all packages
 library(tidyverse) 
 library(here)
 library(ggplot2)
 library(dplyr)
 library(cowplot)
+library(DT)
 ```
 
 ```{r 09 loading data, echo=FALSE, warning = FALSE, message = FALSE}
@@ -13,18 +40,24 @@ library(cowplot)
 covidT9 <- read.csv(here::here("raw", "data_covid19_cases.csv"))
 ```
 
+
 ```{r 09 setting params, echo=FALSE, warning=FALSE, message=FALSE}
 #divining the params 
-covidT9 <- covidT9 %>% 
+covidT9_tidy <- covidT9 %>% 
   dplyr::filter(countriesAndTerritories == params$country, 
                 year == params$year, 
                 month >= params$period_start, 
                 month <= params$period_end) 
 
+# add column with the percentage of Covid cases who died 
+covidT9_tidy$percentage_deaths <- 100/covidT9_tidy$cases*covidT9_tidy$deaths
+
 # change the class type of dateRep to numeric by classifying it as a date
-covidT9$dateRep <- as.Date(covidT9$dateRep, format = "%d/%m/%Y")
+covidT9_tidy$dateRep <- as.Date(covidT9_tidy$dateRep, format = "%d/%m/%Y")
 ```
-parameterization is a good way to make code more robust and flexible. Furthermore, it also makes it easier for other people to change each other their codes without the risk of adding inconsistencies. In this chapter, I will make a paramererized report of  the European Center for Disease Control (ECDC) COVID-19 case data. This data is available at [the ECDC website](https://www.ecdc.europa.eu/en/publications-data/data-daily-new-cases-covid-19-eueea-country). The aim of this analysis is to create 3 graphs, in which the amount of infections (new cases) and deaths will be mapped by the following params: 
+parameterization is a good way to make code more robust and flexible. Furthermore, it also makes it easier for other people to change each other their codes without the risk of adding inconsistencies. In this chapter, I will make a paramererized report of  the European Center for Disease Control (ECDC) COVID-19 case data. This data is available at [the ECDC website](https://www.ecdc.europa.eu/en/publications-data/data-daily-new-cases-covid-19-eueea-country).
+
+The raw data after downloading is shown in figure \@ref(fig:09table1). In this data table it becomes visible that the data set contains data from various different kinds of countries, and data between 2020 and 2022. Therefor, Parameters were set up for: 
 
 - The country to which the report applies to
 
@@ -32,13 +65,30 @@ parameterization is a good way to make code more robust and flexible. Furthermor
 
 - The period in months that the report applies to
 
-The further aim of this report is to analyse the correlation between the time of the year, the Covid cases and the Covid deaths. 
+the introduction and results section bellow are loaded in with the parameters. Changing the parameters will automatically change these sections. The conclusion is written without the usage of parameters, as the conclusion is the interpretation of the statistical analysis. And setting up a robust automatic rendering conclusion would require a lot of r-code and would go beyond the scope of this document. Further more, the interpretation of the graphs, is also not done automatically, as this would require an advanced algorithm which goes beyond the scope of this file. However, the interpretation of the statistical tests is done automatically. The underlying code can be viewed in my personal repo. 
 
-At first, I mapped the new cases, which can be seen in plot 1. In this graph, the y axis shows the time in months and the x axis shows the amount of new covid cases. It is visible that by far the largest peak in covid19 cases is measured between October and December in 2021. This would correspond with the flu/cold season.
 
-```{r 09 cases plot, eval=FALSE, include=TRUE, warning=FALSE, message=FALSE}
-# plot the number of reported COVID-19 cases in the year 2020
-cases <- covidT9 %>%
+```{r 09table1, message=FALSE, warning=FALSE, echo=FALSE, fig.cap= "raw data with covid cases"}
+# showing data table from the original data set
+datatable(covidT9)
+```
+
+## introduction
+
+In this report, `r params$country`, `r params$year`, month `r params$period_start` - `r params$period_end`, were ultimately chosen as parameter conditions. The new data table is shown in table \@ref(fig:09table2). This data table also has a new column called "percentage_deaths", which expresses the COVID-19 deaths as a percentage of the total amount of cases.  The further aim of this report is to analyse the correlation between the time of the year (the months), the COVID-19 cases and the COVID-19 related deaths in `r params$country` in `r params$year`. 
+
+```{r 09table2, message=FALSE, warning=FALSE, echo=FALSE, fig.cap= "data with covid cases after filtering on params"}
+# showing data table on which the report will be conducted
+datatable(covidT9_tidy)
+```
+
+## data analysis 
+
+The new COVID-19 cases in `r params$country` in `r params$year` are mapped in figure \@ref(fig:09graph1). In this graph, the y axis shows the time in months and the x axis shows the amount of new COVID-19 cases. It is visible that by far the largest peak in COVID-19 cases is measured between October and December in `r params$year`. This would correspond with the flu/cold season.
+
+```{r 09graph1, echo=FALSE, warning=FALSE, message=FALSE, fig.cap= "graph visualizing the amount of new covid 19 cases"}
+# plot the number of reported COVID-19 cases 
+cases <- covidT9_tidy %>%
   ggplot(aes(x = dateRep, y = cases)) +
   geom_point(size = 1) +
   geom_line(aes(color = "red")) +
@@ -48,15 +98,14 @@ cases <- covidT9 %>%
   
 cases
 ```
-![plot1, covid 19 cases in Austria in 2021](images/09_plot1.png)
 
-The deaths caused by covid19 are mapped in plot2. In this graph, the y axis shows the time in months and the x axis shows the amount of people who died as a result of covid19. Within this plot, a line somewhat similar to the covid19 cases (plot 1) can be seen, with a large spike in covid19 deaths between October and December 2021. 
 
-To further visualize the simalarity between plot 1 and 2, plot 1 and 2 are also combined using the plot_grind function. This created plot 3, in which a clear connection between the 2 plots can be seen. 
+The deaths caused by COVID-19 in `r params$country` in `r params$year` are mapped in figure \@ref(fig:09graph2). In this graph, the y axis shows the time in months and the x axis shows the amount of people who died as a result of COVID-19. Within this plot, a line somewhat similar to the COVID-19 cases in figure \@ref(fig:09graph1) can be seen, with a large spike in COVID-19 deaths between October and December `r params$year`. 
 
-```{r 09 deaths, message=FALSE, warning=FALSE, eval=FALSE, include=TRUE}
-# plot the number of deaths by COVID-19 in the year 2020
-deaths <- covidT9 %>%
+
+```{r 09graph2, echo=FALSE, message=FALSE, warning=FALSE, fig.cap= "graph visualizing the amount of covid 19 deaths"}
+# plot the number of deaths by COVID-19 
+deaths <- covidT9_tidy %>%
   ggplot(aes(x = dateRep, y = deaths)) +
   geom_point(size = 1) +
   geom_line(color = "red") +
@@ -66,10 +115,117 @@ deaths <- covidT9 %>%
   
 deaths
 ```
-![plot2, covid19 deaths in Austria in 2021](images/09_plot2.png)
-```{r 09 combine, eval=FALSE, include=TRUE, warning=FALSE, message=FALSE}
+
+To further visualize the similarity between figure \@ref(fig:09graph1) and figure \@ref(fig:09graph2), the graphs are also combined using the plot_grind function. This created figure \@ref(fig:09graph3), in which a correlation between the COVID-19 cases and the COVID-19 deaths appears to be present.  
+
+
+```{r 09graph3, echo=FALSE, warning=FALSE, message=FALSE, fig.cap= "combining the graphs of covid 19 cases and death"}
 # combine the 2 previously made plots in 1 image with the plot grind function 
 plot_grid(cases, deaths,
           label_size = 8)
 ```
-![plot3, covid19 cases and deaths in Austria in 2021](images/09_plot3.png)
+
+
+```{r 09testing for normallity, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
+# test for normality 
+shapiro1 <- shapiro.test(covidT9_tidy$cases)
+
+# test for normality 
+shapiro2<- shapiro.test(covidT9_tidy$deaths)
+
+# interpret P-value of Shapiro tests 
+conclusion_shapiro <- if(shapiro1$p.value & shapiro2$p.value <0.05){print("lower")} else{print("higher")}
+
+# decide if null hypothesis of Shapiro test is true 
+null_hypothosis_shapiro <- if(shapiro1$p.value & shapiro2$p.value <0.05){print("discarded")} else{print("accepted")}
+
+# state alternative hypothesis Shapiro test 
+alternative_hypothosis_shapiro <- if(shapiro1$p.value & shapiro2$p.value <0.05){print("accepted")} else{print("discarded")}
+
+# decide if an parametric or none parametric test is required
+correlation_test_type <- if(shapiro1$p.value & shapiro2$p.value <0.05){print("non-paramatric")} else{print("parametric")}
+
+# state normality 
+distribution <- if(shapiro1$p.value & shapiro2$p.value <0.05){print("not normally")} else{print("normally")}
+
+# decide which statistical correlation test will be used 
+test_choice1 <- if(shapiro1$p.value & shapiro2$p.value <0.05){print("spearman correlation test")} else{print("pearsons correlation test")}
+
+test_choice2 <- if(shapiro1$p.value & shapiro2$p.value <0.05){print("spearman")} else{print("pearson")} 
+```
+The normality of the COVID-19 cases and deaths in `r params$country` in `r params$year` was tested with a Shapiro Wilk test. This resulted in a p value of `r shapiro1$p.value` and `r shapiro2$p.value` respectively.  These P-values are `r conclusion_shapiro` than 0,05. Therefor, the null hypothesis that the data is normally distributed is `r null_hypothosis_shapiro`, and the alternative hypothesis is `r alternative_hypothosis_shapiro` that the data is not normally distributed. 
+
+
+
+To further test the correlation of the COVID-19 cases and COVID-19 related deaths in `r params$country` in `r params$year`, a `r correlation_test_type ` had to be used because the data was `r distribution` distributed. The COVID-19 cases were directly tested against the COVID-19 related deaths with a `r test_choice1`. 
+
+```{r correlationtest1, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
+#running correlation test to check if the COVID-19 cases and deaths are correlated. This is directly linked to the earlier test for normality and automatically changes between a Spearman and pearson test. 
+correlationtest_1 <- cor(covidT9_tidy$cases, covidT9_tidy$deaths, method = test_choice2)
+
+#interpreting the correlation test using if else statements. 
+interpertation_correlation_1 <- 
+  if (correlationtest_1 == 1){print("perfectly correlated")
+  }else if(correlationtest_1 <1 & correlationtest_1 >0.7 ){print("highlt correlated")
+  }else if(correlationtest_1 <0.7 & correlationtest_1 >0.4 ){print("moderately correlated")
+  }else if(correlationtest_1 <0.4 & correlationtest_1 >0.2 ){print("poorly correlated")
+  }else if(correlationtest_1 <0.2 & correlationtest_1 > -0.2 ){print("not correlated")
+  }else if(correlationtest_1 < -0.2 & correlationtest_1 > -0.4 ){print("poorly negativly correlated")
+  }else if(correlationtest_1 < -0.4 & correlationtest_1 > -0.7 ){print("moderately negativly correlated")
+  }else if(correlationtest_1 < -0.7 & correlationtest_1 > -1 ){print("highly negativly correlated")
+  } else if (correlationtest_1 == -1){print("perfectly negativly correlated")
+  } else{print("error: the number was not a correlation coefficient")}
+
+```
+
+The correlation coefficient of the `r test_choice1` was `r correlationtest_1`
+
+
+This correlation coefficient can be interpreted as that the COVID-19 cases and COVID-19 related deaths are `r interpertation_correlation_1`. 
+
+When the percentage of COVID-19 cases that died in `r params$country` in `r params$year` are put into a graph, this would show the figure in graph \@ref(fig:09graph4). In this graph the percentage of the COVID-19 cases who died as a result of COVID-19 are shown on the y axis and the progression of the time in months is shown on the x-axis. This graph appears to follow the earlier seen trends in \@ref(fig:09graph1) and \@ref(fig:09graph2) far less. The percentage of people who got COVID-19 and died as a results of this, appears to generally get lower as `r params$year` progresses. 
+
+```{r 09graph4, echo=FALSE, warning=FALSE, message=FALSE, fig.cap= "graph showing the percentage of covid19 cases that died"}
+# creating graph showing the percentage of COVID-19 cases who died as a result of COVID-19, over the progression of the year. 
+covidT9_tidy %>% 
+  ggplot(aes(x = dateRep, y = percentage_deaths)) +
+  geom_point(size = 1) +
+  geom_line(aes(color = "red"))  +
+  labs(title = paste("percentage of covid19 cases that died in", params$period_start, "to", params$period_end, "in", params$year, "for", params$country),
+       x = "Month",
+       y = "percentage of  COVID-19 cases that died")
+```
+
+```{r correlationtest2, echo=FALSE, warning=FALSE, message=FALSE, include=FALSE}
+#running correlation test to check if the percentage of COVID-19 cases that died are correlated to the time in months. This is directly linked to the earlier test for normality and automatically changes between a Spearman and pearson test. 
+correlationtest_2 <- cor(covidT9_tidy$percentage_deaths, covidT9_tidy$month, method = test_choice2)
+
+#interpreting the correlation test using if else statements. 
+interpertation_correlation_2 <- 
+  if (correlationtest_2 == 1){print("perfectly correlated")
+  }else if(correlationtest_2 <1 & correlationtest_2 >0.7 ){print("highlt correlated")
+  }else if(correlationtest_2 <0.7 & correlationtest_2 >0.4 ){print("moderately correlated")
+  }else if(correlationtest_2 <0.4 & correlationtest_2 >0.2 ){print("poorly correlated")
+  }else if(correlationtest_2 <0.2 & correlationtest_2 > -0.2 ){print("not correlated")
+  }else if(correlationtest_2 < -0.2 & correlationtest_2 > -0.4 ){print("poorly negativly correlated")
+  }else if(correlationtest_2 < -0.4 & correlationtest_2 > -0.7 ){print("moderately negativly correlated")
+  }else if(correlationtest_2 < -0.7 & correlationtest_2 > -1 ){print("highly negativly correlated")
+  } else if (correlationtest_2 == -1){print("perfectly negativly correlated")
+  } else{print("error: the number was not a correlation coefficient")}
+```
+To further test if progression of `r params$year` in `r params$country` is correlated to the percentage of COVID-19 cases that died as a result of COVID-19, a `r test_choice1` was run because the data was `r distribution` distributed. 
+
+The correlation coefficient of the `r test_choice1` was `r correlationtest_2`
+
+
+This correlation coefficient can be interpreted as that the progression of the year and the percentage of COVID-19 cases who died as a result of COVID-19 are `r interpertation_correlation_2`.
+
+
+## conclusion 
+
+In conclusion, the COVID-19 cases and deaths appear to be moderately correlated. However, a moderate negative correlation also exists between the percentage of COVID-19 cases that died as a result of COVID-19 and the progression of the year 2021. 
+
+This can possibly be explained by the availability and effectiveness of vaccinations against COVID-19. Further more, group  immunity may rise naturally as well. The rise of group immunity can decrease  the severity of the cases, and therefor decrease the amount of people who died as a result of COVID-19. This lowers the deaths for 100 cases at the end of 2021, when compared to the start of 2021. This would also explain why the COVID-19 cases and COVID-19 deaths are only moderately correlated and not strongly (linear) correlated. 
+
+
+

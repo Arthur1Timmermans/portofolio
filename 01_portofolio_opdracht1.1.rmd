@@ -135,6 +135,10 @@ The output data from the model can be used in the dose.p function from the MASS 
 
 Now the slope at IC50 can also be calculated, and put into a dot-plot with a trend line.  
 
+The data can also be put in a box plot, which can also help to check for outliers. 
+If outliers would be suspected, this could be tested with the rosnerTest() function from the {EnvStats} package. This specific test is excellent for large data sets (population larger than 40). If a relatively small part of the data set is tested for outliers (population smaller than 40), the dixon.test() function from the {outliers} package could be used.
+
+
 The different graphs from different compounds can be compared to the positive and negative control and to each other, to estimate if there is a difference in toxicity. If a difference is suspected, the calculated values, including the maximal, minimal and IC 50 can be compared. This comparison can be done by: 
 
 - testing for normality: levene's test for normality
@@ -144,6 +148,8 @@ The different graphs from different compounds can be compared to the positive an
 - if not normally distributed: Mann-Whitney U-test 
 
 - compare found P-values. 
+
+- if P is smaller than 0,05 accept alternative hypothesis, else accept null hypothesis 
 
 However, as analysis the entire data set is not the goal of this chapter, the further data analysis will not be conducted. 
 

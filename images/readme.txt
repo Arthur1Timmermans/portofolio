@@ -8,3 +8,9 @@ images used for "parameterization":
 - coefplot_manipution.png: image of plot describing the manipolation in votes by Russian goverment parties. Used for "reproducability "
 
 - cv.png: image of my cv, with personal information blurred for privacy 
+
+imaged used for the "SQL" section (07_portfolio_opdracht7.Rmd): 
+- DB1.png (DBeaver image 1)
+-DBD1.png (DBeaver dengue data set image 1)
+-DBF1.png (DBeaver flu data set image1)
+-DBG1.png (DBeaver gaominder data set image1)

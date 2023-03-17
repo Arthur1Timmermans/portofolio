@@ -1,7 +1,13 @@
 this folder contains all edited data files. The original files and where they were downloaded are available in the "raw" folder. The data in this folder: 
 
+- dengue_gapminder.csv: dengue fever and gapminder dataset joined together 
+
 - dengue_tidy.csv: file containing dengue cases across different countries. This is the new CSV after editing to make the data tidy. 
-- dangue_tidy.rds: same data as dengue_tidy.csv, but in RDS format 
+- dengue_tidy.rds: same data as dengue_tidy.csv, but in RDS format 
+
+- flu_dengue.csv: dengue fever and flu data set joined together 
+
+- flu_gapminder.csv: flu and gapminder data set joined together 
 
 - flu_tidy.csv: file containing flu cases across different countries. This is the new CSV after editing to make the data tidy. 
 - flu_tidy.csv: same data as flu_tidy.csv, but in RDS format 

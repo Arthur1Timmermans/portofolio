@@ -6,6 +6,8 @@ To make the rendered book more tidy, a lot of the code is hidden. For those who 
 The following folders are available:   
 - a folder for all finished html files (html) 
 - a folder for all used r scripts (r)
+- a folder for all used python scripts (python scripts)
+- a folder for all used SQL scripts (SQL scripts)
 - a folder for all raw data (raw)
 - a folder for all edited data files (data)
 - a folder for all used images (images)

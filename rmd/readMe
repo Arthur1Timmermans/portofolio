@@ -1,0 +1,5 @@
+this folder contains 2 rmd files: 
+
+-cv.Rmd: this file builds my rmd with R code and can be knitted into a html file. This html file of my resume is stored in the "html" folder in my home repo. 
+
+- ols models.Rmd: this rmd file contains all code from the coefs with city covariates cleaned. used for "reproducability" and can be accesed from https://www.sciencedirect.com/science/article/abs/pii/S0261379422000166?via%3Dihub. This is not a rmd I constructed. 

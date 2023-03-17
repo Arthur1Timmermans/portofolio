@@ -1,0 +1,6 @@
+This folder contains all used SQL scripts. These SQL scripts are mainly used while making the RMD "07_portfolio_opdracht7.Rmd". this RMD file can be checked for further refrence what each data set contains/means and how the scripts were used
+
+The "join_dengue_gapminder.sql" script joins the dengue fever data set and gap minder data set.
+the "joining_flu_dengue.sql" script joinst the dengue fever data set and the flu data set 
+the "joining_flu_gapminder.sql" script joins the flu data set and the gap minder data set 
+the "loading_data.sql" opens the flu, dengue and gap minder data sets to inspect them 

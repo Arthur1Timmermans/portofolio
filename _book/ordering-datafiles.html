@@ -222,16 +222,23 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="7.2.1" data-path="structured-query-language.html"><a href="structured-query-language.html#exporting-data-to-dbeaver"><i class="fa fa-check"></i><b>7.2.1</b> exporting data to DBeaver</a></li>
 <li class="chapter" data-level="7.2.2" data-path="structured-query-language.html"><a href="structured-query-language.html#sql-script"><i class="fa fa-check"></i><b>7.2.2</b> SQL script</a></li>
-<li class="chapter" data-level="7.2.3" data-path="structured-query-language.html"><a href="structured-query-language.html#importing-data-from-dbeaver"><i class="fa fa-check"></i><b>7.2.3</b> importing data from DBeaver</a></li>
+<li class="chapter" data-level="7.2.3" data-path="structured-query-language.html"><a href="structured-query-language.html#edditing-data-in-dbeaver"><i class="fa fa-check"></i><b>7.2.3</b> edditing data in DBeaver</a></li>
+<li class="chapter" data-level="7.2.4" data-path="structured-query-language.html"><a href="structured-query-language.html#importing-data-from-dbeaver"><i class="fa fa-check"></i><b>7.2.4</b> importing data from DBeaver</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="structured-query-language.html"><a href="structured-query-language.html#data-visualization"><i class="fa fa-check"></i><b>7.3</b> data visualization</a></li>
-<li class="chapter" data-level="7.4" data-path="structured-query-language.html"><a href="structured-query-language.html#conclusions-on-the-flu-dataset"><i class="fa fa-check"></i><b>7.4</b> Conclusions on the flu dataset</a></li>
-<li class="chapter" data-level="7.5" data-path="structured-query-language.html"><a href="structured-query-language.html#conclusions-on-the-dengue-dataset"><i class="fa fa-check"></i><b>7.5</b> Conclusions on the dengue dataset</a></li>
-<li class="chapter" data-level="7.6" data-path="structured-query-language.html"><a href="structured-query-language.html#joining-graphs"><i class="fa fa-check"></i><b>7.6</b> joining graphs</a></li>
-<li class="chapter" data-level="7.7" data-path="structured-query-language.html"><a href="structured-query-language.html#conclusions-after-joining"><i class="fa fa-check"></i><b>7.7</b> Conclusions after joining</a></li>
+<li class="chapter" data-level="7.3" data-path="structured-query-language.html"><a href="structured-query-language.html#data-visualization"><i class="fa fa-check"></i><b>7.3</b> data visualization</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="structured-query-language.html"><a href="structured-query-language.html#flu-data-set"><i class="fa fa-check"></i><b>7.3.1</b> flu data set</a></li>
+<li class="chapter" data-level="7.3.2" data-path="structured-query-language.html"><a href="structured-query-language.html#dengue-fever-data-set"><i class="fa fa-check"></i><b>7.3.2</b> dengue fever data set</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="structured-query-language.html"><a href="structured-query-language.html#joining-graphs"><i class="fa fa-check"></i><b>7.4</b> joining graphs</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="rpackages.html"><a href="rpackages.html"><i class="fa fa-check"></i><b>8</b> rpackages</a></li>
-<li class="chapter" data-level="9" data-path="parameterization.html"><a href="parameterization.html"><i class="fa fa-check"></i><b>9</b> parameterization</a></li>
+<li class="chapter" data-level="9" data-path="parameterization.html"><a href="parameterization.html"><i class="fa fa-check"></i><b>9</b> parameterization</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="parameterization.html"><a href="parameterization.html#introduction"><i class="fa fa-check"></i><b>9.1</b> introduction</a></li>
+<li class="chapter" data-level="9.2" data-path="parameterization.html"><a href="parameterization.html#data-analysis"><i class="fa fa-check"></i><b>9.2</b> data analysis</a></li>
+<li class="chapter" data-level="9.3" data-path="parameterization.html"><a href="parameterization.html#conclusion-2"><i class="fa fa-check"></i><b>9.3</b> conclusion</a></li>
+</ul></li>
 <li class="chapter" data-level="10" data-path="refrences.html"><a href="refrences.html"><i class="fa fa-check"></i><b>10</b> refrences</a></li>
 </ul>
 
@@ -315,8 +322,11 @@ div.csl-indent {
 ## |           +-- hooks.js
 ## |           \-- paged.js
 ## +-- data
+## |   +-- dengue_gapminder.csv
 ## |   +-- dengue_tidy.csv
 ## |   +-- dengue_tidy.rds
+## |   +-- flu_dengue.csv
+## |   +-- flu_gapminder.csv
 ## |   +-- flu_tidy.csv
 ## |   +-- flu_tidy.rds
 ## |   +-- gapminder.csv
@@ -333,6 +343,10 @@ div.csl-indent {
 ## |   +-- 09_plot3.png
 ## |   +-- coefplot_manipution_multiple.png
 ## |   +-- cv.png
+## |   +-- DB1.png
+## |   +-- DBD1.png
+## |   +-- DBF1.png
+## |   +-- DBG1.png
 ## |   \-- readme.txt
 ## +-- index.Rmd
 ## +-- portofolio.Rproj
@@ -363,6 +377,11 @@ div.csl-indent {
 ## +-- rmd
 ## |   +-- cv.Rmd
 ## |   \-- ols models.Rmd
+## +-- SQL scripts
+## |   +-- joining_flu_dengue.sql
+## |   +-- joining_flu_gapminder.sql
+## |   +-- join_Dengue_gapminder.sql
+## |   \-- loading_data.sql
 ## +-- _book
 ## |   +-- 404.html
 ## |   +-- aside.html
@@ -374,7 +393,11 @@ div.csl-indent {
 ## |   |   +-- 09_plot2.png
 ## |   |   +-- 09_plot3.png
 ## |   |   +-- coefplot_manipution_multiple.png
-## |   |   \-- cv.png
+## |   |   +-- cv.png
+## |   |   +-- DB1.png
+## |   |   +-- DBD1.png
+## |   |   +-- DBF1.png
+## |   |   \-- DBG1.png
 ## |   +-- index.html
 ## |   +-- libs
 ## |   |   +-- anchor-sections-1.1.0
@@ -388,9 +411,17 @@ div.csl-indent {
 ## |   |   |       \-- crosstalk.min.js
 ## |   |   +-- datatables-binding-0.23
 ## |   |   |   \-- datatables.js
+## |   |   +-- datatables-binding-0.27
+## |   |   |   \-- datatables.js
 ## |   |   +-- datatables-css-0.0.0
 ## |   |   |   \-- datatables-crosstalk.css
 ## |   |   +-- dt-core-1.11.3
+## |   |   |   +-- css
+## |   |   |   |   +-- jquery.dataTables.extra.css
+## |   |   |   |   \-- jquery.dataTables.min.css
+## |   |   |   \-- js
+## |   |   |       \-- jquery.dataTables.min.js
+## |   |   +-- dt-core-1.12.1
 ## |   |   |   +-- css
 ## |   |   |   |   +-- jquery.dataTables.extra.css
 ## |   |   |   |   \-- jquery.dataTables.min.css
@@ -418,6 +449,8 @@ div.csl-indent {
 ## |   |   |       \-- plugin-sharing.js
 ## |   |   +-- htmlwidgets-1.5.4
 ## |   |   |   \-- htmlwidgets.js
+## |   |   +-- htmlwidgets-1.6.1
+## |   |   |   \-- htmlwidgets.js
 ## |   |   \-- jquery-3.6.0
 ## |   |       \-- jquery-3.6.0.min.js
 ## |   +-- loading-sorting-and-visualising-data.html
@@ -442,6 +475,10 @@ div.csl-indent {
 ## |           +-- 07graph4-1.png
 ## |           +-- 07graph5-1.png
 ## |           +-- 07graph6-1.png
+## |           +-- 09graph1-1.png
+## |           +-- 09graph2-1.png
+## |           +-- 09graph3-1.png
+## |           +-- 09graph4-1.png
 ## |           +-- flu_graph1-1.png
 ## |           +-- graph1-1.png
 ## |           +-- graph2-1.png
@@ -450,7 +487,8 @@ div.csl-indent {
 ## |           +-- showing wrong graph c elegans-1.png
 ## |           +-- standard dengue graph-1.png
 ## |           +-- standard flu graph-1.png
-## |           \-- together-1.png
+## |           +-- together-1.png
+## |           \-- unnamed-chunk-2-1.png
 ## +-- _bookdown_files
 ## +-- _main.Rmd
 ## \-- _main_files
@@ -464,6 +502,10 @@ div.csl-indent {
 ##         +-- 07graph4-1.png
 ##         +-- 07graph5-1.png
 ##         +-- 07graph6-1.png
+##         +-- 09graph1-1.png
+##         +-- 09graph2-1.png
+##         +-- 09graph3-1.png
+##         +-- 09graph4-1.png
 ##         +-- flu_graph1-1.png
 ##         +-- graph1-1.png
 ##         +-- graph2-1.png
@@ -472,7 +514,8 @@ div.csl-indent {
 ##         +-- showing wrong graph c elegans-1.png
 ##         +-- standard dengue graph-1.png
 ##         +-- standard flu graph-1.png
-##         \-- together-1.png</code></pre>
+##         +-- together-1.png
+##         \-- unnamed-chunk-2-1.png</code></pre>
 </div>
 <div id="directory-tree-of-another-project" class="section level3 hasAnchor" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> directory tree of another project<a href="ordering-datafiles.html#directory-tree-of-another-project" class="anchor-section" aria-label="Anchor link to header"></a></h3>
