@@ -259,7 +259,59 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="rpackages" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">8</span> rpackages<a href="rpackages.html#rpackages" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>a rather big part of R, are the R packages that are available.These packages can add in many new features and customization. Further more, R packages make sharing code a lot easier. This supports the movement towards open source code and can save up a lot of time for everyone. To demonstrate I know how to build an R package, I created my own custom package which adds a black and white theme to all graphs and plots. My R package, and all instructions on how to use it can be found at: <a href="https://github.com/Arthur1Timmermans/fiftyshadesofgrey" class="uri">https://github.com/Arthur1Timmermans/fiftyshadesofgrey</a></p>
+<p>a rather big part of R, are the R packages that are available. These packages can add in many new features and customization. Further more, R packages make sharing code a lot easier. This supports the movement towards open source code and can save up a lot of time for everyone. To demonstrate I know how to build an R package, I created my own custom package called <a href="https://github.com/Arthur1Timmermans/fiftyshadesofgrey">fiftyshadesofgrey</a>. This R package adds a black and white theme to all graphs and plots. The pallets can further be customized with 3 base functions. Further more, this package includes 3 addition functions to quickly generate:</p>
+<ul>
+<li>table/data frame displaying the data types</li>
+<li>a scattered dot plot</li>
+<li>box plot</li>
+<li>line graph</li>
+<li>column graph</li>
+<li>bar graph</li>
+<li>correlation test between 2 variables</li>
+</ul>
+<p>inspecting the datatypes and distribution after importation is by far the most repetitive part of R code across my data analysis. The functions above make it easy and quick to roughly scan through newly imported data before a proper and tidy analysis will be performed and allow to remove a lot of repetitive code in my personal repositories.</p>
+<p>Besides the 3 customization functions and 3 analytical functions, A fourth analytical function is still in the making, which automatically detects the number of variables and performs the proper statistical comparison based on the distribution of the data. However, this function is currently not finished yet. The unfinished function is stored in my “R” folder of the repo of this portfolio under the name “unfinished function_for_fityshadesofgrey”.</p>
+<p>All instructions on how to use my costume package can be found at: <a href="https://github.com/Arthur1Timmermans/fiftyshadesofgrey" class="uri">https://github.com/Arthur1Timmermans/fiftyshadesofgrey</a></p>
+<p>Down bellow a short demonstration is given of <a href="https://github.com/Arthur1Timmermans/fiftyshadesofgrey">fiftyshadesofgrey</a>. Bare in mind that the package offers multiple color palettes and transparencies.</p>
+<pre><code>##    id group   x    y
+## 1   1     4 110 21.0
+## 2   2     4 110 21.0
+## 3   3     4  93 22.8
+## 4   4     3 110 21.4
+## 5   5     3 175 18.7
+## 6   6     3 105 18.1
+## 7   7     3 245 14.3
+## 8   8     4  62 24.4
+## 9   9     4  95 22.8
+## 10 10     4 123 19.2
+## 11 11     4 123 17.8
+## 12 12     3 180 16.4
+## 13 13     3 180 17.3
+## 14 14     3 180 15.2
+## 15 15     3 205 10.4
+## 16 16     3 215 10.4
+## 17 17     3 230 14.7
+## 18 18     4  66 32.4
+## 19 19     4  52 30.4
+## 20 20     4  65 33.9
+## 21 21     3  97 21.5
+## 22 22     3 150 15.5
+## 23 23     3 150 15.2
+## 24 24     3 245 13.3
+## 25 25     3 175 19.2
+## 26 26     4  66 27.3
+## 27 27     5  91 26.0
+## 28 28     5 113 30.4
+## 29 29     5 264 15.8
+## 30 30     5 175 19.7
+## 31 31     5 335 15.0
+## 32 32     4 109 21.4</code></pre>
+<p><img src="_main_files/figure-html/example1-1.png" width="672" /></p>
+<pre><code>## [1] &quot;the p. values from x and y of the shapiro test are&quot;
+## [1] 0.04880824
+## [1] 0.1228814
+## [1] &quot;the data was normaly distrubuted, a pearson correlation test was run to compare x and y and the P-value is&quot;</code></pre>
+<pre><code>## [1] -0.7761684</code></pre>
 
 </div>
             </section>

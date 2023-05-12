@@ -1,3 +1,30 @@
 # rpackages 
 
-a rather big part of R, are the R packages that are available.These packages can add in many new features and customization. Further more, R packages make sharing code a lot easier. This supports the movement towards open source code and can save up a lot of time for everyone. To demonstrate I know how to build an R package, I created my own custom package which adds a black and white theme to all graphs and plots. My R package, and all instructions on how to use it can be found at: https://github.com/Arthur1Timmermans/fiftyshadesofgrey
+a rather big part of R, are the R packages that are available. These packages can add in many new features and customization. Further more, R packages make sharing code a lot easier. This supports the movement towards open source code and can save up a lot of time for everyone. To demonstrate I know how to build an R package, I created my own custom package called [fiftyshadesofgrey](https://github.com/Arthur1Timmermans/fiftyshadesofgrey). This R package adds a black and white theme to all graphs and plots. The pallets can further be customized with 3 base functions.  Further more, this package includes 3 addition functions to quickly generate: 
+
+- table/data frame displaying the data types 
+- a scattered dot plot 
+- box plot 
+- line graph 
+- column graph 
+- bar graph 
+- correlation test between 2 variables 
+
+inspecting the datatypes and distribution after importation is by far the most repetitive part of R code across my data analysis. The functions above  make it easy and quick to roughly  scan through newly imported data before a proper and tidy analysis will be performed and allow to remove a lot of repetitive code in my personal repositories. 
+
+Besides the 3 customization functions and 3 analytical functions, A fourth analytical function is still in the making, which automatically detects the number of variables and performs the proper statistical comparison based on the distribution of the data. However, this function is currently not finished yet. The unfinished function is stored in my "R" folder of the repo of this portfolio under the name "unfinished function_for_fityshadesofgrey". 
+
+All instructions on how to use my costume package can be found at: https://github.com/Arthur1Timmermans/fiftyshadesofgrey
+
+Down bellow a short demonstration is given of [fiftyshadesofgrey](https://github.com/Arthur1Timmermans/fiftyshadesofgrey). Bare in mind that the package offers multiple color palettes and transparencies. 
+
+```{r example1}
+library(fiftyshadesofgrey)
+library(tidyverse)
+
+quick_Select_function(mtcars$gear, mtcars$hp, mtcars$mpg)
+
+graph_function()
+
+correlation_function()
+```

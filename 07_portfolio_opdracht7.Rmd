@@ -303,7 +303,7 @@ The data from the flu data set is shown in figure \@ref(fig:07graph1). In this g
 
 When considering the number of **flu** cases globally as shown in figure \@ref(fig:07graph1) and table \@ref(fig:07table7), it becomes visible that the highest occurrence of the flu is in South Africa, followed by Canada and the United States. To slightly less extend also countries like  Mexico, Germany and Romania. The lowest flu occurrences on the other hand are found in Sweden, followed by Chile and New Zealand.
 
-It becomes visible that there is no clear link between the amount of flu cases and the: 
+When looking through the data in table \@ref(fig:07table7), it becomes visible that there is no clear link between the amount of flu cases and the: 
 
 - infant mortality 
 - life expectancy 
@@ -312,7 +312,9 @@ It becomes visible that there is no clear link between the amount of flu cases a
 
 further more, the geological spread is also rather wide. A general trend that does appear to be visible is that: 
 
-South Africa has by far the most amount of flu cases, however, this is a continent with a very large population and therefor directly comparing the amount of flu cases between south Africa and other far smaller countries/continents would not statistically relevant. To properly compare the difference the amount of flu cases should be expressed as a fraction of the population. However, due to missing data about the population size in new Zealand, south Africa and The united states, this is currently not possible. 
+South Africa has by far the most amount of flu cases, however, this is a continent with a very large population and therefor directly comparing the amount of flu cases between south Africa and other far smaller countries/continents would not statistically relevant. To properly compare the difference the amount of flu cases should be expressed as a fraction of the population. However, due to missing data about the population size in new Zealand, south Africa and The united states, a full comparison of all the fractions is  currently not possible. 
+
+The percentage of the number of flu cases when compared to the population is expressed in figure \@ref(fig:07graph2). In this graph, the summarized average flu cases of each country is shown in the left. The percentage of the population is shown in the right graph. This graph shows a different spread, with countries with relatively low population sizes having a relatively higher percentage of flu cases, while countries with larger populations have a relatively speaking lower percentage of flu cases.
 
 Canada, the United States and Mexico appear to have far larger flu numbers than European countries. This could Possibly be explained by the difference in healthcare system, better vaccination rates, or climate in general. However, not enough meta data is available to concretely establish this hypothesis, and the collection and analysis of all this data falls beyond the scope of this research report. 
 
@@ -354,7 +356,7 @@ summary_flu$fraction_flu <- fraction_flu
 datatable(summary_flu)
 ```
 
-The percentage of the number of flu cases when compared to the population is expressed in figure \@ref(fig:07graph2). In this graph, the summarized average flu cases of each country is shown in the left. The percentage of the population is shown in the right graph. This graph shows a different spread, with countries with relatively low population sizes having a relatively higher percentage of flu cases, while countries with larger populations have a relatively speaking lower percentage of flu cases. 
+ 
 
 ```{r 07graph2, warning=FALSE, message=FALSE, echo=FALSE, fig.cap= "joined graph from summary flu dataset, sorted by country"}
 # making graph with average flu cases 
@@ -438,7 +440,7 @@ datatable(summary_dengue)
 
 
 ## joining graphs 
-To be able to better compare the two occurrences of flu and dengue fever, the 2 plots will be joined together as is shown in figure \@ref(fig:07graph4). However, this comparison is not properly possible as the only country in which both flu and dengue cases have been reported is Argentina. To be able to better compare flu and dengue fever, more data would be needed. But no strong correlation between mosquito and dengue fever is suspected, as flu is an airborne disease, and dengue fever is a disease transmitted by a mosquito species. 
+To be able to better compare the two occurrences of flu and dengue fever, the 2 plots will be joined together as is shown in figure \@ref(fig:07graph4). However, this comparison is not properly possible as the only country in which both flu and dengue cases have been reported is Argentina. To be able to better compare flu and dengue fever, more data would be needed. But no strong correlation between flu and dengue fever is suspected, as flu is an airborne disease, and dengue fever is a disease transmitted by a mosquito species. 
 
 ```{r 07 join, message=FALSE, warning=FALSE, echo=FALSE}
 flu_dengue <- full_join(flu_tidy, 
