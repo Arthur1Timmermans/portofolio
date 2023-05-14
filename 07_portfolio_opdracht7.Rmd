@@ -4,7 +4,7 @@ Structured Query Language (SQL), is a programming language which was creating fo
 
 - to show the spread of flu and dengue fever and to test if there is any correlation between the spread of flu and dengue fever 
 
-My hypothesis is that, because flu and dengue fever are different types of virusses, the spread will not be related. 
+My hypothesis is that, because flu and dengue fever are different types of viruses, the spread of flu and dengue fever will not be related, however, the geological spread of each individual virus can will each show their own patterns. 
 
 The general steps I took in this analysis are: 
 
@@ -299,18 +299,38 @@ The data will now be visualized to check if the flu or dengue fever is more prev
 ### flu data set 
 
 
-The data from the flu data set is shown in figure \@ref(fig:07graph1). In this graph, for each country the amount of flu cases is shown on the Y axis and the years are shown on the X axis.A rather wide geological spread of data is visible, and reading accurate flu cases from this table is rather difficult. Therefor, the data is further summarized in table \@ref(fig:07table7). In this data table the flu and gap minder data set are joined.
+The data from the flu data set is shown in figure \@ref(fig:07graph1). In this graph, for each country the amount of flu cases is shown on the Y axis and the years are shown on the X axis.A rather wide geological spread of data eppears to be visible, and reading accurate flu cases from this table is rather difficult. Therefor, the data is further summarized in table \@ref(fig:07table7). In this data table the flu and gap minder data set are joined.
 
 When considering the number of **flu** cases globally as shown in figure \@ref(fig:07graph1) and table \@ref(fig:07table7), it becomes visible that the highest occurrence of the flu is in South Africa, followed by Canada and the United States. To slightly less extend also countries like  Mexico, Germany and Romania. The lowest flu occurrences on the other hand are found in Sweden, followed by Chile and New Zealand.
 
-When looking through the data in table \@ref(fig:07table7), it becomes visible that there is no clear link between the amount of flu cases and the: 
+```{r 07_statistics_flu, message=FALSE, warning=FALSE, echo=FALSE}
+flu_results <- apply(flu[2:29], 2, shapiro.test)
 
-- infant mortality 
-- life expectancy 
-- fertility 
-- gdp 
+# data is not normally distributed, becuase P is smaller than 0,05 
 
-further more, the geological spread is also rather wide. A general trend that does appear to be visible is that: 
+cfy <- cor.test(flu_gapminder$flu_cases, flu_gapminder$Year, method = "spearman")$p.value
+cfm <- cor.test(flu_gapminder$flu_cases, flu_gapminder$Month, method = "spearman")$p.value
+cfi <- cor.test(flu_gapminder$flu_cases, flu_gapminder$infant_mortality, method = "spearman")$p.value
+cfl <- cor.test(flu_gapminder$flu_cases, flu_gapminder$life_expectancy, method = "spearman")$p.value
+cff <- cor.test(flu_gapminder$flu_cases, flu_gapminder$fertility, method = "spearman")$p.value
+cfp <- cor.test(flu_gapminder$flu_cases, flu_gapminder$population, method = "spearman")$p.value
+cfg <- cor.test(flu_gapminder$flu_cases, flu_gapminder$gdp, method = "spearman")$p.value
+```
+
+
+
+
+
+The flu cases in \@ref(fig:07table7), where tested for normallity using a shapiro wilk test. However, the data was not normally distrubuted. Therefor, a none parametric (spearman) test was used to check the correlation, which resulted in the following p. values: 
+
+- flu cases compared to the years: `r cfy`
+- flu cases compared to the months: `r cfm`
+- flu cases compared to the infant mortality: `r cfi`
+- flu cases compared to the life expectancy: `r cfl`
+- flu cases compared to the fertility: `r cff`
+- flu cases compared to the gdp: `r cfg`
+
+the null hypothesis is that the data is correlated. A p value of 1 or -1 can be interpreted as perfectly correlated and as the P value comes close to 0 the data is not correlated. All P values above were near 0, showing no clear correlation between the flu cases and the mentioned variables. the geological spread is also rather wide. A general trend that does appear to be visible is that: 
 
 South Africa has by far the most amount of flu cases, however, this is a continent with a very large population and therefor directly comparing the amount of flu cases between south Africa and other far smaller countries/continents would not statistically relevant. To properly compare the difference the amount of flu cases should be expressed as a fraction of the population. However, due to missing data about the population size in new Zealand, south Africa and The united states, a full comparison of all the fractions is  currently not possible. 
 
@@ -397,12 +417,34 @@ When looking at figure \@ref(fig:07graph3), it's visible that the highest number
 
 Dengue fever develops after infection with the Flaviviridae virus carried by mosquitoes. These mosquitoes are more prevalent in countries with warmer climates, which might explain the spread of occurrences that is visible within figure \@ref(fig:07graph3)
 
-There does not appear to be a clear link between the dengue cases and the:  
+```{r 07_statistics_dengue, message=FALSE, warning=FALSE, echo=FALSE}
+dengue__results <- apply(dengue[2:11], 2, shapiro.test)
 
-- infant mortality 
-- life expectancy 
-- fertility 
-- gdp 
+# data is not normally distributed, becuase P is smaller than 0,05 
+
+cdy <- cor.test(dengue_gapminder$dengue_cases, dengue_gapminder$Year, method = "spearman")$p.value
+cdm <- cor.test(dengue_gapminder$dengue_cases, dengue_gapminder$Month, method = "spearman")$p.value
+cdi <- cor.test(dengue_gapminder$dengue_cases, dengue_gapminder$infant_mortality, method = "spearman")$p.value
+cdl <- cor.test(dengue_gapminder$dengue_cases, dengue_gapminder$life_expectancy, method = "spearman")$p.value
+cdf <- cor.test(dengue_gapminder$dengue_cases, dengue_gapminder$fertility, method = "spearman")$p.value
+cdp <- cor.test(dengue_gapminder$dengue_cases, dengue_gapminder$population, method = "spearman")$p.value
+cdg <- cor.test(dengue_gapminder$dengue_cases, dengue_gapminder$gdp, method = "spearman")$p.value
+
+
+```
+
+
+To further check the correlation between dengue fever and the available meta data, to possibly statistically show a correlation between the dengue fever cases and the geological spread, the normality was tested using a Shapiro Wilk test for normality. This test showed that the data was not normally distributed, therefor the data was tested for correlation using a spearman correlation test. This resulted in the following p values: 
+
+- dengue fever cases compared to the year: `r cdy`
+- dengue fever cases compared to the month: `r cdm`
+- dengue fever cases compared to the infant mortality: `r cdy`
+- dengue fever cases compared to life expectancy: `r cdl`
+- dengue fever cases compared to the fertility: `r cdf`
+- dengue fever cases compared to the population: `r cdp`
+- dengue fever cases compared to the gdp: `r cdg`
+
+the null hypothesis is that the data is correlated. A p value of 1 or -1 can be interpreted as perfectly correlated and as the P value comes close to 0 the data is not correlated. All P values above were near 0, accept for the dengue fever cases and the population, which had a p-value of `r cdp`. This show that the population and the dengue fever cases are moderately correlated. This could suggest that in bigger countries, dengue fever is more prevalent. The disease possibly could be transmitted more easily. 
 
 ```{r 07graph3, message=FALSE, warning=FALSE, echo=FALSE, fig.cap= "first graph from dengue dataset, sorted by country"}
 #clean variables names
@@ -503,4 +545,7 @@ dengue_country <- gapminder_flu_dengue %>%
 grid.arrange(flu_country, dengue_country, nrow = 1)
 ```
 
+## conclusion 
+
+In conclusion, the flu cases do not appear to have a very strong correlation to specific regions or other meta data that were present in the data set. The dengue fever cases only appeared to be moderately correlated to the population size, but not to specific regions that were present in the data set. However, dengue fever and flu are two totally different viruses and only share 1 common country in their data set. Therefor, the comparison between the cases of these 2 viruses is currently not possible. If this comparison would be made in the future, more data would be needed to have a larger data set to compare the spread of dengue fever to the spread of flu. At this moment the hypothesis does appear to be correct, but should still be strengthened and confirmed in a future data analysis. 
 

@@ -96,7 +96,7 @@ ggplot(table1D, aes(x=log10(compConcentration),
        x = "log concentration of compound in nanomol")
 ```
 
-In this \@ref(fig:01graph2), the data on the Y axis is still rather spread out. This can be corrected for by using the negative control as a scale of 1 on the Y axis. This brings the data in the plot relatively closer together, making it easier to compare data of different groups too the negative control. The graph would than look like shown in figure \@ref(fig:01graph3). In this plot the negative correlation between living C. elegans and the increase in compound concentration again seems to become visible. However, because no statistical tests are run yet, the correlation can not officially be claimed to be present yet. 
+In this \@ref(fig:01graph2), the data on the Y axis is still rather spread out. This can be corrected for by using the negative control as a scale of 1. This brings the data in the plot relatively closer together, and increases the chance of the data being normally distributed. The graph would than look like shown in figure \@ref(fig:01graph3). In this plot the x axis shows the compound concentration, transformed with the negative control as a value of 1. The Y axis shows the amount of living c. elegans. From this graph it becomes vissible that the negative correlation between living C. elegans and the increase in compound concentration again seems to become visible. However, because no statistical tests are run yet, the correlation can not officially be claimed to be present yet. 
 
 ```{r 01graph3, fig.cap= "graph with normalized scale"}
 #making new table with only experiment type, raw data and compound concentration

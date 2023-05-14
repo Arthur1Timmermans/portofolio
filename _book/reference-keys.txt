@@ -73,9 +73,10 @@ data-visualization
 flu-data-set
 dengue-fever-data-set
 joining-graphs
+conclusion-2
 rpackages
 parameterization
 introduction
 data-analysis
-conclusion-2
+conclusion-3
 refrences

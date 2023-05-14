@@ -232,13 +232,14 @@ div.csl-indent {
 <li class="chapter" data-level="7.3.2" data-path="structured-query-language.html"><a href="structured-query-language.html#dengue-fever-data-set"><i class="fa fa-check"></i><b>7.3.2</b> dengue fever data set</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="structured-query-language.html"><a href="structured-query-language.html#joining-graphs"><i class="fa fa-check"></i><b>7.4</b> joining graphs</a></li>
+<li class="chapter" data-level="7.5" data-path="structured-query-language.html"><a href="structured-query-language.html#conclusion-2"><i class="fa fa-check"></i><b>7.5</b> conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="rpackages.html"><a href="rpackages.html"><i class="fa fa-check"></i><b>8</b> rpackages</a></li>
 <li class="chapter" data-level="9" data-path="parameterization.html"><a href="parameterization.html"><i class="fa fa-check"></i><b>9</b> parameterization</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="parameterization.html"><a href="parameterization.html#introduction"><i class="fa fa-check"></i><b>9.1</b> introduction</a></li>
 <li class="chapter" data-level="9.2" data-path="parameterization.html"><a href="parameterization.html#data-analysis"><i class="fa fa-check"></i><b>9.2</b> data analysis</a></li>
-<li class="chapter" data-level="9.3" data-path="parameterization.html"><a href="parameterization.html#conclusion-2"><i class="fa fa-check"></i><b>9.3</b> conclusion</a></li>
+<li class="chapter" data-level="9.3" data-path="parameterization.html"><a href="parameterization.html#conclusion-3"><i class="fa fa-check"></i><b>9.3</b> conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="refrences.html"><a href="refrences.html"><i class="fa fa-check"></i><b>10</b> refrences</a></li>
 </ul>
@@ -264,7 +265,7 @@ div.csl-indent {
 <ul>
 <li>to show the spread of flu and dengue fever and to test if there is any correlation between the spread of flu and dengue fever</li>
 </ul>
-<p>My hypothesis is that, because flu and dengue fever are different types of virusses, the spread will not be related.</p>
+<p>My hypothesis is that, because flu and dengue fever are different types of viruses, the spread of flu and dengue fever will not be related, however, the geological spread of each individual virus can will each show their own patterns.</p>
 <p>The general steps I took in this analysis are:</p>
 <ul>
 <li><p>Manual download of the Dengue Fever data set from the <a href="https://github.com/DataScienceILC/tlsc-dsfb26v-20_workflows">dsfb2 repository</a></p></li>
@@ -472,16 +473,18 @@ Figure 7.6: tidy data from gapminder dataset
 <p>The data will now be visualized to check if the flu or dengue fever is more prevalent in certain areas.</p>
 <div id="flu-data-set" class="section level3 hasAnchor" number="7.3.1">
 <h3><span class="header-section-number">7.3.1</span> flu data set<a href="structured-query-language.html#flu-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The data from the flu data set is shown in figure <a href="structured-query-language.html#fig:07graph1">7.7</a>. In this graph, for each country the amount of flu cases is shown on the Y axis and the years are shown on the X axis.A rather wide geological spread of data is visible, and reading accurate flu cases from this table is rather difficult. Therefor, the data is further summarized in table <a href="structured-query-language.html#fig:07table7">7.8</a>. In this data table the flu and gap minder data set are joined.</p>
+<p>The data from the flu data set is shown in figure <a href="structured-query-language.html#fig:07graph1">7.7</a>. In this graph, for each country the amount of flu cases is shown on the Y axis and the years are shown on the X axis.A rather wide geological spread of data eppears to be visible, and reading accurate flu cases from this table is rather difficult. Therefor, the data is further summarized in table <a href="structured-query-language.html#fig:07table7">7.8</a>. In this data table the flu and gap minder data set are joined.</p>
 <p>When considering the number of <strong>flu</strong> cases globally as shown in figure <a href="structured-query-language.html#fig:07graph1">7.7</a> and table <a href="structured-query-language.html#fig:07table7">7.8</a>, it becomes visible that the highest occurrence of the flu is in South Africa, followed by Canada and the United States. To slightly less extend also countries like Mexico, Germany and Romania. The lowest flu occurrences on the other hand are found in Sweden, followed by Chile and New Zealand.</p>
-<p>When looking through the data in table <a href="structured-query-language.html#fig:07table7">7.8</a>, it becomes visible that there is no clear link between the amount of flu cases and the:</p>
+<p>The flu cases in <a href="structured-query-language.html#fig:07table7">7.8</a>, where tested for normallity using a shapiro wilk test. However, the data was not normally distrubuted. Therefor, a none parametric (spearman) test was used to check the correlation, which resulted in the following p. values:</p>
 <ul>
-<li>infant mortality</li>
-<li>life expectancy</li>
-<li>fertility</li>
-<li>gdp</li>
+<li>flu cases compared to the years: 0.0604234</li>
+<li>flu cases compared to the months: 5.9355902^{-8}</li>
+<li>flu cases compared to the infant mortality: 8.2534981^{-95}</li>
+<li>flu cases compared to the life expectancy: 0</li>
+<li>flu cases compared to the fertility: 1.1960591^{-95}</li>
+<li>flu cases compared to the gdp: 6.2713644^{-43}</li>
 </ul>
-<p>further more, the geological spread is also rather wide. A general trend that does appear to be visible is that:</p>
+<p>the null hypothesis is that the data is correlated. A p value of 1 or -1 can be interpreted as perfectly correlated and as the P value comes close to 0 the data is not correlated. All P values above were near 0, showing no clear correlation between the flu cases and the mentioned variables. the geological spread is also rather wide. A general trend that does appear to be visible is that:</p>
 <p>South Africa has by far the most amount of flu cases, however, this is a continent with a very large population and therefor directly comparing the amount of flu cases between south Africa and other far smaller countries/continents would not statistically relevant. To properly compare the difference the amount of flu cases should be expressed as a fraction of the population. However, due to missing data about the population size in new Zealand, south Africa and The united states, a full comparison of all the fractions is currently not possible.</p>
 <p>The percentage of the number of flu cases when compared to the population is expressed in figure <a href="structured-query-language.html#fig:07graph2">7.9</a>. In this graph, the summarized average flu cases of each country is shown in the left. The percentage of the population is shown in the right graph. This graph shows a different spread, with countries with relatively low population sizes having a relatively higher percentage of flu cases, while countries with larger populations have a relatively speaking lower percentage of flu cases.</p>
 <p>Canada, the United States and Mexico appear to have far larger flu numbers than European countries. This could Possibly be explained by the difference in healthcare system, better vaccination rates, or climate in general. However, not enough meta data is available to concretely establish this hypothesis, and the collection and analysis of all this data falls beyond the scope of this research report.</p>
@@ -511,13 +514,17 @@ Figure 7.9: joined graph from summary flu dataset, sorted by country
 <p>The data from the dengue fever data set is shown in figure <a href="structured-query-language.html#fig:07graph3">7.10</a>. This data has also been summarized in table <a href="structured-query-language.html#fig:07table8">7.11</a>, where the gap minder data set is joined to get some additional back ground information about the countries.</p>
 <p>When looking at figure <a href="structured-query-language.html#fig:07graph3">7.10</a>, it’s visible that the highest number of <strong>dengue</strong> cases are seen in Venezuela, followed by Thailand and Singapore. While the lowest cases are seen in Bolivia, Argentina and India. Further more in table <a href="structured-query-language.html#fig:07table8">7.11</a> the percentage of dengue cases of the entire population of the country is calculated. This shows a different spread, with Singapore, Venezuela, and Bolivia having the highest Percentage of cases. While India, Indonesia and Brazil have the lowest number of dengue fever cases. India and Indonesia have relatively speaking very large population, and this could explain why the over all percentage of the population that gets dengue fever is so low.</p>
 <p>Dengue fever develops after infection with the Flaviviridae virus carried by mosquitoes. These mosquitoes are more prevalent in countries with warmer climates, which might explain the spread of occurrences that is visible within figure <a href="structured-query-language.html#fig:07graph3">7.10</a></p>
-<p>There does not appear to be a clear link between the dengue cases and the:</p>
+<p>To further check the correlation between dengue fever and the available meta data, to possibly statistically show a correlation between the dengue fever cases and the geological spread, the normality was tested using a Shapiro Wilk test for normality. This test showed that the data was not normally distributed, therefor the data was tested for correlation using a spearman correlation test. This resulted in the following p values:</p>
 <ul>
-<li>infant mortality</li>
-<li>life expectancy</li>
-<li>fertility</li>
-<li>gdp</li>
+<li>dengue fever cases compared to the year: 4.2502723^{-12}</li>
+<li>dengue fever cases compared to the month: 0.0253218</li>
+<li>dengue fever cases compared to the infant mortality: 4.2502723^{-12}</li>
+<li>dengue fever cases compared to life expectancy: 7.1228509^{-26}</li>
+<li>dengue fever cases compared to the fertility: 5.132055^{-52}</li>
+<li>dengue fever cases compared to the population: 0.6025468</li>
+<li>dengue fever cases compared to the gdp: 0.0028253</li>
 </ul>
+<p>the null hypothesis is that the data is correlated. A p value of 1 or -1 can be interpreted as perfectly correlated and as the P value comes close to 0 the data is not correlated. All P values above were near 0, accept for the dengue fever cases and the population, which had a p-value of 0.6025468. This show that the population and the dengue fever cases are moderately correlated. This could suggest that in bigger countries, dengue fever is more prevalent. The disease possibly could be transmitted more easily.</p>
 <div class="figure"><span style="display:block;" id="fig:07graph3"></span>
 <img src="_main_files/figure-html/07graph3-1.png" alt="first graph from dengue dataset, sorted by country" width="672" />
 <p class="caption">
@@ -542,6 +549,10 @@ Figure 7.11: data table summarizing data from the dengue fever data set
 Figure 7.12: flu and dengue fever graphs joined together
 </p>
 </div>
+</div>
+<div id="conclusion-2" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> conclusion<a href="structured-query-language.html#conclusion-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In conclusion, the flu cases do not appear to have a very strong correlation to specific regions or other meta data that were present in the data set. The dengue fever cases only appeared to be moderately correlated to the population size, but not to specific regions that were present in the data set. However, dengue fever and flu are two totally different viruses and only share 1 common country in their data set. Therefor, the comparison between the cases of these 2 viruses is currently not possible. If this comparison would be made in the future, more data would be needed to have a larger data set to compare the spread of dengue fever to the spread of flu. At this moment the hypothesis does appear to be correct, but should still be strengthened and confirmed in a future data analysis.</p>
 
 </div>
 </div>
